@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Frame 10: Rosa brillante - escudos enemigos colapsando -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="225"
+        android:startColor="#4D0A2A"
+        android:centerColor="#8A1F5C"
+        android:endColor="#FF1493"
+        android:type="radial"
+        android:gradientRadius="650"/>
+</shape>

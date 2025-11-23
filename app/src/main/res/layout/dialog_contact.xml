@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Icono de contacto -->
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/contact_icon_background"
+        android:padding="20dp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:tint="@color/nequi_blue" />
+
+    <!-- Título -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/manrope_bold"
+        android:text="¡Activa tu cuenta!"
+        android:textColor="@color/nequi_blue"
+        android:textSize="24sp" />
+
+    <!-- Mensaje descriptivo -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/manrope_medium"
+        android:gravity="center"
+        android:text="Si tu número no está activado o tienes problemas con tu PIN, contáctanos directamente en Telegram"
+        android:textColor="@color/nequi_gray_dark"
+        android:textSize="16sp" />
+
+    <!-- Botón de Telegram -->
+    <Button
+        android:id="@+id/telegramButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/telegram_button_background"
+        android:drawableStart="@drawable/telegram_icon"
+        android:drawablePadding="12dp"
+        android:fontFamily="@font/manrope_bold"
+        android:text="Dirigirse a Telegram"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <!-- Botón de cerrar -->
+    <Button
+        android:id="@+id/closeButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/manrope_medium"
+        android:text="Cerrar"
+        android:textColor="@color/nequi_gray_dark"
+        android:textSize="14sp" />
+
+</LinearLayout>

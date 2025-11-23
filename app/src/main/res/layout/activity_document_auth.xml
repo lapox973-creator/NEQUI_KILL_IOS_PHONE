@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/color_200020"
+    android:fitsSystemWindows="false"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Back arrow -->
+    <ImageView
+        android:id="@+id/ivBackArrow"
+        android:focusable="true"
+        android:clickable="true"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="16dp"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_back"
+        android:tint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:text="Autenticación de Documentos"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/manrope_bold"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivBackArrow" />
+
+    <!-- Subtitle -->
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="Ingresa tu correo y PIN para acceder a tus documentos"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/manrope_medium"
+        android:gravity="center"
+        android:alpha="0.8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+    <!-- Phone input container -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Número de teléfono (10 dígitos)"
+        app:hintTextColor="@color/white"
+        app:boxStrokeColor="@color/nequi_pink"
+        app:hintEnabled="true"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:fontFamily="@font/manrope_medium"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- PIN boxes container -->
+    <LinearLayout
+        android:id="@+id/pinBoxesContainer"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="260dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilEmail">
+
+        <TextView
+            android:id="@+id/pinBox1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/password_box_background"
+            android:fontFamily="@font/manrope_bold"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/pinBox2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/password_box_background"
+            android:fontFamily="@font/manrope_bold"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/pinBox3"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/password_box_background"
+            android:fontFamily="@font/manrope_bold"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/pinBox4"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/password_box_background"
+            android:fontFamily="@font/manrope_bold"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <!-- Hidden PIN input (invisible, solo para capturar texto) -->
+    <EditText
+        android:id="@+id/etPin"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:alpha="0"
+        android:focusable="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Numeric keypad -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/numericKeypad"
+        android:layout_width="380dp"
+        android:layout_height="252dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pinBoxesContainer">
+
+        <!-- Fila 1 -->
+        <TextView
+            android:id="@+id/btnKey1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/numeric_key_background"
+            android:focusable="true"
+            android:clickable="true"
+            android:fontFamily="@font/manrope_medium"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toStartOf="@id/btnKey2"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/btnKey2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="60dp"
+            android:background="@drawable/numeric_key_background"
+            android:focusable="true"
+            android:clickable="true"
+            android:fontFamily="@font/manrope_medium"
+            android:gravity="center"
+            android:text="2"
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toStartOf="@id/btnKey3"
+            app:layout_constraintStart_toEndOf="@id/btnKey1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/btnKey3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/numeric_key_background"
+            android:focusable="true"
+            android:clickable="true"
+            android:fontFamily="@font/manrope_medium"
+            android:gravity="center"
+            android:text="3"
+            android:textColor="@color/white"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnKey2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Fila 2 -->
+        <TextView
+            android:id="@+id/btnKey4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/numeric_key_background"
+            android:focusable="true"
+            android:clickable="true"
+            android:fontFamily="@font/manrope_medium"
+            android:gravity="center"
+            android:text="4"
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="@id/btnKey1"
+            app:layout_constraintStart_toStartOf="@id/btnKey1"
+            app:layout_constraintTop_toBottomOf="@id/btnKey1" />
+
+        <TextView
+            android:id="@+id/btnKey5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="35dp"
+            android:background="@drawable/numeric_key_background"
+            android:focusable="true"
+            android:clickable="true"
+            android:fontFamily="@font/manrope_medium"
+            android:gravity="center"
+            android:text="5"
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="@id/btnKey2"
+            app:layout_constraintStart_toStartOf="@id/btnKey2"
+            app:layout_constraintTop_toBottomOf="@id/btnKey2" />
+
+        <TextView
+            android:id="@+id/btnKey6"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/numeric_key_background"
+            android:focusable="true"
+            android:clickable="true"
+            android:fontFamily="@font/manrope_medium"
+            android:gravity="center"
+            android:text="6"
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="@id/btnKey3"
+            app:layout_constraintStart_toStartOf="@id/btnKey3"
+            app:layout_constraintTop_toBottomOf="@id/btnKey3" />
+
+        <!-- Fila 3 -->
+        <TextView
+            android:id="@+id/btnKey7"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/numeric_key_background"
+            android:focusable="true"
+            android:clickable="true"
+            android:fontFamily="@font/manrope_medium"
+            android:gravity="center"
+            android:text="7"
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="@id/btnKey4"
+            app:layout_constraintStart_toStartOf="@id/btnKey4"
+            app:layout_constraintTop_toBottomOf="@id/btnKey4" />
+
+        <TextView
+            android:id="@+id/btnKey8"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/numeric_key_background"
+            android:focusable="true"
+            android:clickable="true"
+            android:fontFamily="@font/manrope_medium"
+            android:gravity="center"
+            android:text="8"
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="@id/btnKey5"
+            app:layout_constraintStart_toStartOf="@id/btnKey5"
+            app:layout_constraintTop_toBottomOf="@id/btnKey5" />
+
+        <TextView
+            android:id="@+id/btnKey9"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/numeric_key_background"
+            android:focusable="true"
+            android:clickable="true"
+            android:fontFamily="@font/manrope_medium"
+            android:gravity="center"
+            android:text="9"
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="@id/btnKey6"
+            app:layout_constraintStart_toStartOf="@id/btnKey6"
+            app:layout_constraintTop_toBottomOf="@id/btnKey6" />
+
+        <!-- Fila 4 -->
+        <TextView
+            android:id="@+id/btnKey0"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/numeric_key_background"
+            android:focusable="true"
+            android:clickable="true"
+            android:fontFamily="@font/manrope_medium"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="@id/btnKey8"
+            app:layout_constraintStart_toStartOf="@id/btnKey8"
+            app:layout_constraintTop_toBottomOf="@id/btnKey8" />
+
+        <ImageView
+            android:id="@+id/btnBackspace"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/numeric_key_background"
+            android:focusable="true"
+            android:clickable="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_backspace"
+            android:tint="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/btnKey9"
+            app:layout_constraintStart_toStartOf="@id/btnKey9"
+            app:layout_constraintTop_toBottomOf="@id/btnKey9" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Forgot password -->
+    <TextView
+        android:id="@+id/tvForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="¿Olvidaste tu PIN?"
+        android:textSize="14sp"
+        android:textColor="@color/nequi_pink"
+        android:fontFamily="@font/manrope_medium"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/numericKeypad" />
+
+    <!-- Action button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAction"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="Autenticar"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/manrope_bold"
+        android:backgroundTint="@color/nequi_pink"
+        android:enabled="false"
+        android:alpha="0.6"
+        app:cornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvForgotPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <!-- Progress bar -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/nequi_pink"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnAction"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

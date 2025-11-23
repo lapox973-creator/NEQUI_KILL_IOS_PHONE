@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#FFFFFFFF">
+    <!-- contenido normal con borde blanco -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="4dp"/>
+            <stroke android:width="0.6dp" android:color="#FFFFFFFF"/>
+            <solid android:color="@android:color/transparent"/>
+        </shape>
+    </item>
+    <!-- máscara del ripple para que el brillo sea blanco dentro del botón -->
+    <item android:id="@android:id/mask">
+        <shape android:shape="rectangle">
+            <corners android:radius="4dp"/>
+            <solid android:color="#FFFFFFFF"/>
+        </shape>
+    </item>
+</ripple>

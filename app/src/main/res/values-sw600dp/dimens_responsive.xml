@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dimensiones para tablets y pantallas grandes (escalado 1.5x) -->
+    
+    <!-- Márgenes y espaciados -->
+    <dimen name="margin_tiny">6dp</dimen>
+    <dimen name="margin_small">12dp</dimen>
+    <dimen name="margin_normal">24dp</dimen>
+    <dimen name="margin_large">36dp</dimen>
+    <dimen name="margin_xlarge">48dp</dimen>
+    
+    <!-- Padding -->
+    <dimen name="padding_tiny">6dp</dimen>
+    <dimen name="padding_small">12dp</dimen>
+    <dimen name="padding_normal">18dp</dimen>
+    <dimen name="padding_large">24dp</dimen>
+    <dimen name="padding_xlarge">30dp</dimen>
+    
+    <!-- Tamaños de texto escalables -->
+    <dimen name="text_tiny">12sp</dimen>
+    <dimen name="text_small">14sp</dimen>
+    <dimen name="text_normal">16sp</dimen>
+    <dimen name="text_medium">18sp</dimen>
+    <dimen name="text_large">20sp</dimen>
+    <dimen name="text_xlarge">24sp</dimen>
+    <dimen name="text_title">28sp</dimen>
+    <dimen name="text_heading">32sp</dimen>
+    
+    <!-- Alturas de componentes -->
+    <dimen name="button_height">56dp</dimen>
+    <dimen name="button_height_small">48dp</dimen>
+    <dimen name="input_height">64dp</dimen>
+    <dimen name="card_height_small">100dp</dimen>
+    <dimen name="card_height_medium">150dp</dimen>
+    <dimen name="card_height_large">200dp</dimen>
+    
+    <!-- Radios de bordes -->
+    <dimen name="corner_radius_small">10dp</dimen>
+    <dimen name="corner_radius_normal">14dp</dimen>
+    <dimen name="corner_radius_large">20dp</dimen>
+    <dimen name="corner_radius_xlarge">28dp</dimen>
+    
+    <!-- Elevaciones -->
+    <dimen name="elevation_small">3dp</dimen>
+    <dimen name="elevation_normal">6dp</dimen>
+    <dimen name="elevation_large">12dp</dimen>
+    <dimen name="elevation_xlarge">20dp</dimen>
+    
+    <!-- Tamaños de iconos -->
+    <dimen name="icon_tiny">20dp</dimen>
+    <dimen name="icon_small">24dp</dimen>
+    <dimen name="icon_normal">32dp</dimen>
+    <dimen name="icon_medium">40dp</dimen>
+    <dimen name="icon_large">56dp</dimen>
+    <dimen name="icon_xlarge">80dp</dimen>
+</resources>

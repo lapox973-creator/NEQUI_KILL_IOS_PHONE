@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/ic_home" android:id="@id/inicio" android:title="Inicio" />
+    <item android:icon="@drawable/ic_movements" android:id="@id/movimientos" android:title="Movimientos" />
+    <item android:icon="@drawable/ic_mas_servicios" android:id="@id/servicios" android:title="Servicios" />
+</menu>

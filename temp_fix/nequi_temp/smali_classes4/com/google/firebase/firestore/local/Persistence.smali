@@ -1,0 +1,83 @@
+.class public abstract Lcom/google/firebase/firestore/local/Persistence;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# static fields
+.field public static DATA_MIGRATION_BUILD_OVERLAYS:Ljava/lang/String; = "BUILD_OVERLAYS"
+
+.field static final TAG:Ljava/lang/String; = "Persistence"
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+
+# virtual methods
+.method public abstract getBundleCache()Lcom/google/firebase/firestore/local/BundleCache;
+.end method
+
+.method public abstract getDocumentOverlayCache(Lcom/google/firebase/firestore/auth/User;)Lcom/google/firebase/firestore/local/DocumentOverlayCache;
+.end method
+
+.method public abstract getGlobalsCache()Lcom/google/firebase/firestore/local/GlobalsCache;
+.end method
+
+.method public abstract getIndexManager(Lcom/google/firebase/firestore/auth/User;)Lcom/google/firebase/firestore/local/IndexManager;
+.end method
+
+.method public abstract getMutationQueue(Lcom/google/firebase/firestore/auth/User;Lcom/google/firebase/firestore/local/IndexManager;)Lcom/google/firebase/firestore/local/MutationQueue;
+.end method
+
+.method public abstract getOverlayMigrationManager()Lcom/google/firebase/firestore/local/OverlayMigrationManager;
+.end method
+
+.method public abstract getReferenceDelegate()Lcom/google/firebase/firestore/local/ReferenceDelegate;
+.end method
+
+.method public abstract getRemoteDocumentCache()Lcom/google/firebase/firestore/local/RemoteDocumentCache;
+.end method
+
+.method public abstract getTargetCache()Lcom/google/firebase/firestore/local/TargetCache;
+.end method
+
+.method public abstract isStarted()Z
+.end method
+
+.method public abstract runTransaction(Ljava/lang/String;Lcom/google/firebase/firestore/util/Supplier;)Ljava/lang/Object;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/lang/String;",
+            "Lcom/google/firebase/firestore/util/Supplier<",
+            "TT;>;)TT;"
+        }
+    .end annotation
+.end method
+
+.method public abstract runTransaction(Ljava/lang/String;Ljava/lang/Runnable;)V
+.end method
+
+.method public abstract shutdown()V
+.end method
+
+.method public abstract start()V
+.end method

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/rounded_dialog_background" android:padding="24.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="16.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="20.0sp" android:textStyle="bold" android:textColor="#ffda0081" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="24.0dip" android:text="Envía SMS Transfiya" />
+    <EditText android:id="@id/phoneNumberEditText" android:background="@drawable/edit_text_background" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="16.0dip" android:hint="Número de teléfono" android:inputType="phone" />
+    <EditText android:id="@id/senderNameEditText" android:background="@drawable/edit_text_background" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="16.0dip" android:hint="Nombre remitente" android:inputType="textPersonName" />
+    <EditText android:id="@id/amountEditText" android:background="@drawable/edit_text_background" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="24.0dip" android:hint="Valor" android:maxLength="15" android:digits="\ 0123456789" android:inputType="numberDecimal" />
+    <Button android:textSize="16.0sp" android:textColor="#ffffffff" android:id="@id/sendSmsButton" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Enviar SMS" android:textAllCaps="false" android:backgroundTint="#ffda0081" />
+</LinearLayout>

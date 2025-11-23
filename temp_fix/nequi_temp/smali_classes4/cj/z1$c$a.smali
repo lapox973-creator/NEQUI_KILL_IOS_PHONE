@@ -1,0 +1,247 @@
+.class public final Lcj/z1$c$a;
+.super Lcom/google/protobuf/l1$b;
+.source "SourceFile"
+
+# interfaces
+.implements Lcj/z1$d;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcj/z1$c;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "a"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/google/protobuf/l1$b<",
+        "Lcj/z1$c;",
+        "Lcj/z1$c$a;",
+        ">;",
+        "Lcj/z1$d;"
+    }
+.end annotation
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 1
+
+    .line 2
+    invoke-static {}, Lcj/z1$c;->pd()Lcj/z1$c;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/google/protobuf/l1$b;-><init>(Lcom/google/protobuf/l1;)V
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>(Lcj/z1$a;)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Lcj/z1$c$a;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public Pl()Lcj/z1$c$a;
+    .locals 1
+
+    .line 1
+    invoke-virtual {p0}, Lcom/google/protobuf/l1$b;->copyOnWrite()V
+
+    .line 2
+    .line 3
+    .line 4
+    iget-object v0, p0, Lcom/google/protobuf/l1$b;->instance:Lcom/google/protobuf/l1;
+
+    .line 5
+    .line 6
+    check-cast v0, Lcj/z1$c;
+
+    .line 7
+    .line 8
+    invoke-static {v0}, Lcj/z1$c;->fk(Lcj/z1$c;)V
+
+    .line 9
+    .line 10
+    .line 11
+    return-object p0
+.end method
+
+.method public Ql()Lcj/z1$c$a;
+    .locals 1
+
+    .line 1
+    invoke-virtual {p0}, Lcom/google/protobuf/l1$b;->copyOnWrite()V
+
+    .line 2
+    .line 3
+    .line 4
+    iget-object v0, p0, Lcom/google/protobuf/l1$b;->instance:Lcom/google/protobuf/l1;
+
+    .line 5
+    .line 6
+    check-cast v0, Lcj/z1$c;
+
+    .line 7
+    .line 8
+    invoke-static {v0}, Lcj/z1$c;->Je(Lcj/z1$c;)V
+
+    .line 9
+    .line 10
+    .line 11
+    return-object p0
+.end method
+
+.method public Rl(Z)Lcj/z1$c$a;
+    .locals 1
+
+    .line 1
+    invoke-virtual {p0}, Lcom/google/protobuf/l1$b;->copyOnWrite()V
+
+    .line 2
+    .line 3
+    .line 4
+    iget-object v0, p0, Lcom/google/protobuf/l1$b;->instance:Lcom/google/protobuf/l1;
+
+    .line 5
+    .line 6
+    check-cast v0, Lcj/z1$c;
+
+    .line 7
+    .line 8
+    invoke-static {v0, p1}, Lcj/z1$c;->kg(Lcj/z1$c;Z)V
+
+    .line 9
+    .line 10
+    .line 11
+    return-object p0
+.end method
+
+.method public Sl(Ljava/lang/String;)Lcj/z1$c$a;
+    .locals 1
+
+    .line 1
+    invoke-virtual {p0}, Lcom/google/protobuf/l1$b;->copyOnWrite()V
+
+    .line 2
+    .line 3
+    .line 4
+    iget-object v0, p0, Lcom/google/protobuf/l1$b;->instance:Lcom/google/protobuf/l1;
+
+    .line 5
+    .line 6
+    check-cast v0, Lcj/z1$c;
+
+    .line 7
+    .line 8
+    invoke-static {v0, p1}, Lcj/z1$c;->De(Lcj/z1$c;Ljava/lang/String;)V
+
+    .line 9
+    .line 10
+    .line 11
+    return-object p0
+.end method
+
+.method public T1()Lcom/google/protobuf/u;
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Lcom/google/protobuf/l1$b;->instance:Lcom/google/protobuf/l1;
+
+    .line 2
+    .line 3
+    check-cast v0, Lcj/z1$c;
+
+    .line 4
+    .line 5
+    invoke-virtual {v0}, Lcj/z1$c;->T1()Lcom/google/protobuf/u;
+
+    .line 6
+    .line 7
+    .line 8
+    move-result-object v0
+
+    .line 9
+    return-object v0
+.end method
+
+.method public Tl(Lcom/google/protobuf/u;)Lcj/z1$c$a;
+    .locals 1
+
+    .line 1
+    invoke-virtual {p0}, Lcom/google/protobuf/l1$b;->copyOnWrite()V
+
+    .line 2
+    .line 3
+    .line 4
+    iget-object v0, p0, Lcom/google/protobuf/l1$b;->instance:Lcom/google/protobuf/l1;
+
+    .line 5
+    .line 6
+    check-cast v0, Lcj/z1$c;
+
+    .line 7
+    .line 8
+    invoke-static {v0, p1}, Lcj/z1$c;->Qe(Lcj/z1$c;Lcom/google/protobuf/u;)V
+
+    .line 9
+    .line 10
+    .line 11
+    return-object p0
+.end method
+
+.method public m1()Ljava/lang/String;
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Lcom/google/protobuf/l1$b;->instance:Lcom/google/protobuf/l1;
+
+    .line 2
+    .line 3
+    check-cast v0, Lcj/z1$c;
+
+    .line 4
+    .line 5
+    invoke-virtual {v0}, Lcj/z1$c;->m1()Ljava/lang/String;
+
+    .line 6
+    .line 7
+    .line 8
+    move-result-object v0
+
+    .line 9
+    return-object v0
+.end method
+
+.method public ug()Z
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Lcom/google/protobuf/l1$b;->instance:Lcom/google/protobuf/l1;
+
+    .line 2
+    .line 3
+    check-cast v0, Lcj/z1$c;
+
+    .line 4
+    .line 5
+    invoke-virtual {v0}, Lcj/z1$c;->ug()Z
+
+    .line 6
+    .line 7
+    .line 8
+    move-result v0
+
+    .line 9
+    return v0
+.end method

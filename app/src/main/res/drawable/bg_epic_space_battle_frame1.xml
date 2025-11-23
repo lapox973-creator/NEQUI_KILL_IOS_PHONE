@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Frame 1: Espacio profundo con nebulosa azul -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="135"
+        android:startColor="#0A0E27"
+        android:centerColor="#1A1F45"
+        android:endColor="#2D3561"
+        android:type="linear"/>
+</shape>

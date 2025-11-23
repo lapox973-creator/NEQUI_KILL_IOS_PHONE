@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/zinit_background"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- Overlay semi-transparente -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CC000000"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Card principal -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardNameDialog"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="12dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="32dp">
+
+            <!-- Icono -->
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:src="@drawable/noti"
+                android:layout_marginBottom="24dp"
+                app:tint="@color/nequi_pink" />
+
+            <!-- Título -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="¡Personaliza tu perfil!"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/manrope_bold"
+                android:gravity="center"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Subtítulo -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Para que tus amigos te reconozcan cuando envíes o recibas dinero, agrega tu nombre."
+                android:textColor="@color/gray"
+                android:textSize="16sp"
+                android:fontFamily="@font/manrope_regular"
+                android:gravity="center"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="32dp" />
+
+            <!-- Campo de nombre -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint= "         Tu nombre completo"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/nequi_pink"
+                app:hintTextColor="@color/nequi_pink"
+                app:startIconDrawable="@drawable/ic_person"
+                app:startIconTint="@color/nequi_pink"
+                app:startIconContentDescription="Icono de persona"
+                android:layout_marginBottom="24dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/manrope_medium"
+                    android:inputType="textPersonName|textCapWords"
+                    android:maxLength="30" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Botón continuar -->
+            <Button
+                android:id="@+id/btnSaveName"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Continuar"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/manrope_bold"
+                android:background="@drawable/button_continue_bg"
+                android:enabled="false"
+                android:alpha="0.6" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

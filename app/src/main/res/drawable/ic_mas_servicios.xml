@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <vector android:height="24.0dip" android:width="24.0dip" android:viewportWidth="24.0" android:viewportHeight="24.0">
+            <path android:fillColor="#ff200020" android:pathData="M3.5,3.5h7v7h-7z" />
+            <path android:fillColor="#ff200020" android:pathData="M13.5,3.5h7v7h-7z" />
+            <path android:fillColor="#ff200020" android:pathData="M3.5,13.5h7v7h-7z" />
+            <path android:fillColor="#ff200020" android:pathData="M13.5,13.5h7v7h-7z" />
+        </vector>
+    </item>
+    <item>
+        <vector android:height="24.0dip" android:width="24.0dip" android:viewportWidth="24.0" android:viewportHeight="24.0">
+            <path android:pathData="M3.5,3.5h7v7h-7z" android:strokeColor="#ff200020" android:strokeWidth="1.0" />
+            <path android:pathData="M13.5,3.5h7v7h-7z" android:strokeColor="#ff200020" android:strokeWidth="1.0" />
+            <path android:pathData="M3.5,13.5h7v7h-7z" android:strokeColor="#ff200020" android:strokeWidth="1.0" />
+            <path android:pathData="M13.5,13.5h7v7h-7z" android:strokeColor="#ff200020" android:strokeWidth="1.0" />
+        </vector>
+    </item>
+</selector>

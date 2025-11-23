@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/dialog_background" android:padding="24.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="18.0sp" android:textColor="@color/color_200020" android:gravity="center" android:id="@id/tvDialogTitle" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="24.0dip" android:text="¿Cuánto deseas recargar?" android:fontFamily="@font/manrope_bold" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/bg_edit_text_semitransparent" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip">
+        <TextView android:textSize="18.0sp" android:textColor="#ff000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$" android:fontFamily="@font/manrope_bold" android:layout_marginEnd="8.0dip" />
+        <EditText android:textSize="16.0sp" android:textColor="#ff000000" android:textColorHint="#ff666666" android:id="@id/etAmount" android:background="@null" android:layout_width="0.0dip" android:layout_height="wrap_content" android:hint="Ingresa el monto" android:layout_weight="1.0" android:inputType="number" android:fontFamily="@font/manrope_medium" />
+    </LinearLayout>
+    <TextView android:textSize="16.0sp" android:textColor="#ff000000" android:gravity="center" android:id="@id/tvSaldoCalculado" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dip" android:layout_marginBottom="8.0dip" android:text="Valor: $0" android:fontFamily="@font/manrope_bold" />
+    <Button android:textColor="@color/white" android:id="@id/btnRecargar" android:background="@drawable/button_rounded_blue" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="48.0dip" android:layout_marginTop="16.0dip" android:layout_marginBottom="16.0dip" android:text="Recargar ahora" android:textAllCaps="false" android:fontFamily="@font/manrope_bold" android:elevation="0.0dip" android:stateListAnimator="@null" android:backgroundTint="#ff2196f3" />
+</LinearLayout>

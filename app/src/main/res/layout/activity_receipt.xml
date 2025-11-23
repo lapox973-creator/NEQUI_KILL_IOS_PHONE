@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvTransactionType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Transacción"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$0"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:id="@+id/tvDestination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Para: +0"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha:"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tvReference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Referencia:"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estado:"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btnBackToHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Volver al inicio"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/btnShareReceipt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Compartir"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btnViewComprobante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ver comprobante"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+</ScrollView>
+
+

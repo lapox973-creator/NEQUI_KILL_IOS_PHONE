@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <RelativeLayout android:background="@color/comprobante_background_light" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+     <ImageView android:id="@+id/loadingIndicator" android:visibility="visible" android:layout_width="32.0dip" android:layout_height="32.0dip" android:src="@drawable/loading_circle_comprobante" android:layout_centerInParent="true" android:contentDescription="Círculo de carga" />
+     <ImageView android:id="@+id/ivDetalleMovimiento" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="fitCenter" android:contentDescription="Detalle del movimiento" />
+     <!-- IDs esperados por el código (ocultos) -->
+     <TextView android:id="@+id/tvMovementType" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+     <TextView android:id="@+id/tvAmount" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+     <TextView android:id="@+id/tvDestination" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+     <TextView android:id="@+id/tvDate" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+     <TextView android:id="@+id/tvReference" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+     <TextView android:id="@+id/tvDescription" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+     <TextView android:id="@+id/tvStatus" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+     <Button android:id="@+id/btnShare" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+     <Button android:id="@+id/btnClose" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+ </RelativeLayout>

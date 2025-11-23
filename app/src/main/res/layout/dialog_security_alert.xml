@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#121212"
+    android:padding="24dp">
+
+    <ImageView
+        android:id="@+id/ivSecurityIcon"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_nequixofficial"
+        android:contentDescription="Alerta de Seguridad"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSecurityTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="🚨 ALERTA DE SEGURIDAD"
+        android:textColor="#FF0000"
+        android:textSize="26sp"
+        android:fontFamily="@font/manrope_bold"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/ivSecurityIcon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSecurityMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Esta aplicación ha sido MODIFICADA o RECOMPILADA de forma no autorizada."
+        android:textColor="#E0E0E0"
+        android:textSize="18sp"
+        android:fontFamily="@font/manrope_medium"
+        android:gravity="center"
+        android:lineSpacingExtra="6dp"
+        app:layout_constraintTop_toBottomOf="@id/tvSecurityTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardSecurityDetails"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#1A1A1A"
+        app:layout_constraintTop_toBottomOf="@id/tvSecurityMessage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="⚠️ PROBLEMAS DETECTADOS:"
+                android:textColor="#FFEB3B"
+                android:textSize="15sp"
+                android:fontFamily="@font/manrope_bold"
+                android:gravity="center"
+                android:paddingBottom="12dp" />
+
+            <TextView
+                android:id="@+id/tvSecurityIssues"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Firma digital inválida\n• APK modificada con APKTool\n• Código descompilado"
+                android:textColor="#FF6B6B"
+                android:textSize="14sp"
+                android:fontFamily="@font/manrope_medium"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardWarning"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="#2D1B1B"
+        app:layout_constraintTop_toBottomOf="@id/cardSecurityDetails"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="Por tu seguridad, esta versión NO AUTORIZADA será cerrada.\n\nDescarga la versión OFICIAL desde el canal de Telegram."
+            android:textColor="#BDBDBD"
+            android:textSize="14sp"
+            android:fontFamily="@font/manrope_regular"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnGetOfficial"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_rounded_pink_electric"
+        android:text="DESCARGAR VERSIÓN OFICIAL"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:fontFamily="@font/manrope_bold"
+        android:textAllCaps="true"
+        app:layout_constraintTop_toBottomOf="@id/cardWarning"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvExit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Salir de la aplicación"
+        android:textColor="#666666"
+        android:textSize="14sp"
+        android:fontFamily="@font/manrope_medium"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/btnGetOfficial"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

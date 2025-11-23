@@ -1,0 +1,98 @@
+.class public final Landroidx/compose/ui/platform/l$b;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/compose/ui/platform/l;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "b"
+.end annotation
+
+.annotation build Lg4/v;
+    parameters = 0x0
+.end annotation
+
+
+# static fields
+.field public static final c:I = 0x8
+
+
+# instance fields
+.field public final a:Landroidx/lifecycle/k0;
+    .annotation build Lzq/l;
+    .end annotation
+.end field
+
+.field public final b:Lac/f;
+    .annotation build Lzq/l;
+    .end annotation
+.end field
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroidx/lifecycle/k0;Lac/f;)V
+    .locals 0
+    .param p1    # Landroidx/lifecycle/k0;
+        .annotation build Lzq/l;
+        .end annotation
+    .end param
+    .param p2    # Lac/f;
+        .annotation build Lzq/l;
+        .end annotation
+    .end param
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    iput-object p1, p0, Landroidx/compose/ui/platform/l$b;->a:Landroidx/lifecycle/k0;
+
+    .line 5
+    .line 6
+    iput-object p2, p0, Landroidx/compose/ui/platform/l$b;->b:Lac/f;
+
+    .line 7
+    .line 8
+    return-void
+.end method
+
+
+# virtual methods
+.method public final a()Landroidx/lifecycle/k0;
+    .locals 1
+    .annotation build Lzq/l;
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Landroidx/compose/ui/platform/l$b;->a:Landroidx/lifecycle/k0;
+
+    .line 2
+    .line 3
+    return-object v0
+.end method
+
+.method public final b()Lac/f;
+    .locals 1
+    .annotation build Lzq/l;
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Landroidx/compose/ui/platform/l$b;->b:Lac/f;
+
+    .line 2
+    .line 3
+    return-object v0
+.end method

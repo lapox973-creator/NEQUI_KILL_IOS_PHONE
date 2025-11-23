@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/bottom_sheet_background" android:paddingBottom="24.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/indicator" android:background="@drawable/bottom_sheet_indicator" android:layout_width="40.0dip" android:layout_height="4.0dip" android:layout_marginTop="16.0dip" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <ImageView android:id="@id/btnClose" android:background="?selectableItemBackgroundBorderless" android:focusable="true" android:clickable="true" android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginTop="24.0dip" android:src="@drawable/ic_close" android:layout_marginEnd="24.0dip" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <TextView android:textSize="20.0sp" android:textColor="#ff200020" android:id="@id/tvTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24.0dip" android:text="Favoritos" android:fontFamily="@font/manrope_bold" android:layout_marginStart="24.0dip" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/indicator" />
+    <ProgressBar android:id="@id/loadingProgressBar" android:visibility="gone" android:layout_width="48.0dip" android:layout_height="48.0dip" android:indeterminateTint="@color/nequi_pink" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" style="?android:progressBarStyle" />
+    <TextView android:textSize="16.0sp" android:textColor="#ff505050" android:id="@id/tvDescription" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:text="Agrega, cambia o elimina tus favoritos para que siempre los tengas en el inicio" android:fontFamily="@font/manrope_regular" android:layout_marginStart="24.0dip" android:layout_marginEnd="24.0dip" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+    <FrameLayout android:id="@id/iconsContainer" android:paddingBottom="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="24.0dip" app:layout_constraintTop_toBottomOf="@id/tvDescription">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:paddingLeft="24.0dip" android:paddingRight="24.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingHorizontal="24.0dip">
+            <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:id="@id/firstRow" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="24.0dip">
+                <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <androidx.cardview.widget.CardView android:id="@id/cardContainer" android:layout_width="65.0dip" android:layout_height="65.0dip" android:layout_marginBottom="8.0dip" app:cardBackgroundColor="#ffffffff" app:cardCornerRadius="6.0dip" app:cardElevation="4.0dip">
+                        <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+                            <ImageView android:layout_gravity="center" android:id="@id/ivCard" android:layout_width="48.0dip" android:layout_height="48.0dip" android:src="@drawable/card" />
+                            <ImageView android:layout_gravity="end|top" android:id="@id/btnDeleteCard" android:padding="2.0dip" android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_margin="4.0dip" android:src="@drawable/ic_close" />
+                        </FrameLayout>
+                    </androidx.cardview.widget.CardView>
+                    <TextView android:textSize="14.0sp" android:textColor="#ff505050" android:id="@id/tvTargeta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tarjeta" android:fontFamily="@font/manrope_regular" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <androidx.cardview.widget.CardView android:id="@id/colchonContainer" android:layout_width="65.0dip" android:layout_height="65.0dip" android:layout_marginBottom="8.0dip" app:cardBackgroundColor="#ffffffff" app:cardCornerRadius="6.0dip" app:cardElevation="4.0dip">
+                        <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+                            <ImageView android:layout_gravity="center" android:id="@id/ivColchon" android:layout_width="48.0dip" android:layout_height="48.0dip" android:src="@drawable/colchon" />
+                            <ImageView android:layout_gravity="end|top" android:id="@id/btnDeleteColchon" android:padding="2.0dip" android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_margin="4.0dip" android:src="@drawable/ic_close" />
+                        </FrameLayout>
+                    </androidx.cardview.widget.CardView>
+                    <TextView android:textSize="14.0sp" android:textColor="#ff505050" android:id="@id/tvColchon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Colchon" android:fontFamily="@font/manrope_regular" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <androidx.cardview.widget.CardView android:id="@id/bolsillosContainer" android:layout_width="65.0dip" android:layout_height="65.0dip" android:layout_marginBottom="8.0dip" app:cardBackgroundColor="#ffffffff" app:cardCornerRadius="6.0dip" app:cardElevation="4.0dip">
+                        <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+                            <ImageView android:layout_gravity="center" android:id="@id/ivBolsillos" android:layout_width="48.0dip" android:layout_height="48.0dip" android:src="@drawable/bolsillos" />
+                            <ImageView android:layout_gravity="end|top" android:id="@id/btnDeleteBolsillos" android:padding="2.0dip" android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_margin="4.0dip" android:src="@drawable/ic_close" />
+                        </FrameLayout>
+                    </androidx.cardview.widget.CardView>
+                    <TextView android:textSize="14.0sp" android:textColor="#ff505050" android:id="@id/tvBolsillos" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Bolsillos" android:fontFamily="@font/manrope_regular" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:id="@id/secondRow" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <androidx.cardview.widget.CardView android:id="@id/goalContainer" android:layout_width="65.0dip" android:layout_height="65.0dip" android:layout_marginBottom="8.0dip" app:cardBackgroundColor="#ffffffff" app:cardCornerRadius="6.0dip" app:cardElevation="4.0dip">
+                        <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+                            <ImageView android:layout_gravity="center" android:id="@id/ivGoal" android:layout_width="48.0dip" android:layout_height="48.0dip" android:src="@drawable/goal" />
+                            <ImageView android:layout_gravity="end|top" android:id="@id/btnDeleteGoal" android:padding="2.0dip" android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_margin="4.0dip" android:src="@drawable/ic_close" />
+                        </FrameLayout>
+                    </androidx.cardview.widget.CardView>
+                    <TextView android:textSize="14.0sp" android:textColor="#ff505050" android:id="@id/tvMetas" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Metas" android:fontFamily="@font/manrope_regular" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <androidx.cardview.widget.CardView android:id="@id/item5Container" android:layout_width="65.0dip" android:layout_height="65.0dip" android:layout_marginBottom="8.0dip" app:cardBackgroundColor="#ffffffff" app:cardCornerRadius="6.0dip" app:cardElevation="4.0dip">
+                        <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+                            <ImageView android:layout_gravity="center" android:id="@id/ivItem5" android:layout_width="48.0dip" android:layout_height="48.0dip" />
+                            <ImageView android:layout_gravity="end|top" android:id="@id/btnDeleteItem5" android:padding="2.0dip" android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_margin="4.0dip" android:src="@drawable/ic_close" />
+                        </FrameLayout>
+                    </androidx.cardview.widget.CardView>
+                    <TextView android:textSize="14.0sp" android:textColor="#ff505050" android:id="@id/tvItem5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:fontFamily="@font/manrope_regular" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <androidx.cardview.widget.CardView android:id="@id/item6Container" android:layout_width="65.0dip" android:layout_height="65.0dip" android:layout_marginBottom="8.0dip" app:cardBackgroundColor="#ffffffff" app:cardCornerRadius="6.0dip" app:cardElevation="4.0dip">
+                        <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+                            <ImageView android:layout_gravity="center" android:id="@id/ivItem6" android:layout_width="48.0dip" android:layout_height="48.0dip" />
+                            <ImageView android:layout_gravity="end|top" android:id="@id/btnDeleteItem6" android:padding="2.0dip" android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_margin="4.0dip" android:src="@drawable/ic_close" />
+                        </FrameLayout>
+                    </androidx.cardview.widget.CardView>
+                    <TextView android:textSize="14.0sp" android:textColor="#ff505050" android:id="@id/tvItem6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:fontFamily="@font/manrope_regular" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip">
+                <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <androidx.cardview.widget.CardView android:id="@id/addContainer1" android:layout_width="65.0dip" android:layout_height="65.0dip" android:layout_marginBottom="8.0dip" app:cardBackgroundColor="#ffffffff" app:cardCornerRadius="6.0dip" app:cardElevation="4.0dip">
+                        <ImageView android:layout_gravity="center" android:id="@id/ivAdd1" android:layout_width="48.0dip" android:layout_height="48.0dip" android:src="@drawable/ic_add_circle" />
+                    </androidx.cardview.widget.CardView>
+                    <TextView android:textSize="14.0sp" android:textColor="#ff505050" android:id="@id/tvAgrega1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Agrega" android:fontFamily="@font/manrope_regular" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <androidx.cardview.widget.CardView android:id="@id/addContainer2" android:layout_width="65.0dip" android:layout_height="65.0dip" android:layout_marginBottom="8.0dip" app:cardBackgroundColor="#ffffffff" app:cardCornerRadius="6.0dip" app:cardElevation="4.0dip">
+                        <ImageView android:layout_gravity="center" android:id="@id/ivAdd2" android:layout_width="48.0dip" android:layout_height="48.0dip" android:src="@drawable/ic_add_circle" />
+                    </androidx.cardview.widget.CardView>
+                    <TextView android:textSize="14.0sp" android:textColor="#ff505050" android:id="@id/tvAgrega2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Agrega" android:fontFamily="@font/manrope_regular" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+    <androidx.appcompat.widget.AppCompatButton android:textSize="16.0sp" android:textColor="#ffffffff" android:id="@id/btnSaveChanges" android:background="@drawable/bg_button_selector" android:paddingTop="12.0dip" android:paddingBottom="12.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="24.0dip" android:layout_marginBottom="16.0dip" android:text="Guardar cambios" android:textAllCaps="false" android:fontFamily="@font/manrope_bold" android:layout_marginStart="24.0dip" android:layout_marginEnd="24.0dip" android:paddingVertical="12.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/iconsContainer" />
+</androidx.constraintlayout.widget.ConstraintLayout>

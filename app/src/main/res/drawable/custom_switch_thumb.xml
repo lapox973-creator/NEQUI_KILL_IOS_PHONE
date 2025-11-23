@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Estado activado (encendido) - Con check rosa -->
+    <item android:state_checked="true"
+        android:drawable="@drawable/switch_thumb_checked" />
+    <!-- Estado desactivado (apagado) - Solo blanco -->
+    <item android:drawable="@drawable/switch_thumb_unchecked" />
+</selector>

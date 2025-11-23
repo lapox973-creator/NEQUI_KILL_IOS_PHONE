@@ -1,0 +1,48 @@
+# Utilidades Nequi - LIMPIO Y SIMPLE
+from datetime import datetime
+import pytz
+import random
+
+
+def format_currency(amount):
+    """$ 1.234.567,89"""
+    try:
+        formatted = "$ {:,.2f}".format(float(amount))
+        formatted = formatted.replace(",", "X").replace(".", ",").replace("X", ".")
+        return formatted
+    except:
+        return f"$ {amount}"
+
+
+def format_phone(phone):
+    """318 672 4165"""
+    phone = str(phone).strip()
+    if len(phone) == 10 and phone.isdigit():
+        return f"{phone[:3]} {phone[3:6]} {phone[6:]}"
+    return phone
+
+
+def get_date():
+    """25 de octubre de 2025 a las 11:14 p. m."""
+    meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio",
+             "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+    
+    try:
+        tz = pytz.timezone("America/Bogota")
+        now = datetime.now(tz)
+        mes = meses[now.month - 1]
+        hora = now.strftime("%I:%M").lstrip("0")
+        ampm = "a. m." if now.hour < 12 else "p. m."
+        return f"{now.day} de {mes} de {now.year} a las {hora} {ampm}"
+    except:
+        return "25 de octubre de 2025 a las 11:14 p. m."
+
+
+def get_reference():
+    """M27214058"""
+    try:
+        par = random.choice([2, 4, 6, 8])
+        digitos = random.randint(0, 9999999)
+        return f"M{par}{digitos:07d}"
+    except:
+        return "M27214058"

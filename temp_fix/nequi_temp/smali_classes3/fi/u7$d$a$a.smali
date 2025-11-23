@@ -1,0 +1,250 @@
+.class public Lfi/u7$d$a$a;
+.super Lfi/c;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lfi/u7$d$a;->b()Ljava/util/Iterator;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lfi/c<",
+        "Ljava/util/Map$Entry<",
+        "Lfi/q5<",
+        "TK;>;TV;>;>;"
+    }
+.end annotation
+
+
+# instance fields
+.field public final synthetic c:Ljava/util/Iterator;
+
+.field public final synthetic d:Lfi/u7$d$a;
+
+
+# direct methods
+.method public constructor <init>(Lfi/u7$d$a;Ljava/util/Iterator;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x8010,
+            0x1010
+        }
+        names = {
+            "this$2",
+            "val$backingItr"
+        }
+    .end annotation
+
+    .line 1
+    iput-object p1, p0, Lfi/u7$d$a$a;->d:Lfi/u7$d$a;
+
+    .line 2
+    .line 3
+    iput-object p2, p0, Lfi/u7$d$a$a;->c:Ljava/util/Iterator;
+
+    .line 4
+    .line 5
+    invoke-direct {p0}, Lfi/c;-><init>()V
+
+    .line 6
+    .line 7
+    .line 8
+    return-void
+.end method
+
+
+# virtual methods
+.method public bridge synthetic a()Ljava/lang/Object;
+    .locals 1
+    .annotation runtime Ltm/a;
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0}, Lfi/u7$d$a$a;->d()Ljava/util/Map$Entry;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object v0
+
+    .line 5
+    return-object v0
+.end method
+
+.method public d()Ljava/util/Map$Entry;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Map$Entry<",
+            "Lfi/q5<",
+            "TK;>;TV;>;"
+        }
+    .end annotation
+
+    .annotation runtime Ltm/a;
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Lfi/u7$d$a$a;->c:Ljava/util/Iterator;
+
+    .line 2
+    .line 3
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    .line 4
+    .line 5
+    .line 6
+    move-result v0
+
+    .line 7
+    if-eqz v0, :cond_1
+
+    .line 8
+    .line 9
+    iget-object v0, p0, Lfi/u7$d$a$a;->c:Ljava/util/Iterator;
+
+    .line 10
+    .line 11
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    .line 12
+    .line 13
+    .line 14
+    move-result-object v0
+
+    .line 15
+    check-cast v0, Lfi/u7$c;
+
+    .line 16
+    .line 17
+    invoke-virtual {v0}, Lfi/u7$c;->h()Lfi/r0;
+
+    .line 18
+    .line 19
+    .line 20
+    move-result-object v1
+
+    .line 21
+    iget-object v2, p0, Lfi/u7$d$a$a;->d:Lfi/u7$d$a;
+
+    .line 22
+    .line 23
+    iget-object v2, v2, Lfi/u7$d$a;->b:Lfi/u7$d;
+
+    .line 24
+    .line 25
+    invoke-static {v2}, Lfi/u7$d;->b(Lfi/u7$d;)Lfi/q5;
+
+    .line 26
+    .line 27
+    .line 28
+    move-result-object v2
+
+    .line 29
+    iget-object v2, v2, Lfi/q5;->a:Lfi/r0;
+
+    .line 30
+    .line 31
+    invoke-virtual {v1, v2}, Lfi/r0;->f(Lfi/r0;)I
+
+    .line 32
+    .line 33
+    .line 34
+    move-result v1
+
+    .line 35
+    if-gtz v1, :cond_0
+
+    .line 36
+    .line 37
+    invoke-virtual {p0}, Lfi/c;->b()Ljava/lang/Object;
+
+    .line 38
+    .line 39
+    .line 40
+    move-result-object v0
+
+    .line 41
+    check-cast v0, Ljava/util/Map$Entry;
+
+    .line 42
+    .line 43
+    return-object v0
+
+    .line 44
+    :cond_0
+    invoke-virtual {v0}, Lfi/u7$c;->d()Lfi/q5;
+
+    .line 45
+    .line 46
+    .line 47
+    move-result-object v1
+
+    .line 48
+    iget-object v2, p0, Lfi/u7$d$a$a;->d:Lfi/u7$d$a;
+
+    .line 49
+    .line 50
+    iget-object v2, v2, Lfi/u7$d$a;->b:Lfi/u7$d;
+
+    .line 51
+    .line 52
+    invoke-static {v2}, Lfi/u7$d;->b(Lfi/u7$d;)Lfi/q5;
+
+    .line 53
+    .line 54
+    .line 55
+    move-result-object v2
+
+    .line 56
+    invoke-virtual {v1, v2}, Lfi/q5;->s(Lfi/q5;)Lfi/q5;
+
+    .line 57
+    .line 58
+    .line 59
+    move-result-object v1
+
+    .line 60
+    invoke-virtual {v0}, Lfi/u7$c;->getValue()Ljava/lang/Object;
+
+    .line 61
+    .line 62
+    .line 63
+    move-result-object v0
+
+    .line 64
+    invoke-static {v1, v0}, Lfi/t4;->O(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map$Entry;
+
+    .line 65
+    .line 66
+    .line 67
+    move-result-object v0
+
+    .line 68
+    return-object v0
+
+    .line 69
+    :cond_1
+    invoke-virtual {p0}, Lfi/c;->b()Ljava/lang/Object;
+
+    .line 70
+    .line 71
+    .line 72
+    move-result-object v0
+
+    .line 73
+    check-cast v0, Ljava/util/Map$Entry;
+
+    .line 74
+    .line 75
+    return-object v0
+.end method

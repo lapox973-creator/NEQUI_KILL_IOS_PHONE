@@ -1,0 +1,624 @@
+.class public final Lcom/google/protobuf/t4$b;
+.super Lcom/google/protobuf/t4$e;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/protobuf/t4;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "b"
+.end annotation
+
+
+# static fields
+.field public static final b:J = -0x1L
+
+
+# direct methods
+.method public constructor <init>(Lsun/misc/Unsafe;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "unsafe"
+        }
+    .end annotation
+
+    .line 1
+    invoke-direct {p0, p1}, Lcom/google/protobuf/t4$e;-><init>(Lsun/misc/Unsafe;)V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+.method public static C(J)I
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "address"
+        }
+    .end annotation
+
+    .line 1
+    long-to-int p0, p0
+
+    return p0
+.end method
+
+
+# virtual methods
+.method public B()Z
+    .locals 1
+
+    .line 1
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public c(J[BJJ)V
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "srcOffset",
+            "target",
+            "targetIndex",
+            "length"
+        }
+    .end annotation
+
+    .line 1
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
+
+    .line 2
+    .line 3
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
+
+    .line 4
+    .line 5
+    .line 6
+    throw p1
+.end method
+
+.method public d([BJJJ)V
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "src",
+            "srcIndex",
+            "targetOffset",
+            "length"
+        }
+    .end annotation
+
+    .line 1
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
+
+    .line 2
+    .line 3
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
+
+    .line 4
+    .line 5
+    .line 6
+    throw p1
+.end method
+
+.method public e(Ljava/lang/Object;J)Z
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "target",
+            "offset"
+        }
+    .end annotation
+
+    .line 1
+    sget-boolean v0, Lcom/google/protobuf/t4;->y:Z
+
+    .line 2
+    .line 3
+    if-eqz v0, :cond_0
+
+    .line 4
+    .line 5
+    invoke-static {p1, p2, p3}, Lcom/google/protobuf/t4;->g(Ljava/lang/Object;J)Z
+
+    .line 6
+    .line 7
+    .line 8
+    move-result p1
+
+    .line 9
+    return p1
+
+    .line 10
+    :cond_0
+    invoke-static {p1, p2, p3}, Lcom/google/protobuf/t4;->h(Ljava/lang/Object;J)Z
+
+    .line 11
+    .line 12
+    .line 13
+    move-result p1
+
+    .line 14
+    return p1
+.end method
+
+.method public f(J)B
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "address"
+        }
+    .end annotation
+
+    .line 1
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
+
+    .line 2
+    .line 3
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
+
+    .line 4
+    .line 5
+    .line 6
+    throw p1
+.end method
+
+.method public g(Ljava/lang/Object;J)B
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "target",
+            "offset"
+        }
+    .end annotation
+
+    .line 1
+    sget-boolean v0, Lcom/google/protobuf/t4;->y:Z
+
+    .line 2
+    .line 3
+    if-eqz v0, :cond_0
+
+    .line 4
+    .line 5
+    invoke-static {p1, p2, p3}, Lcom/google/protobuf/t4;->c(Ljava/lang/Object;J)B
+
+    .line 6
+    .line 7
+    .line 8
+    move-result p1
+
+    .line 9
+    return p1
+
+    .line 10
+    :cond_0
+    invoke-static {p1, p2, p3}, Lcom/google/protobuf/t4;->d(Ljava/lang/Object;J)B
+
+    .line 11
+    .line 12
+    .line 13
+    move-result p1
+
+    .line 14
+    return p1
+.end method
+
+.method public h(Ljava/lang/Object;J)D
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "target",
+            "offset"
+        }
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0, p1, p2, p3}, Lcom/google/protobuf/t4$e;->m(Ljava/lang/Object;J)J
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-wide p1
+
+    .line 5
+    invoke-static {p1, p2}, Ljava/lang/Double;->longBitsToDouble(J)D
+
+    .line 6
+    .line 7
+    .line 8
+    move-result-wide p1
+
+    .line 9
+    return-wide p1
+.end method
+
+.method public i(Ljava/lang/Object;J)F
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "target",
+            "offset"
+        }
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0, p1, p2, p3}, Lcom/google/protobuf/t4$e;->k(Ljava/lang/Object;J)I
+
+    .line 2
+    .line 3
+    .line 4
+    move-result p1
+
+    .line 5
+    invoke-static {p1}, Ljava/lang/Float;->intBitsToFloat(I)F
+
+    .line 6
+    .line 7
+    .line 8
+    move-result p1
+
+    .line 9
+    return p1
+.end method
+
+.method public j(J)I
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "address"
+        }
+    .end annotation
+
+    .line 1
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
+
+    .line 2
+    .line 3
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
+
+    .line 4
+    .line 5
+    .line 6
+    throw p1
+.end method
+
+.method public l(J)J
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "address"
+        }
+    .end annotation
+
+    .line 1
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
+
+    .line 2
+    .line 3
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
+
+    .line 4
+    .line 5
+    .line 6
+    throw p1
+.end method
+
+.method public o(Ljava/lang/reflect/Field;)Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "field"
+        }
+    .end annotation
+
+    .line 1
+    const/4 v0, 0x0
+
+    .line 2
+    :try_start_0
+    invoke-virtual {p1, v0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 3
+    .line 4
+    .line 5
+    move-result-object p1
+    :try_end_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 6
+    return-object p1
+
+    .line 7
+    :catch_0
+    return-object v0
+.end method
+
+.method public q(Ljava/lang/Object;JZ)V
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "target",
+            "offset",
+            "value"
+        }
+    .end annotation
+
+    .line 1
+    sget-boolean v0, Lcom/google/protobuf/t4;->y:Z
+
+    .line 2
+    .line 3
+    if-eqz v0, :cond_0
+
+    .line 4
+    .line 5
+    invoke-static {p1, p2, p3, p4}, Lcom/google/protobuf/t4;->i(Ljava/lang/Object;JZ)V
+
+    .line 6
+    .line 7
+    .line 8
+    goto :goto_0
+
+    .line 9
+    :cond_0
+    invoke-static {p1, p2, p3, p4}, Lcom/google/protobuf/t4;->j(Ljava/lang/Object;JZ)V
+
+    .line 10
+    .line 11
+    .line 12
+    :goto_0
+    return-void
+.end method
+
+.method public r(JB)V
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "address",
+            "value"
+        }
+    .end annotation
+
+    .line 1
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
+
+    .line 2
+    .line 3
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
+
+    .line 4
+    .line 5
+    .line 6
+    throw p1
+.end method
+
+.method public s(Ljava/lang/Object;JB)V
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "target",
+            "offset",
+            "value"
+        }
+    .end annotation
+
+    .line 1
+    sget-boolean v0, Lcom/google/protobuf/t4;->y:Z
+
+    .line 2
+    .line 3
+    if-eqz v0, :cond_0
+
+    .line 4
+    .line 5
+    invoke-static {p1, p2, p3, p4}, Lcom/google/protobuf/t4;->e(Ljava/lang/Object;JB)V
+
+    .line 6
+    .line 7
+    .line 8
+    goto :goto_0
+
+    .line 9
+    :cond_0
+    invoke-static {p1, p2, p3, p4}, Lcom/google/protobuf/t4;->f(Ljava/lang/Object;JB)V
+
+    .line 10
+    .line 11
+    .line 12
+    :goto_0
+    return-void
+.end method
+
+.method public t(Ljava/lang/Object;JD)V
+    .locals 6
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "target",
+            "offset",
+            "value"
+        }
+    .end annotation
+
+    .line 1
+    invoke-static {p4, p5}, Ljava/lang/Double;->doubleToLongBits(D)J
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-wide v4
+
+    .line 5
+    move-object v0, p0
+
+    .line 6
+    move-object v1, p1
+
+    .line 7
+    move-wide v2, p2
+
+    .line 8
+    invoke-virtual/range {v0 .. v5}, Lcom/google/protobuf/t4$e;->y(Ljava/lang/Object;JJ)V
+
+    .line 9
+    .line 10
+    .line 11
+    return-void
+.end method
+
+.method public u(Ljava/lang/Object;JF)V
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "target",
+            "offset",
+            "value"
+        }
+    .end annotation
+
+    .line 1
+    invoke-static {p4}, Ljava/lang/Float;->floatToIntBits(F)I
+
+    .line 2
+    .line 3
+    .line 4
+    move-result p4
+
+    .line 5
+    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/google/protobuf/t4$e;->w(Ljava/lang/Object;JI)V
+
+    .line 6
+    .line 7
+    .line 8
+    return-void
+.end method
+
+.method public v(JI)V
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "address",
+            "value"
+        }
+    .end annotation
+
+    .line 1
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
+
+    .line 2
+    .line 3
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
+
+    .line 4
+    .line 5
+    .line 6
+    throw p1
+.end method
+
+.method public x(JJ)V
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "address",
+            "value"
+        }
+    .end annotation
+
+    .line 1
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
+
+    .line 2
+    .line 3
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
+
+    .line 4
+    .line 5
+    .line 6
+    throw p1
+.end method

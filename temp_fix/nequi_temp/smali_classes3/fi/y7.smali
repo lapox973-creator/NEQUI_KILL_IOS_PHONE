@@ -1,0 +1,124 @@
+.class public abstract Lfi/y7;
+.super Lfi/x7;
+.source "SourceFile"
+
+# interfaces
+.implements Ljava/util/ListIterator;
+
+
+# annotations
+.annotation build Lbi/b;
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<E:",
+        "Ljava/lang/Object;",
+        ">",
+        "Lfi/x7<",
+        "TE;>;",
+        "Ljava/util/ListIterator<",
+        "TE;>;"
+    }
+.end annotation
+
+.annotation runtime Lfi/x0;
+.end annotation
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Lfi/x7;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+
+# virtual methods
+.method public final add(Ljava/lang/Object;)V
+    .locals 0
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lfi/m5;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "e"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TE;)V"
+        }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    .annotation build Lti/e;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
+    .line 1
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
+
+    .line 2
+    .line 3
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
+
+    .line 4
+    .line 5
+    .line 6
+    throw p1
+.end method
+
+.method public final set(Ljava/lang/Object;)V
+    .locals 0
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lfi/m5;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "e"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TE;)V"
+        }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    .annotation build Lti/e;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
+    .line 1
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
+
+    .line 2
+    .line 3
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
+
+    .line 4
+    .line 5
+    .line 6
+    throw p1
+.end method

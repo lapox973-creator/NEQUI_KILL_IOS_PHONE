@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<io.scanbot.sdk.ui.camera.ScanbotCameraContainerView android:id="@id/scanbot_camera_view" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <io.scanbot.sdk.barcode.ui.BarcodePolygonsView android:id="@id/barcodes_polygon_view" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <io.scanbot.sdk.ui.camera.FinderOverlayView android:id="@id/finder_overlay" android:layout_width="fill_parent" android:layout_height="fill_parent" app:fixed_height="300.0dip" app:fixed_width="300.0dip" />
+</io.scanbot.sdk.ui.camera.ScanbotCameraContainerView>

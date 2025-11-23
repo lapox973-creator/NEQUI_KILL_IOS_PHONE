@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/rounded_dialog_background" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#ff333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip" android:text="Editar saldo visible" />
+    <TextView android:textSize="14.0sp" android:textColor="#ff666666" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="16.0dip" android:text="Ingresa el nuevo valor para el saldo visible (debe ser igual o menor al saldo actual)" />
+    <EditText android:textSize="16.0sp" android:textColor="#ff333333" android:textColorHint="#ffaaaaaa" android:id="@id/etSaldo" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="24.0dip" android:hint="Ingresa el saldo visible" android:maxLines="1" android:inputType="numberDecimal" android:backgroundTint="#ffe63780" />
+    <LinearLayout android:gravity="end" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:textColor="#ffffffff" android:id="@id/btnCancelar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cancelar" android:layout_marginEnd="12.0dip" android:backgroundTint="#ff757575" />
+        <Button android:textColor="#ffffffff" android:id="@id/btnAplicar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Aplicar" android:backgroundTint="#ffe63780" />
+    </LinearLayout>
+</LinearLayout>

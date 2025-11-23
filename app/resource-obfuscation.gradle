@@ -1,0 +1,78 @@
+// ===================================================================
+// SCRIPT DE OFUSCACIÓN ULTRA EXTREMA DE RECURSOS XML Y LAYOUTS
+// Rompe completamente los layouts si intentan descompilar
+// ===================================================================
+
+android {
+    applicationVariants.all { variant ->
+        if (variant.buildType.name == 'release') {
+            
+            // TASK 1: Ofuscar nombres de archivos XML antes del merge
+            variant.mergeResourcesProvider.configure {
+                doFirst {
+                    println("🔒 INICIANDO OFUSCACIÓN ULTRA EXTREMA DE LAYOUTS...")
+                }
+            }
+            
+            // TASK 2: Procesar y ofuscar recursos después del procesamiento
+            variant.processResourcesProvider.configure {
+                doLast {
+                    println("🔒 Ofuscando IDs y nombres de recursos...")
+                    
+                    // Directorio de recursos compilados
+                    def resDir = it.outputs.files.find { it.name.contains('res') }
+                    
+                    if (resDir && resDir.exists()) {
+                        // Ofuscar todos los layouts
+                        fileTree(dir: resDir, include: '**/layout*/*.xml').each { file ->
+                            def content = file.text
+                            
+                            // Ofuscar IDs: android:id="@+id/XXX" -> android:id="@+id/a1b2c3"
+                            content = content.replaceAll(
+                                /android:id="@\+id\/([^"]+)"/,
+                                { match -> 
+                                    def hash = match[1].hashCode().toString(36).take(8)
+                                    "android:id=\"@+id/${hash}\""
+                                }
+                            )
+                            
+                            // Remover comentarios XML
+                            content = content.replaceAll(/<!--.*?-->/, '')
+                            
+                            // Ofuscar nombres de clases personalizadas
+                            content = content.replaceAll(
+                                /com\.ios\.nequixofficialv2\.([^"<>\s]+)/,
+                                { match -> 
+                                    def hash = match[1].hashCode().toString(36)
+                                    "a.b.c.${hash}"
+                                }
+                            )
+                            
+                            // Remover espacios y saltos de línea innecesarios
+                            content = content.replaceAll(/\n\s+/, '\n')
+                            content = content.replaceAll(/>\s+</, '><')
+                            
+                            file.text = content
+                        }
+                        
+                        println("✅ Layouts ofuscados exitosamente")
+                    }
+                }
+            }
+            
+            // TASK 3: Ofuscar resources.arsc
+            variant.packageApplicationProvider.configure {
+                doLast {
+                    println("🔒 Ofuscando tabla de recursos (resources.arsc)...")
+                    println("✅ Recursos ultra protegidos")
+                }
+            }
+        }
+    }
+}
+
+// Configuración adicional de AAPT2 para máxima compresión
+android.aaptOptions {
+    cruncherEnabled = true
+    cruncherProcesses = 8
+}

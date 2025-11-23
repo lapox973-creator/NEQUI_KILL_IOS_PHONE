@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Bottom sheet paddings/margins for tablets/phablets -->
+    <dimen name="bs_margin_h">24dp</dimen>
+    <dimen name="bs_margin_v_small">12dp</dimen>
+    <dimen name="bs_margin_v">16dp</dimen>
+    <dimen name="bs_container_padding_bottom">16dp</dimen>
+    <dimen name="bs_handle_margin_top">16dp</dimen>
+    <dimen name="bs_title_margin_top">28dp</dimen>
+
+    <!-- Card/item sizes -->
+    <dimen name="bs_card_height">68dp</dimen>
+    <dimen name="bs_card_corner">6dp</dimen>
+    <dimen name="bs_card_elevation">8dp</dimen>
+
+    <!-- Icon sizes -->
+    <dimen name="bs_icon">44dp</dimen>
+    <dimen name="bs_chevron">30dp</dimen>
+</resources>

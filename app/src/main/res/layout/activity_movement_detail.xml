@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootMovementDetail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
+    android:background="#FFFFFFFF"
+    android:hardwareAccelerated="true"
+    android:layerType="hardware"
+    android:cacheColorHint="@android:color/transparent">
+
+    <!-- ScrollView para permitir scroll vertical y mostrar imagen completa - ULTRA CALIDAD 4K -->
+    <ScrollView
+        android:id="@+id/scrollViewMovementDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="false"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        android:fadingEdge="none"
+        android:layerType="hardware"
+        android:cacheColorHint="@android:color/transparent"
+        android:background="#FFFFFFFF"
+        android:fitsSystemWindows="false">
+
+        <!-- Imagen del comprobante a pantalla completa con ULTRA CALIDAD 4K MEGA REAL -->
+        <ImageView
+            android:id="@+id/imageMovementDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitStart"
+            android:adjustViewBounds="true"
+            android:contentDescription="Imagen detalle movimiento"
+            android:layerType="hardware"
+            android:cacheColorHint="@android:color/transparent"
+            android:alpha="1.0"
+            android:background="#FFFFFFFF" />
+    
+    </ScrollView>
+
+    <!-- Loading opcional centrado -->
+    <ImageView
+        android:id="@+id/loadingCircle"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:src="@drawable/loading_circle" />
+
+    <!-- Botones invisibles superpuestos en las posiciones del PNG -->
+    <View
+        android:id="@+id/btnBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="start|top"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="Volver" />
+
+    <View
+        android:id="@+id/btnShare"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="end|top"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="Compartir" />
+
+    <View
+        android:id="@+id/btnQuestion"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="end|top"
+        android:layout_marginEnd="80dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="Ayuda" />
+
+</FrameLayout>

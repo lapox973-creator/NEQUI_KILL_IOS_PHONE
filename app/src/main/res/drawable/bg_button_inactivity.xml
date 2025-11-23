@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    
+    <!-- Fondo rosa más intenso -->
+    <solid android:color="#EA0088" />
+    
+    <!-- Esquinas cuadradas -->
+    <corners android:radius="0dp" />
+    
+</shape>

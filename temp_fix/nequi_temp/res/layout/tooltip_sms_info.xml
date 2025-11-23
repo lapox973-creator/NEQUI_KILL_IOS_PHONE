@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/tooltip_background" android:padding="12.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="14.0sp" android:textColor="#ffffffff" android:id="@id/tvTooltipText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="250.0dip" android:text="Tienes 0 mensajes que puedes enviar a la víctima al generar un movimiento." android:fontFamily="@font/manrope_medium" />
+    <Button android:textSize="14.0sp" android:textColor="#ffffffff" android:id="@id/btnComprarMensajes" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="Comprar mensajes" android:textAllCaps="false" android:fontFamily="@font/manrope_bold" android:backgroundTint="#ffd32f2f" />
+</LinearLayout>

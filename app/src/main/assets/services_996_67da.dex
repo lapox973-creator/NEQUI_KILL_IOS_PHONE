@@ -1,0 +1,98 @@
+COMPROBANTE4_CONFIG = {
+    "template": "img/plantilla4.jpg",
+    "output": "comprobante4_generado.png",
+    "styles": {
+        "telefono": {"size": 22, "color": "#200021", "pos": (47, 262)},
+        "valor1": {"size": 22, "color": "#200021", "pos": (47, 342)},
+        "fecha": {"size": 22, "color": "#200021", "pos": (47, 423)},
+        "referencia": {"size": 22, "color": "#200021", "pos": (47, 500)},
+        "disponible": {"size": 22, "color": "#200021", "pos": (47, 580)},
+    },
+    "font": "fuentes/Manrope-Medium.ttf"
+}
+
+COMPROBANTE_MOVIMIENTO_CONFIG = {
+    "template": "img/comprobante_movimiento.jpg",
+    "output": "comprobante_movimiento_generado.png",
+    "styles": {
+        "nombre": {"size": 18, "color": "#1b0b19", "pos": (87, 324), "font": "fuentes/Manrope-Medium.ttf"},
+        "valor1": {"size": 21, "color": "#D32F2F", "pos": (450, 333), "max_width": 200, "font": "fuentes/Manrope-Bold.ttf"},
+        "valor_decimal": {"size": 26, "color": "#D32F2F", "pos": (0, 0), "font": "fuentes/Manrope-Bold.ttf"},
+    },
+    "font": "fuentes/Manrope-Medium.ttf",
+}
+
+COMPROBANTE_MOVIMIENTO2_CONFIG = {
+    "template": "img/plantilla2.jpg",
+    "output": "comprobante_movimiento2_generado.png",
+    "styles": {
+        "nombre": {"size": 18, "color": "#1b0b19", "pos": (87, 324), "font": "fuentes/Manrope-Medium.ttf"},
+        "valor1": {"size": 21, "color": "#D32F2F", "pos": (450, 333), "max_width": 200, "font": "fuentes/Manrope-Bold.ttf"},
+        "valor_decimal": {"size": 26, "color": "#D32F2F", "pos": (0, 0), "font": "fuentes/Manrope-Bold.ttf"},
+    },
+    "font": "fuentes/Manrope-Medium.ttf",
+}
+
+COMPROBANTE_QR_CONFIG = {
+    "template": "img/plantilla_qr.jpg",
+    "output": "comprobante_qr_generado.png",
+    # Render a mayor resolución para nitidez en pantallas altas
+    "render_scale": 2.0,
+    # Reconstrucción TOTAL por código: evita depender de plantilla_qr.jpg
+    "rebuild_template": {
+        "enabled": True,
+        # Fondo/gradiente base (ajusta colores a tu diseño)
+        "background": "#FFFFFF",
+        # "gradient": {"type": "linear", "from": "#FFFFFF", "to": "#FFFFFF"},
+        # Elementos dibujados (rectángulos/líneas). Ajusta segun tu referencia.
+        "elements": [
+            # Tarjeta blanca central (ejemplo); modifica box_rel/radius/fill si tu plantilla lo requiere
+            {"type": "rect", "box_rel": (0.04, 0.08, 0.92, 0.84), "radius": 20, "fill": "#FFFFFF"},
+            # Línea opcional
+            # {"type": "line", "line_rel": (0.05, 0.20, 0.95, 0.20), "color": "#EEEFF2", "width": 2},
+        ],
+    },
+    # Estilos RELATIVOS para que funcionen en cualquier tamaño de plantilla
+    "styles": {
+        # pos_rel -> (x_pct, y_pct) relativo a (ancho, alto) de la plantilla
+        # size_rel -> porcentaje relativo a la altura para tamaño de fuente
+        "nombre":     {"size_rel": 0.022, "color": "#2e2b33", "pos_rel": (0.045, 0.541), "font": "fuentes/Manrope-Medium.ttf"},
+        "valor1":     {"size_rel": 0.022, "color": "#2e2b33", "pos_rel": (0.045, 0.617), "font": "fuentes/Manrope-Medium.ttf"},
+        "fecha":      {"size_rel": 0.022, "color": "#2e2b33", "pos_rel": (0.045, 0.688), "font": "fuentes/Manrope-Medium.ttf"},
+        "referencia": {"size_rel": 0.022, "color": "#2e2b33", "pos_rel": (0.045, 0.762), "font": "fuentes/Manrope-Medium.ttf"},
+        "disponible": {"size_rel": 0.022, "color": "#2e2b33", "pos_rel": (0.045, 0.835), "font": "fuentes/Manrope-Medium.ttf"},
+    },
+    "font": "fuentes/Manrope-Medium.ttf",
+    # Superponer el QR por código (imagen PNG del QR exportado). Ajusta posición/tamaño.
+    "qr": {
+        "image": "img/qr_overlay.png",
+        "pos_rel": (0.70, 0.25),
+        "size_rel": 0.20
+    }
+}
+
+
+COMPROBANTE_MOVIMIENTO3_CONFIG = {
+    "template": "img/comprobante_movimiento3.jpg",
+    "output": "comprobante_movimiento3_generado.png",
+    "styles": {
+        "nombre": {"size": 18, "color": "#1b0b19", "pos": (87, 324), "font": "fuentes/Manrope-Medium.ttf"},
+        "valor1": {"size": 21, "color": "#b14253", "pos": (450, 333), "max_width": 200, "font": "fuentes/Manrope-Bold.ttf"},
+        "valor_decimal": {"size": 26, "color": "#b14253", "pos": (0, 0), "font": "fuentes/Manrope-Bold.ttf"},
+    },
+    "font": "fuentes/Manrope-Medium.ttf"
+}
+
+COMPROBANTE_NEQUI_CONFIG = {
+    "template": "plantilla_nequi.jpg",
+    "output": "comprobante_nequi_generado.png",
+    "styles": {
+        "nombre": {"size": 22, "color": "#200021", "pos": (90, 1072)},
+        "valor1": {"size": 22, "color": "#200021", "pos": (90, 1214)},
+        "telefono": {"size": 22, "color": "#200021", "pos": (90, 1369)},
+        "fecha": {"size": 22, "color": "#200021", "pos": (90, 1527)},
+        "referencia": {"size": 22, "color": "#200021", "pos": (90, 1670)},
+        "disponible": {"size": 22, "color": "#200021", "pos": (90, 1815)},
+    },
+    "font": "fuentes/Manrope-Medium.ttf"
+}

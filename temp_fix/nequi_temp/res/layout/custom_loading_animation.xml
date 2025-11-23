@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:gravity="center" android:background="@android:color/transparent" android:padding="24.0dip" android:clipChildren="false" android:clipToPadding="false" android:layout_width="120.0dip" android:layout_height="120.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center" android:id="@id/relativeContainer" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:id="@id/square1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/loading_square" android:layout_centerInParent="true" android:alpha="1.0" android:elevation="0.0dip" android:outlineProvider="none" />
+        <ImageView android:id="@id/square2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/loading_square" android:layout_centerInParent="true" android:alpha="1.0" android:elevation="0.0dip" android:outlineProvider="none" />
+    </RelativeLayout>
+</FrameLayout>

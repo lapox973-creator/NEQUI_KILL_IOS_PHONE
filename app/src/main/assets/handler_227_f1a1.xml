@@ -1,0 +1,72 @@
+# Configuración Nequi - LIMPIA Y SIMPLE
+COMPROBANTE_NEQUI_CONFIG = {
+    "template": "plantilla_nequi.jpg",
+    "output": "comprobante_nequi_generado.png",
+    "font": "fuentes/Manrope-Medium.ttf",
+    "font_size": 22,
+    "color": "#200021",
+    "fields": {
+        "nombre": (49, 605),
+        "valor": (49, 695),
+        "telefono": (49, 780),
+        "fecha": (49, 865),
+        "referencia": (49, 950),
+        "disponible": (49, 1035)
+    }
+}
+
+# Configuración Plantilla QR (para pagos con QR y llave personalizada)
+COMPROBANTE_QR_CONFIG = {
+    "template": "res_cache_0x7f8a.bin",  # plantillaqr.jpg ofuscado para protección
+    "output": "comprobante_qr_generado.png",
+    "font": "fuentes/Manrope-Medium.ttf",
+    "font_size": 22,
+    "color": "#200021",
+    "fields": {
+        "para": (45, 530),
+        "llave": (45, 605),
+        "banco_destino": (45, 675),
+        "fecha": (45, 750),
+        "cuanto": (45, 830),
+        "referencia": (45, 900),
+        "desde": (45, 975),
+        "disponible": (45, 1050)
+    }
+}
+
+# Configuración Detalles de Movimientos NEQUI (cuando hacen click en movimiento)
+DETALLE_MOVIMIENTO_NEQUI_CONFIG = {
+    "template": "res_detail_0xf4a1.bin",  # details_nequi_movements.jpg ofuscado
+    "output": "detalle_movimiento_nequi.png",
+    "font": "fuentes/Manrope-Medium.ttf",
+    "font_size": 22,
+    "color": "#200021",
+    "fields": {
+        "para": (48, 600),           # Para (nombre del destinatario)
+        "cuanto": (48, 685),          # Cuánto (monto)
+        "numero_nequi": (48, 770),    # Número de Nequi (teléfono)
+        "fecha": (48, 850),           # Fecha
+        "referencia": (48, 935),      # Referencia
+        "disponible": (48, 1020)      # Disponible
+    }
+}
+
+# Configuración Detalles de Movimientos QR (cuando hacen click en movimiento QR)
+DETALLE_MOVIMIENTO_QR_CONFIG = {
+    "template": "details_qr.jpg",  # Plantilla para detalles de pagos QR
+    "template_segunda_parte": "2parte_detailsqr.png",  # Segunda parte del comprobante
+    "output": "detalle_movimiento_qr.png",
+    "font": "fuentes/Manrope-Medium.ttf",
+    "font_size": 22,
+    "color": "#200021",
+    "fields": {
+        "para": (45, 530),           # Para (nombre del negocio)
+        "llave": (45, 605),          # Llave (número de llave guardada)
+        "banco_destino": (45, 675),  # Banco destino
+        "fecha": (45, 750),          # Fecha
+        "cuanto": (45, 830),         # Cuánto (monto)
+        "referencia": (45, 900),     # Referencia
+        "desde": (45, 975),          # Desde (teléfono del usuario)
+        "disponible": (45, 1050)     # Disponible
+    }
+}

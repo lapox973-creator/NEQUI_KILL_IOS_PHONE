@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_rounded_white"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Icono de advertencia -->
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_warning"
+        android:tint="#DA0081" />
+
+    <!-- Título -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/manrope_bold"
+        android:text="QR no registrado"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="22sp" />
+
+    <!-- Mensaje principal -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/manrope_medium"
+        android:text="Este QR no está registrado.\nNecesitas asociar el banco destino primero."
+        android:textAlignment="center"
+        android:textColor="#6B6B6B"
+        android:textSize="15sp" />
+
+    <!-- Info box -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_rounded_light_gray"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/manrope_bold"
+            android:text="✓ Llave generada automáticamente"
+            android:textColor="#4CAF50"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/manrope_medium"
+            android:text="✗ Falta asociar banco destino"
+            android:textColor="#DA0081"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <!-- Instrucción -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/manrope_medium"
+        android:text="Toca 'Continuar' para asociar el banco al QR"
+        android:textAlignment="center"
+        android:textColor="#DA0081"
+        android:textSize="14sp" />
+
+    <!-- Botón Continuar -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnGoToSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_button_primary_pink"
+        android:elevation="0dp"
+        android:fontFamily="@font/manrope_bold"
+        android:minHeight="50dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:stateListAnimator="@null"
+        android:text="Continuar"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+    <!-- Botón Cancelar -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCancelDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_button_outline_gray"
+        android:elevation="0dp"
+        android:fontFamily="@font/manrope_bold"
+        android:minHeight="50dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:stateListAnimator="@null"
+        android:text="Cancelar"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+</LinearLayout>

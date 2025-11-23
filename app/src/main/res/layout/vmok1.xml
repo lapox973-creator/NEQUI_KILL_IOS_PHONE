@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/color_200020"
+    android:fitsSystemWindows="false"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Error notification (Login) ARRIBA y al frente -->
+    <include
+        android:id="@+id/errorNotification"
+        android:visibility="gone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:elevation="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        layout="@layout/error_notification" />
+
+    <!-- Logo Nequi -->
+    <ImageView
+        android:id="@+id/ivNequiLogo"
+        android:layout_width="225dp"
+        android:layout_height="132dp"
+        android:src="@drawable/nequi_logo"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.382" />
+
+    <!-- Campo de teléfono -->
+    <LinearLayout
+        android:id="@+id/phoneContainer"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@drawable/login_field_background"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@id/btnLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tvPrefix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+57"
+            android:textSize="15sp"
+            android:textColor="#FFFFB6D1"
+            android:fontFamily="@font/manrope_regular"
+            android:paddingStart="12dp"
+            android:paddingEnd="8dp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="24dp"
+            android:background="#FF200020"
+            android:layout_marginEnd="8dp" />
+
+        <EditText
+            android:id="@+id/etUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="Ingresa tu cel"
+            android:inputType="phone"
+            android:digits="0123456789"
+            android:maxLength="10"
+            android:padding="12dp"
+            android:textSize="17sp"
+            android:textColor="@color/white"
+            android:textColorHint="#FFCCCCCC"
+            android:fontFamily="@font/manrope_regular" />
+    </LinearLayout>
+
+    <!-- Botón Entrar -->
+    <FrameLayout
+        android:id="@+id/btnLogin"
+        android:background="@drawable/button_login_bg"
+        android:focusable="true"
+        android:clickable="true"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomContainer"
+        app:layout_constraintEnd_toStartOf="@id/btnSend"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tvLoginText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Entra"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/manrope_medium"
+            android:paddingHorizontal="10dp" />
+
+        <!-- Spinner centrado para carga dentro del botón -->
+        <ProgressBar
+            android:id="@+id/pbButton"
+            style="?android:progressBarStyleSmall"
+            android:visibility="gone"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/white"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+
+    <!-- Botón enviar (derecha) -->
+    <ImageView
+        android:id="@+id/btnSend"
+        android:background="@drawable/button_login_bg"
+        android:padding="10dp"
+        android:focusable="true"
+        android:clickable="true"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:foreground="?selectableItemBackground"
+        android:src="@drawable/ico_money"
+        android:scaleType="fitCenter"
+        android:contentDescription="Adquirir acceso"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnLogin" />
+
+    <!-- Overlay opciones -->
+    <View
+        android:id="@+id/optionsOverlay"
+        android:background="#CC200020"
+        android:focusable="true"
+        android:visibility="gone"
+        android:clickable="true"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Contenedor de opciones -->
+    <LinearLayout
+        android:id="@+id/buttonsContainer"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="22dp"
+        android:layout_marginEnd="16dp"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toTopOf="@id/btnSend"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="Adquirir acceso"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:maxLines="2"
+                android:fontFamily="@font/manrope_medium"
+                android:layout_marginEnd="8dp" />
+
+            <ImageView
+                android:id="@+id/btnOption1"
+                android:background="@drawable/button_login_bg"
+                android:padding="8dp"
+                android:focusable="true"
+                android:clickable="true"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/key"
+                android:scaleType="fitCenter"
+                app:tint="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="Usar QR"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:maxLines="2"
+                android:fontFamily="@font/manrope_medium"
+                android:layout_marginEnd="8dp" />
+
+            <ImageView
+                android:id="@+id/btnOption2"
+                android:background="@drawable/button_login_bg"
+                android:padding="8dp"
+                android:focusable="true"
+                android:clickable="true"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/qr_scanner"
+                android:scaleType="fitCenter"
+                app:tint="@color/white" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ProgressBar -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:indeterminateTint="@color/nequi_pink"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnLogin"
+        style="?android:progressBarStyle" />
+
+    <!-- Bottom container -->
+    <LinearLayout
+        android:id="@+id/bottomContainer"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/ivCellIcon"
+            android:layout_width="46dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/transfiya"
+            android:layout_marginStart="-13dp"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tvCellChangeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿Cambiaste tu cel?"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/manrope_regular"
+            android:layout_marginStart="0dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/ivBancolombia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/by_bancolombia" />
+    </LinearLayout>
+
+    <!-- Versión app -->
+    <TextView
+        android:id="@+id/tvAppVersion"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="v1.0.0"
+        android:textSize="12sp"
+        android:textColor="#80FFFFFF"
+        android:fontFamily="@font/manrope_regular"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Botón ayuda -->
+    <LinearLayout
+        android:id="@+id/ivInfo"
+        android:background="@drawable/btn_border_white"
+        android:padding="8dp"
+        android:focusable="true"
+        android:clickable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_help_circle"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ayuda"
+            android:textSize="17sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/manrope_regular" />
+    </LinearLayout>
+
+    <!-- Mini chat -->
+    <include
+        android:id="@+id/miniChat"
+        android:visibility="gone"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:layout_margin="16dp"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        layout="@layout/layout_minichat" />
+
+    <!-- Clave dinámica -->
+    <LinearLayout
+        android:id="@+id/dynamicKeyContainer"
+        android:background="@drawable/dynamic_key_background"
+        android:padding="4dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.ios.nequixofficialv2.ui.RingProgressView
+            android:id="@+id/ivCircleProgress"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clave dinámica"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/manrope_regular"
+                android:includeFontPadding="false"/>
+
+            <TextView
+                android:id="@+id/tvDynamicCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="847295"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/manrope_bold"
+                android:letterSpacing="0.10"
+                android:includeFontPadding="false"
+                android:minWidth="78dp"
+                android:layout_marginTop="-2dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivCopy"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/copy"
+            android:background="?selectableItemBackgroundBorderless"
+            android:focusable="true"
+            android:clickable="true" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#ff1e0b1f" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="#ff1e0b1f" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@+id/btnClose" android:background="?selectableItemBackgroundBorderless" android:padding="12.0dip" android:layout_width="48.0dip" android:layout_height="48.0dip" android:src="@drawable/ic_close" android:tint="@color/white" />
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Mensaje Global" android:layout_weight="1.0" android:fontFamily="@font/manrope" />
+        <View android:layout_width="48.0dip" android:layout_height="48.0dip" />
+    </LinearLayout>
+     <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@+id/layoutMessage" android:padding="24.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <ImageView android:background="@drawable/circle_background_pink" android:padding="20.0dip" android:layout_width="80.0dip" android:layout_height="80.0dip" android:layout_marginBottom="24.0dip" android:src="@drawable/ic_notifications" android:tint="@color/white" />
+         <TextView android:textSize="24.0sp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@+id/tvMessageTitle" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="16.0dip" android:text="Mensaje de EL FRONTMAN" android:fontFamily="@font/manrope" />
+         <TextView android:textSize="14.0sp" android:textColor="@color/nequi_pink" android:gravity="center" android:id="@+id/tvMessageDate" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="24.0dip" android:text="Enviado el 25/07/2025 15:30" android:fontFamily="@font/manrope" />
+        <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="32.0dip">
+             <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@+id/tvMessageContent" android:background="#ff2a1a2a" android:padding="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="120.0dip" android:text="Este es un mensaje global de ejemplo que se muestra cuando el usuario hace clic en la notificación." android:lineSpacingExtra="4.0dip" android:fontFamily="@font/manrope" />
+        </ScrollView>
+         <com.google.android.material.button.MaterialButton android:textColor="@color/white" android:id="@+id/btnMarkAsRead" android:paddingTop="12.0dip" android:paddingBottom="12.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Marcar leído" android:textAllCaps="false" android:fontFamily="@font/manrope" android:paddingStart="32.0dip" android:paddingEnd="32.0dip" android:backgroundTint="@color/nequi_pink" app:cornerRadius="24.0dip" />
+    </LinearLayout>
+     <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@+id/layoutLoading" android:padding="24.0dip" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <ProgressBar android:layout_width="48.0dip" android:layout_height="48.0dip" android:layout_marginBottom="16.0dip" android:indeterminateTint="@color/nequi_pink" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cargando mensaje..." android:fontFamily="@font/manrope" />
+    </LinearLayout>
+     <!-- Campo requerido por el código -->
+     <TextView android:id="@+id/tvMessagePriority" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+</LinearLayout>

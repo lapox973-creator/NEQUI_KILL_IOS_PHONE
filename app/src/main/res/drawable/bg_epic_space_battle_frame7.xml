@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Frame 7: Choque de energías - púrpura intenso -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="315"
+        android:startColor="#2A0A4D"
+        android:centerColor="#5C1F8A"
+        android:endColor="#9B59B6"
+        android:type="linear"/>
+</shape>

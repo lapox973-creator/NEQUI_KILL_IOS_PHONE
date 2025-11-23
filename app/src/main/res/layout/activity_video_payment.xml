@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@android:color/transparent" android:fitsSystemWindows="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <VideoView android:id="@+id/videoView" android:background="@android:color/transparent" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginBottom="-20.0dip" android:scaleType="fitXY" android:layout_centerInParent="true" />
+    <!-- IDs esperados -->
+    <Button android:id="@+id/btnSkip" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+    <Button android:id="@+id/btnContinue" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+</RelativeLayout>

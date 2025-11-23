@@ -1,0 +1,96 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# ===================================
+# SEGURIDAD - Archivos Sensibles
+# ===================================
+
+# Firebase - NUNCA COMMITEAR
+app/google-services.json
+google-services.json
+
+# Configuración local con API keys
+keystore.properties
+local.properties
+
+# Credenciales y secretos
+*.keystore
+*.jks
+*.key
+*.pem
+*.p12
+
+# Archivos de configuración con tokens
+config.properties
+secrets.properties
+
+# DOCUMENTACIÓN PROHIBIDA - EXPONE VULNERABILIDADES
+*.md
+*.MD
+*.txt
+*.TXT
+README*
+LEEME*
+CHANGELOG*
+GUIA*
+INSTRUCCIONES*
+PROTECCION*
+SEGURIDAD*
+FIX*
+IMPLEMENTACION*
+CONFIGURACION*
+COMO_*
+HOW_TO*
+DOCS*
+DOCUMENTATION*
+MANUAL*
+TUTORIAL*
+EJEMPLO*
+EXAMPLE*
+PASOS*
+STEPS*
+!requirements.txt
+!gradle.properties
+
+# iOS / CocoaPods
+iosApp/Pods/
+iosApp/Podfile.lock
+iosApp/*.xcworkspace/xcuserdata/
+iosApp/*.xcodeproj/xcuserdata/
+iosApp/*.xcodeproj/project.xcworkspace/xcuserdata/
+shared/build/
+DerivedData/
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/*.xcworkspace/xcuserdata/
+
+# APKs y builds
+*.apk
+*.aab
+app/debug/
+app/release/
+app/build/outputs/
+app/build/intermediates/
+app/mapping.txt
+app-nequisan-extracted.apk
+
+# Archivos temporales grandes
+temp_fix/
+
+# Gradle cache
+.gradle/

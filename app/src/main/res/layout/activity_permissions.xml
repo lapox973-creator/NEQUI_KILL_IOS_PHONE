@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/nequi_pink" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@+id/logoImageView" android:layout_width="120.0dip" android:layout_height="120.0dip" android:layout_marginTop="80.0dip" android:src="@drawable/nequi_logo" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <TextView android:textSize="28.0sp" android:textStyle="bold" android:textColor="@color/white" android:id="@+id/tvTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="40.0dip" android:text="Permisos necesarios" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/logoImageView" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@+id/tvDescription" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:text="Para que la aplicación funcione correctamente, necesitamos algunos permisos importantes. Estos permisos nos ayudan a brindarte la mejor experiencia posible." android:layout_marginStart="40.0dip" android:layout_marginEnd="40.0dip" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+    <LinearLayout android:orientation="vertical" android:id="@+id/permissionsContainer" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="40.0dip" android:layout_marginStart="30.0dip" android:layout_marginEnd="30.0dip" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/tvDescription">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/cameraPermissionLayout" android:background="@drawable/permission_item_background" android:padding="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="15.0dip">
+            <ImageView android:layout_width="40.0dip" android:layout_height="40.0dip" android:src="@drawable/ic_camera" android:tint="@color/white" android:layout_marginEnd="15.0dip" />
+            <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cámara" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Para escanear códigos QR y tomar fotos" />
+            </LinearLayout>
+            <ImageView android:id="@+id/cameraPermissionIcon" android:layout_width="24.0dip" android:layout_height="24.0dip" android:src="@drawable/ic_permission_pending" android:tint="@color/white" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/notificationPermissionLayout" android:background="@drawable/permission_item_background" android:padding="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="15.0dip">
+            <ImageView android:layout_width="40.0dip" android:layout_height="40.0dip" android:src="@drawable/ic_notification" android:tint="@color/white" android:layout_marginEnd="15.0dip" />
+            <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Notificaciones" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Para recibir alertas de transacciones" />
+            </LinearLayout>
+            <ImageView android:id="@+id/notificationPermissionIcon" android:layout_width="24.0dip" android:layout_height="24.0dip" android:src="@drawable/ic_permission_pending" android:tint="@color/white" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/storagePermissionLayout" android:background="@drawable/permission_item_background" android:padding="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="15.0dip">
+            <ImageView android:layout_width="40.0dip" android:layout_height="40.0dip" android:src="@drawable/ic_storage" android:tint="@color/white" android:layout_marginEnd="15.0dip" />
+            <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Almacenamiento" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Para guardar comprobantes y fotos" />
+            </LinearLayout>
+            <ImageView android:id="@+id/storagePermissionIcon" android:layout_width="24.0dip" android:layout_height="24.0dip" android:src="@drawable/ic_permission_pending" android:tint="@color/white" />
+        </LinearLayout>
+    </LinearLayout>
+     <com.google.android.material.button.MaterialButton android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/white" android:id="@+id/btnContinue" android:layout_width="0.0dip" android:layout_height="56.0dip" android:layout_marginBottom="40.0dip" android:text="Continuar" android:layout_marginStart="30.0dip" android:layout_marginEnd="30.0dip" android:backgroundTint="@color/button_pink" app:cornerRadius="28.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" />
+     <!-- IDs esperados por el código -->
+     <Button android:id="@+id/btnGrantCamera" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+     <Button android:id="@+id/btnGrantStorage" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+     <Button android:id="@+id/btnGrantLocation" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+     <Button android:id="@+id/btnSkip" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

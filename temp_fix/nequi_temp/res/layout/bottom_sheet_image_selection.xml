@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@android:color/white" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0sp" android:textColor="@color/nequi_purple" android:id="@id/galleryOption" android:background="?android:selectableItemBackground" android:padding="16.0dip" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip" android:text="Seleccionar de galería" android:fontFamily="@font/manrope_regular" />
+    <View android:background="@color/pink_light" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginBottom="8.0dip" android:layout_marginStart="16.0dip" android:layout_marginEnd="16.0dip" />
+    <TextView android:textSize="16.0sp" android:textColor="@android:color/black" android:id="@id/cancelOption" android:background="?android:selectableItemBackground" android:padding="16.0dip" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Cancelar" android:fontFamily="@font/manrope_regular" />
+</LinearLayout>

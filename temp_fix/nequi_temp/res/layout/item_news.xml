@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:layout_marginBottom="8.0dip" android:layout_marginStart="8.0dip" android:layout_marginEnd="8.0dip" app:cardBackgroundColor="@color/white" app:cardCornerRadius="8.0dip" app:cardElevation="5.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/black" android:id="@id/tvTitle" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/black" android:id="@id/tvDescription" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginBottom="12.0dip" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+        <com.facebook.shimmer.ShimmerFrameLayout android:id="@id/shimmerContainer" android:background="@drawable/rounded_shimmer_background" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/tvDescription" app:shimmer_auto_start="true" app:shimmer_base_color="#fff0f0f0" app:shimmer_duration="1500" app:shimmer_highlight_color="#ffffffff">
+            <ImageView android:id="@id/ivNewsImage" android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="wrap_content" android:scaleType="centerInside" android:adjustViewBounds="true" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

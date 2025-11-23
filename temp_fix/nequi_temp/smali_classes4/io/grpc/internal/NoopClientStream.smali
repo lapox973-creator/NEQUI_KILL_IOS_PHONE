@@ -1,0 +1,175 @@
+.class public Lio/grpc/internal/NoopClientStream;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lio/grpc/internal/ClientStream;
+
+
+# static fields
+.field public static final INSTANCE:Lio/grpc/internal/NoopClientStream;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    .line 1
+    new-instance v0, Lio/grpc/internal/NoopClientStream;
+
+    .line 2
+    .line 3
+    invoke-direct {v0}, Lio/grpc/internal/NoopClientStream;-><init>()V
+
+    .line 4
+    .line 5
+    .line 6
+    sput-object v0, Lio/grpc/internal/NoopClientStream;->INSTANCE:Lio/grpc/internal/NoopClientStream;
+
+    .line 7
+    .line 8
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+
+# virtual methods
+.method public appendTimeoutInsight(Lio/grpc/internal/InsightBuilder;)V
+    .locals 1
+
+    .line 1
+    const-string v0, "noop"
+
+    .line 2
+    .line 3
+    invoke-virtual {p1, v0}, Lio/grpc/internal/InsightBuilder;->append(Ljava/lang/Object;)Lio/grpc/internal/InsightBuilder;
+
+    .line 4
+    .line 5
+    .line 6
+    return-void
+.end method
+
+.method public cancel(Lio/grpc/Status;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public flush()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public getAttributes()Lio/grpc/Attributes;
+    .locals 1
+
+    .line 1
+    sget-object v0, Lio/grpc/Attributes;->EMPTY:Lio/grpc/Attributes;
+
+    .line 2
+    .line 3
+    return-object v0
+.end method
+
+.method public halfClose()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public isReady()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public optimizeForDirectExecutor()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public request(I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public setAuthority(Ljava/lang/String;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public setCompressor(Lio/grpc/Compressor;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public setDeadline(Lio/grpc/Deadline;)V
+    .locals 0
+    .param p1    # Lio/grpc/Deadline;
+        .annotation runtime Ltm/g;
+        .end annotation
+    .end param
+
+    return-void
+.end method
+
+.method public setDecompressorRegistry(Lio/grpc/DecompressorRegistry;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public setFullStreamDecompression(Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public setMaxInboundMessageSize(I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public setMaxOutboundMessageSize(I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public setMessageCompression(Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public start(Lio/grpc/internal/ClientStreamListener;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public writeMessage(Ljava/io/InputStream;)V
+    .locals 0
+
+    return-void
+.end method

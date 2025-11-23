@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 320dp: más compacto para ver el layout "de lejos" -->
+    <dimen name="tuplata_title_size">19sp</dimen>
+    <dimen name="tuplata_subtitle_size">13sp</dimen>
+    <dimen name="tuplata_total_size">23sp</dimen>
+    <dimen name="tuplata_topes_margin_top">32dp</dimen>
+    <dimen name="tuplata_topes_margin_bottom">8dp</dimen>
+    <dimen name="tuplata_topes_padding">8dp</dimen>
+    <dimen name="tuplata_cards_top_margin">10dp</dimen>
+</resources>

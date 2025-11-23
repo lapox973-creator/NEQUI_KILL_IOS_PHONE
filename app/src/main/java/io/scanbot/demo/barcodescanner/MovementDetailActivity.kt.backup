@@ -1,0 +1,627 @@
+package io.scanbot.demo.barcodescanner
+
+import android.os.Bundle
+import android.view.MenuItem
+import android.view.View
+import android.widget.ImageView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import com.ios.nequixofficialv2.R
+
+class MovementDetailActivity : AppCompatActivity() {
+
+    companion object {
+        const val EXTRA_RECIPIENT = "extra_recipient"
+        const val EXTRA_AMOUNT = "extra_amount"
+        const val EXTRA_PHONE = "extra_phone"
+        const val EXTRA_DATE = "extra_date"
+        const val EXTRA_UNIQUE_ID = "extra_unique_id"
+        const val EXTRA_IS_INCOMING = "extra_is_incoming"
+        const val EXTRA_MVALUE = "extra_mvalue"
+        const val EXTRA_TYPE = "extra_type"
+        const val EXTRA_MSJ = "extra_msj"
+        const val EXTRA_IMAGE_URL = "image_url"
+    }
+
+// Decodifica imagen con máxima calidad sin escalado
+private fun decodeImageWithQuality(resolver: android.content.ContentResolver, uriOrPath: String): android.graphics.Bitmap? {
+    return try {
+        if (uriOrPath.startsWith("content://")) {
+            val uri = android.net.Uri.parse(uriOrPath)
+            val opts = android.graphics.BitmapFactory.Options().apply {
+                inPreferredConfig = android.graphics.Bitmap.Config.ARGB_8888
+                inScaled = false
+                inDither = false
+                inPreferQualityOverSpeed = true
+                inMutable = false
+                inSampleSize = 1
+            }
+            resolver.openInputStream(uri)?.use { s ->
+                android.graphics.BitmapFactory.decodeStream(s, null, opts)
+            }
+        } else {
+            val path = if (uriOrPath.startsWith("file://")) android.net.Uri.parse(uriOrPath).path ?: "" else uriOrPath
+            val opts = android.graphics.BitmapFactory.Options().apply {
+                inPreferredConfig = android.graphics.Bitmap.Config.ARGB_8888
+                inScaled = false
+                inDither = false
+                inPreferQualityOverSpeed = true
+                inMutable = false
+                inSampleSize = 1
+            }
+            android.graphics.BitmapFactory.decodeFile(path, opts)
+        }
+    } catch (e: Exception) {
+        android.util.Log.e("MovDetailQr", "Error decodificando imagen: ${e.message}")
+        null
+    }
+}
+
+// Decodifica un bitmap escalado a las dimensiones objetivo manteniendo proporción.
+private fun decodeScaledBitmap(resolver: android.content.ContentResolver, uriOrPath: String, targetW: Int, targetH: Int): android.graphics.Bitmap? {
+    return try {
+        if (uriOrPath.startsWith("content://")) {
+            val uri = android.net.Uri.parse(uriOrPath)
+            // Leer bounds
+            val bounds = android.graphics.BitmapFactory.Options().apply { inJustDecodeBounds = true }
+            resolver.openInputStream(uri)?.use { s ->
+                android.graphics.BitmapFactory.decodeStream(s, null, bounds)
+            }
+            val sample = computeInSampleSize(bounds.outWidth, bounds.outHeight, targetW, targetH)
+            val opts = android.graphics.BitmapFactory.Options().apply {
+                inSampleSize = if (sample <= 0) 1 else sample
+                inPreferredConfig = android.graphics.Bitmap.Config.ARGB_8888
+            }
+            resolver.openInputStream(uri)?.use { s ->
+                android.graphics.BitmapFactory.decodeStream(s, null, opts)
+            }
+        } else {
+            val path = if (uriOrPath.startsWith("file://")) android.net.Uri.parse(uriOrPath).path ?: "" else uriOrPath
+            val optsBounds = android.graphics.BitmapFactory.Options().apply { inJustDecodeBounds = true }
+            android.graphics.BitmapFactory.decodeFile(path, optsBounds)
+            val sample = computeInSampleSize(optsBounds.outWidth, optsBounds.outHeight, targetW, targetH)
+            val opts = android.graphics.BitmapFactory.Options().apply {
+                inSampleSize = if (sample <= 0) 1 else sample
+                inPreferredConfig = android.graphics.Bitmap.Config.ARGB_8888
+            }
+            android.graphics.BitmapFactory.decodeFile(path, opts)
+        }
+    } catch (_: Exception) { null }
+}
+
+private fun computeInSampleSize(srcW: Int, srcH: Int, reqW: Int, reqH: Int): Int {
+    var inSampleSize = 1
+    if (srcH > reqH || srcW > reqW) {
+        var halfH = srcH / 2
+        var halfW = srcW / 2
+        while ((halfH / inSampleSize) >= reqH && (halfW / inSampleSize) >= reqW) {
+            inSampleSize *= 2
+        }
+    }
+    return inSampleSize.coerceAtLeast(1)
+}
+
+    private var loadingCircle: ImageView? = null
+    private var imageMovementDetail: ImageView? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        
+        setContentView(R.layout.activity_movement_detail)
+
+        // Aplicar barra morada Nequi para evitar destellos al regresar
+        try {
+            window.statusBarColor = android.graphics.Color.parseColor("#200020")
+            // Navegación respeta configuración del usuario
+            val v = window.decorView
+            @Suppress("DEPRECATION")
+            run {
+                // Iconos claros para barra morada
+                v.systemUiVisibility = (v.systemUiVisibility and android.view.View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv())
+            }
+        } catch (_: Exception) {}
+
+        // ✅ Aplicar SOLO padding bottom para respetar barra de navegación inferior
+        val rootView = findViewById<android.view.View>(R.id.rootMovementDetail)
+        androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(rootView) { v, insets ->
+            val navBars = insets.getInsets(androidx.core.view.WindowInsetsCompat.Type.navigationBars())
+            v.setPadding(0, 0, 0, navBars.bottom)
+            androidx.core.view.WindowInsetsCompat.CONSUMED
+        }
+
+        loadingCircle = findViewById(R.id.loadingCircle)
+        imageMovementDetail = findViewById(R.id.imageMovementDetail)
+
+        // Mostrar imagen si viene URL (soporta file://, content:// y ruta absoluta)
+        val imageUrl = intent.getStringExtra(EXTRA_IMAGE_URL)
+        val isQrPayment = intent.getBooleanExtra("IS_QR_PAYMENT", false)
+        
+        android.util.Log.d("MovDetailQr", "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+        android.util.Log.d("MovDetailQr", "📂 CARGA DE IMAGEN GUARDADA")
+        android.util.Log.d("MovDetailQr", "   imageUrl: $imageUrl")
+        android.util.Log.d("MovDetailQr", "   IS_QR_PAYMENT: $isQrPayment")
+        android.util.Log.d("MovDetailQr", "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+        
+        if (imageUrl.isNullOrBlank()) {
+            // Si no hay imagen guardada, generar con plantilla details_nequi_movements.jpg
+            loadingCircle?.visibility = View.VISIBLE
+            generateDetailTemplateNequi()
+        } else {
+            try {
+                // Cargar con máxima calidad sin escalado
+                val bmp = decodeImageWithQuality(contentResolver, imageUrl)
+                loadingCircle?.visibility = View.GONE
+                
+                if (bmp != null) {
+                    // Si es pago QR, unir con segunda parte
+                    val finalBitmap = if (isQrPayment) {
+                        android.util.Log.d("MovDetailQr", "🔍 Es pago QR guardado - Cargando segunda parte")
+                        android.util.Log.d("MovDetailQr", "   Primera parte: ${bmp.width}x${bmp.height}, config=${bmp.config}")
+                        val secondPart = loadTemplate(arrayOf("2parte_detailsqr.png", "qr_2parte.png"))
+                        if (secondPart != null) {
+                            android.util.Log.d("MovDetailQr", "   Segunda parte: ${secondPart.width}x${secondPart.height}, config=${secondPart.config}")
+                            android.util.Log.d("MovDetailQr", "✅ Uniendo imágenes...")
+                            val combined = combineBitmaps(bmp, secondPart)
+                            android.util.Log.d("MovDetailQr", "✅ Resultado: ${combined.width}x${combined.height}")
+                            combined
+                        } else {
+                            android.util.Log.e("MovDetailQr", "❌ No se pudo cargar segunda parte")
+                            bmp
+                        }
+                    } else {
+                        bmp
+                    }
+                    
+                    imageMovementDetail?.setImageBitmap(finalBitmap)
+                    imageMovementDetail?.scaleType = android.widget.ImageView.ScaleType.FIT_START
+                } else {
+                    imageMovementDetail?.setImageResource(R.drawable.ic_launcher_foreground)
+                    Toast.makeText(this, "No se pudo cargar la imagen del comprobante", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                android.util.Log.e("MovDetailQr", "Error cargando imagen: ${e.message}", e)
+                loadingCircle?.visibility = View.GONE
+                imageMovementDetail?.setImageResource(R.drawable.ic_launcher_foreground)
+                Toast.makeText(this, "No se pudo cargar la imagen del comprobante", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        // Botones invisibles superpuestos
+        findViewById<View?>(R.id.btnBack)?.setOnClickListener { finishWithoutAnimation() }
+        findViewById<View?>(R.id.btnQuestion)?.setOnClickListener {
+            val handle = "@sangre_binerojs"
+            val dlg = androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("Contacta al asesor")
+                .setMessage("Para soporte, escribe a $handle")
+                .setPositiveButton("Copiar") { d, _ ->
+                    val cb = getSystemService(android.content.Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
+                    cb.setPrimaryClip(android.content.ClipData.newPlainText("asesor", handle))
+                    Toast.makeText(this, "Copiado: $handle", Toast.LENGTH_SHORT).show()
+                    d.dismiss()
+                }
+                .setNegativeButton("Cerrar") { d, _ -> d.dismiss() }
+                .create()
+            dlg.show()
+        }
+        findViewById<View?>(R.id.btnShare)?.setOnClickListener {
+            val url = intent.getStringExtra(EXTRA_IMAGE_URL)
+            if (!url.isNullOrBlank()) {
+                try {
+                    val uri = when {
+                        url.startsWith("content://") -> android.net.Uri.parse(url)
+                        url.startsWith("file://") -> {
+                            val f = java.io.File(android.net.Uri.parse(url).path ?: "")
+                            androidx.core.content.FileProvider.getUriForFile(this, "$packageName.provider", f)
+                        }
+                        else -> {
+                            val f = java.io.File(url)
+                            androidx.core.content.FileProvider.getUriForFile(this, "$packageName.provider", f)
+                        }
+                    }
+                    val share = android.content.Intent(android.content.Intent.ACTION_SEND).apply {
+                        type = "image/png"
+                        putExtra(android.content.Intent.EXTRA_STREAM, uri)
+                        addFlags(android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                    }
+                    startActivity(android.content.Intent.createChooser(share, "Compartir comprobante"))
+                } catch (_: Exception) {
+                    Toast.makeText(this, "No se pudo compartir", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return if (item.itemId == android.R.id.home) {
+            finishWithoutAnimation()
+            true
+        } else super.onOptionsItemSelected(item)
+    }
+    
+    private fun finishWithoutAnimation() {
+        // Desactivar animaciones para evitar destellos al regresar
+        if (android.os.Build.VERSION.SDK_INT >= 34) {
+            overrideActivityTransition(OVERRIDE_TRANSITION_CLOSE, 0, 0)
+        } else {
+            @Suppress("DEPRECATION")
+            overridePendingTransition(0, 0)
+        }
+        finish()
+    }
+
+    private fun generateDetailTemplateNequi() {
+        Thread {
+            try {
+                // Extraer datos del Intent
+                val recipient = intent.getStringExtra(EXTRA_RECIPIENT) ?: "Desconocido"
+                val amount = (intent.getStringExtra(EXTRA_AMOUNT) ?: "$0").replace("-", "").trim()
+                val phone = intent.getStringExtra(EXTRA_PHONE) ?: ""
+                val dateMillis = intent.getStringExtra(EXTRA_DATE)?.toLongOrNull() ?: System.currentTimeMillis()
+                val mvalue = intent.getStringExtra(EXTRA_MVALUE) ?: ""
+                val isQrPayment = intent.getBooleanExtra("IS_QR_PAYMENT", false)
+                
+                android.util.Log.d("MovDetailQr", "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+                android.util.Log.d("MovDetailQr", "🔍 DETECCIÓN DE TIPO DE PAGO:")
+                android.util.Log.d("MovDetailQr", "   IS_QR_PAYMENT flag = $isQrPayment")
+                android.util.Log.d("MovDetailQr", "   Recipient = $recipient")
+                android.util.Log.d("MovDetailQr", "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+                
+                // Seleccionar plantilla según tipo de pago
+                val templateNames = if (isQrPayment) {
+                    arrayOf("details_qr.jpg")
+                } else {
+                    arrayOf("res_detail_0xf4a1.bin", "details_nequi_movements.jpg")
+                }
+                
+                val baseBitmap = loadTemplate(templateNames) 
+                    ?: throw Exception("No se encontró plantilla de detalles")
+                
+                // Formatear fecha
+                val date = java.util.Date(dateMillis)
+                val dateFormatted = formatDateEs(date)
+                
+                // Formatear teléfono
+                val phoneFormatted = if (phone.length == 10) {
+                    "${phone.substring(0, 3)} ${phone.substring(3, 6)} ${phone.substring(6)}"
+                } else {
+                    phone
+                }
+                
+                // Generar referencia si no existe
+                val reference = if (mvalue.isNotBlank()) mvalue else generateReference()
+                
+                // Dibujar campos en la plantilla
+                val composed = composeDetailOverlay(
+                    base = baseBitmap,
+                    para = toTitleCase(recipient),
+                    cuanto = amount,
+                    numeroNequi = phoneFormatted,
+                    fecha = dateFormatted,
+                    referencia = reference,
+                    disponible = "Disponible",
+                    isQrPayment = isQrPayment
+                )
+                
+                // Si es QR, unir con segunda parte
+                val finalBitmap = if (isQrPayment) {
+                    android.util.Log.d("MovDetailQr", "🔍 Es pago QR - Intentando cargar segunda parte")
+                    android.util.Log.d("MovDetailQr", "Primera parte (details_qr.jpg): ${composed.width}x${composed.height}")
+                    
+                    // Cargar segunda parte con varios nombres posibles
+                    val secondPart = loadTemplate(arrayOf(
+                        "2parte_detailsqr.png",
+                        "2partedetailsqr.png",
+                        "qr_2parte.png"
+                    ))
+                    
+                    if (secondPart != null) {
+                        android.util.Log.d("MovDetailQr", "✅ Segunda parte encontrada: ${secondPart.width}x${secondPart.height}")
+                        val combined = combineBitmaps(composed, secondPart)
+                        android.util.Log.d("MovDetailQr", "✅ IMÁGENES UNIDAS: ${combined.width}x${combined.height}")
+                        combined
+                    } else {
+                        android.util.Log.e("MovDetailQr", "❌ ERROR: No se encontró 2parte_detailsqr.png")
+                        android.util.Log.e("MovDetailQr", "⚠️ Mostrando solo primera parte")
+                        composed
+                    }
+                } else {
+                    composed
+                }
+                
+                runOnUiThread {
+                    loadingCircle?.visibility = View.GONE
+                    imageMovementDetail?.setImageBitmap(finalBitmap)
+                    // Usar FIT_START para que muestre desde arriba y permita scroll
+                    imageMovementDetail?.scaleType = android.widget.ImageView.ScaleType.FIT_START
+                    android.util.Log.d("MovDetailQr", "✅ Imagen mostrada en UI. isQR=$isQrPayment, dimensions=${finalBitmap.width}x${finalBitmap.height}")
+                }
+                
+            } catch (e: Exception) {
+                android.util.Log.e("MovDetailNequi", "Error generando plantilla: ${e.message}")
+                runOnUiThread {
+                    loadingCircle?.visibility = View.GONE
+                    Toast.makeText(this, "Error generando comprobante", Toast.LENGTH_SHORT).show()
+                    imageMovementDetail?.setImageResource(R.drawable.ic_launcher_foreground)
+                }
+            }
+        }.start()
+    }
+    
+    private fun combineBitmaps(top: android.graphics.Bitmap, bottom: android.graphics.Bitmap): android.graphics.Bitmap {
+        // Convertir ambas imágenes a ARGB_8888 si no lo son para evitar problemas
+        val topConverted = if (top.config != android.graphics.Bitmap.Config.ARGB_8888) {
+            top.copy(android.graphics.Bitmap.Config.ARGB_8888, false)
+        } else top
+        
+        val bottomConverted = if (bottom.config != android.graphics.Bitmap.Config.ARGB_8888) {
+            bottom.copy(android.graphics.Bitmap.Config.ARGB_8888, false)
+        } else bottom
+        
+        // Usar el ancho exacto
+        val width = topConverted.width
+        val height = topConverted.height + bottomConverted.height
+        
+        // Crear bitmap con fondo blanco sólido
+        val combined = android.graphics.Bitmap.createBitmap(width, height, android.graphics.Bitmap.Config.ARGB_8888)
+        val canvas = android.graphics.Canvas(combined)
+        
+        // Llenar completamente con blanco
+        canvas.drawARGB(255, 255, 255, 255)
+        
+        // Paint optimizado sin efectos que causen sombreados
+        val paint = android.graphics.Paint().apply {
+            isAntiAlias = false  // Evita sombreados en bordes
+            isFilterBitmap = false  // Sin filtros que causen difuminado
+            isDither = false
+            alpha = 255
+        }
+        
+        // Dibujar las imágenes de forma exacta
+        canvas.drawBitmap(topConverted, 0f, 0f, paint)
+        canvas.drawBitmap(bottomConverted, 0f, topConverted.height.toFloat(), paint)
+        
+        return combined
+    }
+    
+    private fun loadTemplate(names: Array<String>): android.graphics.Bitmap? {
+        for (name in names) {
+            try {
+                com.ios.nequixofficialv2.security.AssetObfuscator.openAsset(this, name).use { inp ->
+                    val opts = android.graphics.BitmapFactory.Options().apply {
+                        inPreferredConfig = android.graphics.Bitmap.Config.ARGB_8888
+                        inScaled = false
+                        inDither = false
+                        inPreferQualityOverSpeed = true
+                        inMutable = true
+                        inSampleSize = 1
+                    }
+                    val bmp = android.graphics.BitmapFactory.decodeStream(inp, null, opts)
+                    if (bmp != null) return bmp
+                }
+            } catch (_: Exception) { continue }
+        }
+        return null
+    }
+    
+    private fun loadManropeFont(): android.graphics.Typeface {
+        val fontPaths = arrayOf(
+            "fuentes/Manrope-Medium.ttf",
+            "fuentes/manrope_medium.ttf",
+            "fuentes/Manrope-Regular.ttf",
+            "fonts/Manrope-Medium.ttf"
+        )
+        
+        for (fontPath in fontPaths) {
+            try {
+                android.util.Log.d("MovDetailNequi", "Intentando cargar fuente: $fontPath")
+                val fontStream = com.ios.nequixofficialv2.security.AssetObfuscator.openAsset(this, fontPath)
+                val tempFile = java.io.File.createTempFile("font_manrope_", ".ttf", cacheDir)
+                tempFile.outputStream().use { fontStream.copyTo(it) }
+                val typeface = android.graphics.Typeface.createFromFile(tempFile)
+                android.util.Log.d("MovDetailNequi", "✅ Fuente Manrope cargada desde: $fontPath")
+                tempFile.delete()
+                return typeface
+            } catch (e: Exception) {
+                android.util.Log.w("MovDetailNequi", "⚠️ No se pudo cargar $fontPath: ${e.message}")
+            }
+        }
+        
+        android.util.Log.e("MovDetailNequi", "❌ No se pudo cargar Manrope, usando Typeface.DEFAULT")
+        return android.graphics.Typeface.DEFAULT
+    }
+    
+    private fun composeDetailOverlay(
+        base: android.graphics.Bitmap,
+        para: String,
+        cuanto: String,
+        numeroNequi: String,
+        fecha: String,
+        referencia: String,
+        disponible: String,
+        isQrPayment: Boolean = false
+    ): android.graphics.Bitmap {
+        val out = base.copy(android.graphics.Bitmap.Config.ARGB_8888, true)
+        val canvas = android.graphics.Canvas(out)
+        
+        // Leer configuración desde config_nequi.py según tipo de pago
+        val configSection = if (isQrPayment) "DETALLE_MOVIMIENTO_QR_CONFIG" else "DETALLE_MOVIMIENTO_NEQUI_CONFIG"
+        val config = loadConfigFromPython(configSection)
+        
+        // Cargar fuente Manrope
+        val manrope = loadManropeFont()
+        
+        val color = android.graphics.Color.parseColor(config["color"] ?: "#200021")
+        val fontSize = config["font_size"]?.toFloatOrNull() ?: if (isQrPayment) 22f else 18f
+        
+        val paint = android.text.TextPaint(android.graphics.Paint.ANTI_ALIAS_FLAG).apply {
+            textSize = fontSize
+            typeface = manrope
+            this.color = color
+        }
+        
+        // Coordenadas desde config_nequi.py
+        val fields = if (isQrPayment) {
+            // Para pagos QR: usar campos de DETALLE_MOVIMIENTO_QR_CONFIG
+            mapOf(
+                para to (config["para_y"]?.toFloatOrNull() ?: 530f),        // Para (nombre negocio)
+                numeroNequi to (config["llave_y"]?.toFloatOrNull() ?: 605f), // Llave
+                "Bancolombia" to (config["banco_destino_y"]?.toFloatOrNull() ?: 675f), // Banco destino
+                fecha to (config["fecha_y"]?.toFloatOrNull() ?: 750f),       // Fecha
+                cuanto to (config["cuanto_y"]?.toFloatOrNull() ?: 830f),     // Cuánto
+                referencia to (config["referencia_y"]?.toFloatOrNull() ?: 900f), // Referencia
+                numeroNequi to (config["desde_y"]?.toFloatOrNull() ?: 975f), // Desde
+                disponible to (config["disponible_y"]?.toFloatOrNull() ?: 1050f) // Disponible
+            )
+        } else {
+            // Para pagos normales: usar campos de DETALLE_MOVIMIENTO_NEQUI_CONFIG
+            mapOf(
+                para to (config["para_y"]?.toFloatOrNull() ?: 600f),
+                cuanto to (config["cuanto_y"]?.toFloatOrNull() ?: 685f),
+                numeroNequi to (config["numero_nequi_y"]?.toFloatOrNull() ?: 770f),
+                fecha to (config["fecha_y"]?.toFloatOrNull() ?: 850f),
+                referencia to (config["referencia_y"]?.toFloatOrNull() ?: 935f),
+                disponible to (config["disponible_y"]?.toFloatOrNull() ?: 1020f)
+            )
+        }
+        
+        val xPos = config["x_position"]?.toFloatOrNull() ?: if (isQrPayment) 45f else 48f
+        
+        fields.forEach { (text, y) ->
+            if (text.isNotBlank()) {
+                canvas.drawText(text, xPos, y, paint)
+            }
+        }
+        
+        return out
+    }
+    
+    private fun loadConfigFromPython(configSection: String): Map<String, String> {
+        return try {
+            val configText = com.ios.nequixofficialv2.security.AssetObfuscator.openAsset(this, "config_nequi.py").use { inp ->
+                inp.bufferedReader().use { it.readText() }
+            }
+            
+            val config = mutableMapOf<String, String>()
+            val lines = configText.lines()
+            var inDetailSection = false
+            
+            for (line in lines) {
+                if (line.contains(configSection)) {
+                    inDetailSection = true
+                    continue
+                }
+                
+                if (inDetailSection) {
+                    if (line.trim().startsWith("#") && !line.contains("Para") && !line.contains("Cuánto") && !line.contains("Llave")) {
+                        break
+                    }
+                    if (line.contains("}") && !line.contains("fields")) {
+                        break
+                    }
+                    
+                    if (line.contains("\"font_size\":")) {
+                        val value = line.substringAfter(":").replace(",", "").trim()
+                        config["font_size"] = value
+                    }
+                    
+                    if (line.contains("\"color\":")) {
+                        val value = line.substringAfter(":").replace("\"", "").replace(",", "").trim()
+                        config["color"] = value
+                    }
+                    
+                    if (line.contains("\"para\":")) {
+                        val coords = line.substringAfter("(").substringBefore(")").split(",")
+                        if (coords.size == 2) {
+                            config["x_position"] = coords[0].trim()
+                            config["para_y"] = coords[1].trim()
+                        }
+                    }
+                    if (line.contains("\"llave\":")) {
+                        val coords = line.substringAfter("(").substringBefore(")").split(",")
+                        if (coords.size == 2) config["llave_y"] = coords[1].trim()
+                    }
+                    if (line.contains("\"banco_destino\":")) {
+                        val coords = line.substringAfter("(").substringBefore(")").split(",")
+                        if (coords.size == 2) config["banco_destino_y"] = coords[1].trim()
+                    }
+                    if (line.contains("\"cuanto\":")) {
+                        val coords = line.substringAfter("(").substringBefore(")").split(",")
+                        if (coords.size == 2) config["cuanto_y"] = coords[1].trim()
+                    }
+                    if (line.contains("\"numero_nequi\":")) {
+                        val coords = line.substringAfter("(").substringBefore(")").split(",")
+                        if (coords.size == 2) config["numero_nequi_y"] = coords[1].trim()
+                    }
+                    if (line.contains("\"fecha\":")) {
+                        val coords = line.substringAfter("(").substringBefore(")").split(",")
+                        if (coords.size == 2) config["fecha_y"] = coords[1].trim()
+                    }
+                    if (line.contains("\"referencia\":")) {
+                        val coords = line.substringAfter("(").substringBefore(")").split(",")
+                        if (coords.size == 2) config["referencia_y"] = coords[1].trim()
+                    }
+                    if (line.contains("\"desde\":")) {
+                        val coords = line.substringAfter("(").substringBefore(")").split(",")
+                        if (coords.size == 2) config["desde_y"] = coords[1].trim()
+                    }
+                    if (line.contains("\"disponible\":")) {
+                        val coords = line.substringAfter("(").substringBefore(")").split(",")
+                        if (coords.size == 2) config["disponible_y"] = coords[1].trim()
+                    }
+                }
+            }
+            
+            android.util.Log.d("MovDetail", "Config '$configSection' cargado: $config")
+            config
+        } catch (e: Exception) {
+            android.util.Log.e("MovDetail", "Error leyendo config_nequi.py para $configSection: ${e.message}")
+            // Valores por defecto según la sección
+            if (configSection.contains("QR")) {
+                mapOf(
+                    "x_position" to "45",
+                    "para_y" to "530",
+                    "llave_y" to "605",
+                    "banco_destino_y" to "675",
+                    "fecha_y" to "750",
+                    "cuanto_y" to "830",
+                    "referencia_y" to "900",
+                    "desde_y" to "975",
+                    "disponible_y" to "1050",
+                    "font_size" to "22",
+                    "color" to "#200021"
+                )
+            } else {
+                mapOf(
+                    "x_position" to "48",
+                    "para_y" to "600",
+                    "cuanto_y" to "685",
+                    "numero_nequi_y" to "770",
+                    "fecha_y" to "850",
+                    "referencia_y" to "935",
+                    "disponible_y" to "1020",
+                    "font_size" to "22",
+                    "color" to "#200021"
+                )
+            }
+        }
+    }
+    
+    private fun formatDateEs(date: java.util.Date): String {
+        val locale = java.util.Locale("es", "CO")
+        val sdf = java.text.SimpleDateFormat("d 'de' MMMM 'de' yyyy 'a las' hh:mm a", locale)
+        val raw = sdf.format(date)
+        return raw.replace("AM", "a.m.").replace("PM", "p.m.")
+    }
+    
+    private fun generateReference(): String {
+        val n = (10000000..99999999).random()
+        return "M$n"
+    }
+    
+    private fun toTitleCase(input: String): String {
+        return input.lowercase().split(" ").joinToString(" ") { word ->
+            word.replaceFirstChar { if (it.isLowerCase()) it.titlecase(java.util.Locale.getDefault()) else it.toString() }
+        }
+    }
+}

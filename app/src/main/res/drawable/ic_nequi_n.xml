@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Letra N en color rosa Nequi -->
+    <path
+        android:fillColor="#DA0081"
+        android:pathData="M6,2v20h3V11.5l8,10.5h3V2h-3v10.5L8,2H6z"/>
+</vector>

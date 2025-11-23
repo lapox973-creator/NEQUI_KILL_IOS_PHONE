@@ -1,0 +1,140 @@
+# Generador QR - Para pagos con QR y llave personalizada
+import os
+import sys
+from PIL import Image, ImageDraw, ImageFont
+
+
+def generate_qr_voucher(assets_path, para, llave, banco_destino, cuanto, desde, referencia=None):
+    """Generar comprobante de pago QR"""
+    print(f"[QR] === INICIO GENERACIÓN QR ===")
+    print(f"[QR] Assets: {assets_path}")
+    print(f"[QR] Para: {para}")
+    print(f"[QR] Llave: {llave}")
+    print(f"[QR] Banco: {banco_destino}")
+    print(f"[QR] Cuanto: {cuanto}")
+    print(f"[QR] Desde: {desde}")
+    print(f"[QR] Referencia: {referencia}")
+    
+    # Añadir assets al path
+    if assets_path not in sys.path:
+        sys.path.insert(0, assets_path)
+        print(f"[QR] Path agregado: {assets_path}")
+    
+    # Limpiar imports previos
+    for mod in ['config_nequi', 'utils_nequi']:
+        if mod in sys.modules:
+            del sys.modules[mod]
+            print(f"[QR] Módulo limpiado: {mod}")
+    
+    # Importar
+    import config_nequi
+    import utils_nequi
+    print(f"[QR] Módulos importados OK")
+    
+    cfg = config_nequi.COMPROBANTE_QR_CONFIG
+    
+    # Abrir plantilla en MODO ULTRA CALIDAD
+    template_path = os.path.join(assets_path, cfg['template'])
+    print(f"[QR] Buscando plantilla: {template_path}")
+    print(f"[QR] ¿Existe plantilla? {os.path.exists(template_path)}")
+    
+    # Abrir JPG con máxima calidad
+    img = Image.open(template_path)
+    
+    # Convertir a RGB
+    if img.mode != 'RGB':
+        img = img.convert('RGB')
+    
+    # ULTRA MEGA 4K SUPREMA: Escalar 3x con LANCZOS (máxima calidad)
+    original_size = img.size
+    img = img.resize(
+        (original_size[0] * 3, original_size[1] * 3), 
+        Image.Resampling.LANCZOS  # Algoritmo premium de escalado
+    )
+    
+    # Aplicar SHARPEN múltiple para máxima nitidez
+    from PIL import ImageFilter, ImageEnhance
+    img = img.filter(ImageFilter.SHARPEN)
+    img = img.filter(ImageFilter.SHARPEN)  # Segunda pasada para mayor nitidez
+    
+    # Aumentar contraste y nitidez
+    enhancer = ImageEnhance.Contrast(img)
+    img = enhancer.enhance(1.10)  # +10% contraste (antes era 1.05)
+    
+    # Aumentar nitidez adicional
+    enhancer_sharp = ImageEnhance.Sharpness(img)
+    img = enhancer_sharp.enhance(1.15)  # +15% nitidez adicional
+    
+    draw = ImageDraw.Draw(img)
+    print(f"[QR] ✅ Plantilla ULTRA MEGA 4K: {img.size[0]}x{img.size[1]} (3x + double sharpened + enhanced)")
+    
+    # Usar la referencia del movimiento si está disponible, de lo contrario generar una nueva
+    referencia_final = referencia if referencia else utils_nequi.get_reference()
+    print(f"[QR] Referencia final a usar: {referencia_final}")
+    
+    # Preparar datos ESPECÍFICOS PARA QR
+    data = [
+        ("para", str(para)),
+        ("llave", str(llave)),
+        ("banco_destino", str(banco_destino)),
+        ("fecha", utils_nequi.get_date()),
+        ("cuanto", utils_nequi.format_currency(cuanto)),
+        ("referencia", referencia_final),
+        ("desde", utils_nequi.format_phone(desde)),
+        ("disponible", "Disponible")
+    ]
+    
+    # Cargar fuente
+    font_path = os.path.join(assets_path, cfg['font'])
+    print(f"[QR] Buscando fuente: {font_path}")
+    print(f"[QR] ¿Existe fuente? {os.path.exists(font_path)}")
+    
+    # Tamaño 3x para la fuente (matching con el escalado de la imagen)
+    font_size_scaled = cfg['font_size'] * 3
+    font = ImageFont.truetype(font_path, font_size_scaled)
+    print(f"[QR] ✅ Fuente: {cfg['font_size']}px (escalada a {font_size_scaled}px)")
+    
+    # Dibujar textos con coordenadas escaladas 3x
+    print(f"[QR] === DIBUJANDO TEXTOS ===")
+    for field, text in data:
+        if field in cfg['fields']:
+            orig_pos = cfg['fields'][field]
+            pos = (orig_pos[0] * 3, orig_pos[1] * 3)
+            draw.text(pos, text, font=font, fill=cfg['color'])
+            print(f"[QR] ✓ {field}: '{text}' en coordenadas originales {orig_pos}")
+        else:
+            print(f"[QR] ✗ CAMPO NO ENCONTRADO: {field}")
+    
+    # Guardar PNG ULTRA MEGA CALIDAD SUPREMA
+    output_path = os.path.join(assets_path, cfg['output'])
+    img.save(
+        output_path, 
+        'PNG',
+        optimize=False,           # Sin optimización
+        compress_level=0,         # SIN COMPRESIÓN = ULTRA CALIDAD
+        icc_profile=None,         # Sin perfil
+        dpi=(1200, 1200)          # 1200 DPI = ULTRA MEGA 4K SUPREMA (antes 600)
+    )
+    
+    file_size = os.path.getsize(output_path) if os.path.exists(output_path) else 0
+    print(f"[QR] === FIN GENERACIÓN ULTRA MEGA 4K SUPREMA ===")
+    print(f"[QR] ✅ Guardado: {output_path}")
+    print(f"[QR] ✅ Tamaño: {file_size} bytes")
+    print(f"[QR] ✅ Resolución: {img.size[0]}x{img.size[1]} @ 1200 DPI")
+    print(f"[QR] 🚀 ULTRA MEGA 4K SUPREMA ACTIVADA")
+    
+    return output_path
+
+
+def generate_from_assets(assets_path, para, llave, banco_destino, cuanto, desde, referencia=None, config_name=None):
+    """Wrapper para VoucherQrActivity"""
+    print(f"[QR] generate_from_assets llamado con:")
+    print(f"  - assets_path: {assets_path}")
+    print(f"  - para: {para}")
+    print(f"  - llave: {llave}")
+    print(f"  - banco_destino: {banco_destino}")
+    print(f"  - cuanto: {cuanto}")
+    print(f"  - desde: {desde}")
+    print(f"  - referencia: {referencia}")
+    print(f"  - config_name: {config_name}")
+    return generate_qr_voucher(assets_path, para, llave, banco_destino, cuanto, desde, referencia)

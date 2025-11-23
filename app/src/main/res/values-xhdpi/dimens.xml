@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DPI ~320 (2.0x) - Pantallas extra alta densidad -->
+    <dimen name="margin_tiny">8dp</dimen>
+    <dimen name="margin_small">16dp</dimen>
+    <dimen name="margin_normal">32dp</dimen>
+    <dimen name="margin_large">48dp</dimen>
+    <dimen name="margin_xlarge">64dp</dimen>
+    
+    <dimen name="padding_tiny">8dp</dimen>
+    <dimen name="padding_small">16dp</dimen>
+    <dimen name="padding_normal">24dp</dimen>
+    <dimen name="padding_large">32dp</dimen>
+    <dimen name="padding_xlarge">40dp</dimen>
+    
+    <dimen name="text_tiny">12sp</dimen>
+    <dimen name="text_small">14sp</dimen>
+    <dimen name="text_normal">16sp</dimen>
+    <dimen name="text_medium">18sp</dimen>
+    <dimen name="text_large">20sp</dimen>
+    <dimen name="text_xlarge">24sp</dimen>
+    <dimen name="text_title">28sp</dimen>
+    <dimen name="text_heading">32sp</dimen>
+    
+    <dimen name="button_height">56dp</dimen>
+    <dimen name="button_height_small">48dp</dimen>
+    <dimen name="input_height">64dp</dimen>
+    
+    <dimen name="corner_radius_small">10dp</dimen>
+    <dimen name="corner_radius_normal">16dp</dimen>
+    <dimen name="corner_radius_large">20dp</dimen>
+    <dimen name="corner_radius_xlarge">32dp</dimen>
+    
+    <dimen name="icon_tiny">20dp</dimen>
+    <dimen name="icon_small">24dp</dimen>
+    <dimen name="icon_normal">32dp</dimen>
+    <dimen name="icon_medium">48dp</dimen>
+    <dimen name="icon_large">64dp</dimen>
+    
+    <!-- Dimensiones específicas para items de movimiento -->
+    <dimen name="movement_item_padding_horizontal">22dp</dimen>
+    <dimen name="movement_item_padding_vertical">20dp</dimen>
+    <dimen name="movement_item_icon_size">22dp</dimen>
+    <dimen name="movement_item_text_name_size">10.5sp</dimen>
+    <dimen name="movement_item_text_subtitle_size">10.5sp</dimen>
+    <dimen name="movement_item_text_amount_size">11.5sp</dimen>
+    <dimen name="movement_item_margin_icon_text">16dp</dimen>
+    <dimen name="movement_item_margin_text_vertical">4dp</dimen>
+    <dimen name="movement_item_margin_horizontal">8dp</dimen>
+    <dimen name="movement_item_margin_vertical">5dp</dimen>
+</resources>

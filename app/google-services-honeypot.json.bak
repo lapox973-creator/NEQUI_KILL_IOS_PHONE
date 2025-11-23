@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "123456789012",
+    "firebase_url": "https://nequix-honeypot.firebaseio.com",
+    "project_id": "nequix-honeypot-trap",
+    "storage_bucket": "nequix-honeypot-trap.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123456789012:android:abc123def456",
+        "android_client_info": {
+          "package_name": "com.ios.nequixofficialv2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnq4RcXmYszG6yMWUW5o7dfBPyXwZRGr"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

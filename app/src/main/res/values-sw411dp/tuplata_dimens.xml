@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Encabezado TuPlata para 411dp: un poco más compacto -->
+    <dimen name="tuplata_title_size">20sp</dimen>
+    <dimen name="tuplata_subtitle_size">14sp</dimen>
+    <dimen name="tuplata_total_size">24sp</dimen>
+    <dimen name="tuplata_topes_margin_top">36dp</dimen>
+    <dimen name="tuplata_topes_margin_bottom">8dp</dimen>
+    <dimen name="tuplata_topes_padding">10dp</dimen>
+    <dimen name="tuplata_cards_top_margin">12dp</dimen>
+</resources>

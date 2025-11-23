@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dimensiones base para encabezado TuPlata -->
+    <dimen name="tuplata_title_size">19sp</dimen>
+    <dimen name="tuplata_subtitle_size">14sp</dimen>
+    <dimen name="tuplata_total_size">23sp</dimen>
+    <!-- Separación superior de "Tus topes" respecto a las tarjetas -->
+    <dimen name="tuplata_topes_margin_top">40dp</dimen>
+    <!-- Separación inferior de "Tus topes" respecto al borde inferior -->
+    <dimen name="tuplata_topes_margin_bottom">8dp</dimen>
+    <!-- Separación superior para el bloque de tarjetas (shimmer y reales) -->
+    <dimen name="tuplata_cards_top_margin">12dp</dimen>
+    <!-- Padding interno de la tarjeta "Tus topes" -->
+    <dimen name="tuplata_topes_padding">10dp</dimen>
+</resources>

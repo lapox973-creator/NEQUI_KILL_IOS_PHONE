@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="end|bottom" android:id="@+id/fabServiciosContainer" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="440.0dip" android:layout_marginEnd="24.0dip">
+        <TextView android:textSize="16.0sp" android:textColor="#ff1e0b1f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Servicios" android:fontFamily="@font/manrope" android:layout_marginEnd="16.0dip" />
+        <ImageView android:id="@+id/fabServicios" android:padding="2.0dip" android:layout_width="40.0dip" android:layout_height="40.0dip" android:src="@drawable/ic_services" android:scaleType="centerInside" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="end|bottom" android:id="@+id/fabSacaContainer" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="370.0dip" android:layout_marginEnd="24.0dip">
+        <TextView android:textSize="16.0sp" android:textColor="#ff1e0b1f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Saca" android:fontFamily="@font/manrope" android:layout_marginEnd="16.0dip" />
+        <ImageView android:id="@+id/fabSaca" android:padding="2.0dip" android:layout_width="40.0dip" android:layout_height="40.0dip" android:src="@drawable/ic_withdraw" android:scaleType="centerInside" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="end|bottom" android:id="@+id/fabPideContainer" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="300.0dip" android:layout_marginEnd="24.0dip">
+        <TextView android:textSize="16.0sp" android:textColor="#ff1e0b1f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pide" android:fontFamily="@font/manrope" android:layout_marginEnd="16.0dip" />
+        <ImageView android:id="@+id/fabPide" android:padding="2.0dip" android:layout_width="40.0dip" android:layout_height="40.0dip" android:src="@drawable/ic_request" android:scaleType="centerInside" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="end|bottom" android:id="@+id/fabEnviaContainer" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="230.0dip" android:layout_marginEnd="24.0dip">
+        <TextView android:textSize="16.0sp" android:textColor="#ff1e0b1f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Envía" android:fontFamily="@font/manrope" android:layout_marginEnd="16.0dip" />
+        <ImageView android:id="@+id/fabEnvia" android:padding="2.0dip" android:layout_width="40.0dip" android:layout_height="40.0dip" android:src="@drawable/ic_send" android:scaleType="centerInside" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="end|bottom" android:id="@+id/fabQRContainer" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="160.0dip" android:layout_marginEnd="24.0dip">
+        <TextView android:textSize="16.0sp" android:textColor="#ff1e0b1f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Código QR" android:fontFamily="@font/manrope" android:layout_marginEnd="16.0dip" />
+        <ImageView android:id="@+id/fabQR" android:padding="2.0dip" android:layout_width="40.0dip" android:layout_height="40.0dip" android:src="@drawable/ic_qr_png" android:scaleType="centerInside" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="end|bottom" android:id="@+id/fabRecargaContainer" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="90.0dip" android:layout_marginEnd="24.0dip">
+        <TextView android:textSize="16.0sp" android:textColor="#ff1e0b1f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Recarga" android:fontFamily="@font/manrope" android:layout_marginEnd="16.0dip" />
+        <ImageView android:id="@+id/fabRecarga" android:padding="2.0dip" android:layout_width="40.0dip" android:layout_height="40.0dip" android:src="@drawable/ic_recharge" android:scaleType="centerInside" />
+    </LinearLayout>
+</merge>

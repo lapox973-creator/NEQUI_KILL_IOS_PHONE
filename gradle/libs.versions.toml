@@ -1,0 +1,80 @@
+[versions]
+# Plugins
+androidGradlePlugin = "8.2.2"
+kotlin = "1.9.22"
+kotlinMultiplatform = "1.9.22"
+googleGmsGoogleServices = "4.4.3"
+firebaseCrashlytics = "3.0.2"
+
+# Dependencies
+coreKtx = "1.13.1"
+appcompat = "1.7.0"
+material = "1.12.0"
+constraintlayout = "2.1.4"
+lifecycle = "2.8.5"
+navigation = "2.7.7"
+firebaseBom = "33.1.2"
+coroutines = "1.8.1"
+zxing = "4.3.0"
+glide = "4.16.0"
+
+# Testing
+junit = "4.13.2"
+junitExt = "1.2.1"
+espressoCore = "3.6.1"
+
+# Additional versions
+splashscreen = "1.0.1"
+activityKtx = "1.9.2"
+swipeRefreshLayout = "1.1.0"
+
+[libraries]
+# Core Android
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+material = { module = "com.google.android.material:material", version.ref = "material" }
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+
+# Lifecycle & ViewModel
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycle" }
+
+# Navigation
+androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
+androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
+
+# Firebase
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx" }
+firebase-firestore-ktx = { module = "com.google.firebase:firebase-firestore-ktx" }
+firebase-auth-ktx = { module = "com.google.firebase:firebase-auth-ktx" }
+
+# Coroutines
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+
+# Other
+zxing-android-embedded = { module = "com.journeyapps:zxing-android-embedded", version.ref = "zxing" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "splashscreen" }
+activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activityKtx" }
+androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swipeRefreshLayout" }
+
+# Testing
+junit = { module = "junit:junit", version.ref = "junit" }
+androidx-junit-ext = { module = "androidx.test.ext:junit", version.ref = "junitExt" }
+androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoCore" }
+
+firebase-crashlytics-ktx = { module = "com.google.firebase:firebase-crashlytics-ktx" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlinMultiplatform" }
+kotlin-cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlinMultiplatform" }
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
+firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashlytics" }
+
+[bundles]
+
+

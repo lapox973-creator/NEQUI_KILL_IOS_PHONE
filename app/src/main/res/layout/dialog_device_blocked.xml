@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#121212" android:padding="24dp">
+
+    <ImageView
+        android:id="@+id/ivWarningIcon"
+        android:layout_width="80dp" android:layout_height="80dp"
+        android:src="@drawable/ic_nequixofficial"
+        android:contentDescription="Advertencia de Alto Voltaje"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp" android:text="¡ALERTA DE VINCULACIÓN!"
+        android:textColor="#FF4500" android:textSize="24sp" android:fontFamily="@font/manrope_medium"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/ivWarningIcon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Se detectó un intento de acceso. Esta cuenta ya está vinculada a otro dispositivo de seguridad."
+        android:textColor="#E0E0E0" android:textSize="18sp" android:fontFamily="@font/manrope_regular"
+        android:gravity="center"
+        android:lineSpacingExtra="6dp" app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDeviceInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Dispositivo registrado: [MODELO xxxx]"
+        android:textColor="#00BCD4" android:textSize="14sp"
+        android:fontFamily="@font/manrope_medium"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/tvMessage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:cardCornerRadius="8dp" app:cardElevation="8dp" app:cardBackgroundColor="#212121" app:layout_constraintTop_toBottomOf="@id/tvDeviceInfo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🚨 PROTOCOLO DE ALTA SEGURIDAD"
+                android:textColor="#FFEB3B" android:textSize="15sp"
+                android:fontFamily="@font/manrope_bold"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Por protocolo de seguridad, solo un dispositivo puede tener acceso autorizado a tu cuenta. Si no reconoces este acceso o cambiaste de terminal, ¡contacta a @Sangre_binerojs!"
+                android:textColor="#BDBDBD"
+                android:textSize="14sp"
+                android:fontFamily="@font/manrope_regular"
+                android:gravity="center"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnContactSupport"
+        android:layout_width="0dp"
+        android:layout_height="56dp" android:layout_marginTop="32dp" android:background="@drawable/button_rounded_red_electric" android:text="CONTACTO DE EMERGENCIA ⚡️"
+        android:textColor="#121212" android:textSize="17sp"
+        android:fontFamily="@font/manrope_bold"
+        android:textAllCaps="true"
+        app:layout_constraintTop_toBottomOf="@id/cardInfo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Regresar al sistema (No recomendado)"
+        android:textColor="#666666" android:textSize="14sp"
+        android:fontFamily="@font/manrope_medium"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/btnContactSupport"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

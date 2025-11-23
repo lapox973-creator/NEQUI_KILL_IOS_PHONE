@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="#FFFFFF"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Header con gradiente -->
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@drawable/dialog_header_gradient"
+            android:padding="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AGREGAR HUELLA DIGITAL"
+                android:fontFamily="@font/manrope_bold"/>
+        </LinearLayout>
+
+        <!-- Contenido -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <!-- Icono de huella -->
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_fingerprint"
+                android:tint="#1E88E5"
+                android:scaleType="centerInside"
+                android:layout_marginBottom="24dp"/>
+
+            <!-- Descripción -->
+            <TextView
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Coloca tu dedo en el sensor de huella digital"
+                android:fontFamily="@font/manrope_medium"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:textSize="14sp"
+                android:textColor="#999999"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Asegúrate de que tu dedo esté limpio y seco"
+                android:fontFamily="@font/manrope_regular"
+                android:layout_marginBottom="32dp"/>
+
+            <!-- Estado de huella -->
+            <TextView
+                android:id="@+id/tvFingerprintStatus"
+                android:textSize="14sp"
+                android:textColor="#1E88E5"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Esperando huella..."
+                android:fontFamily="@font/manrope_medium"
+                android:layout_marginBottom="24dp"/>
+
+            <!-- Botones -->
+            <LinearLayout
+                android:gravity="end"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:textColor="#1E88E5"
+                    android:id="@+id/btnCancel"
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="Cancelar"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/manrope_medium"
+                    android:layout_marginEnd="8dp"/>
+
+                <Button
+                    android:textColor="@android:color/white"
+                    android:id="@+id/btnConfirm"
+                    android:background="@drawable/button_continue_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="Confirmar"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/manrope_bold"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

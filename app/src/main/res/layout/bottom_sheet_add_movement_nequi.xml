@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="12dp"
+        android:paddingBottom="32dp">
+
+        <!-- Handle bar -->
+        <View
+            android:layout_width="40dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#FFCCCCCC"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Título -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nequi a Nequi"
+            android:textSize="24sp"
+            android:textColor="#000000"
+            android:fontFamily="@font/manrope_bold"
+            android:paddingHorizontal="24dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Campo Nombre -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre"
+                android:textSize="14sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/manrope_medium"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="@drawable/bg_edittext_rounded"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:textColorHint="#80000000"
+                android:hint="Ingresa el nombre"
+                android:inputType="textPersonName"
+                android:fontFamily="@font/manrope_regular" />
+        </LinearLayout>
+
+        <!-- Campo Cantidad -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cantidad"
+                android:textSize="14sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/manrope_medium"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/etAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="@drawable/bg_edittext_rounded"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:textColorHint="#80000000"
+                android:hint="Ingresa la cantidad"
+                android:inputType="numberDecimal"
+                android:fontFamily="@font/manrope_regular" />
+        </LinearLayout>
+
+        <!-- Campo Número de Nequi -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Número de Nequi"
+                android:textSize="14sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/manrope_medium"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="@drawable/bg_edittext_rounded"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:textColorHint="#80000000"
+                android:hint="Ingresa el número de Nequi (10 dígitos)"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:fontFamily="@font/manrope_regular" />
+        </LinearLayout>
+
+        <!-- Campo Referencia -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Referencia"
+                android:textSize="14sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/manrope_medium"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_edittext_rounded"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="0dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="M"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/manrope_bold"
+                    android:layout_marginEnd="4dp"/>
+
+                <EditText
+                    android:id="@+id/etReference"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:minHeight="48dp"
+                    android:background="@null"
+                    android:padding="0dp"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:textColorHint="#80000000"
+                    android:hint="Ej: 12, 24, 36 (mínimo 2 dígitos, máximo 8)"
+                    android:inputType="number"
+                    android:maxLength="8"
+                    android:fontFamily="@font/manrope_regular" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Botón Guardar -->
+        <android.widget.Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="24dp"
+            android:text="Agregar movimiento"
+            android:textColor="@android:color/white"
+            android:background="@drawable/bg_button_pink_confirmation"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:fontFamily="@font/manrope_bold" />
+
+    </LinearLayout>
+</ScrollView>
+

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/estafa_dialog_background" android:padding="24.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="24.0sp" android:textStyle="bold" android:textColor="#ffff0000" android:gravity="center" android:id="@id/tvEstafaTitle" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="16.0dip" android:text="¡ALERTA DE ESTAFA!" />
+    <TextView android:textSize="18.0sp" android:textColor="#ff000000" android:gravity="center" android:id="@id/tvEstafaInfo" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="24.0dip" android:text="Información importante sobre estafas detectadas..." android:lineSpacingExtra="4.0dip" android:fontFamily="@font/manrope_bold" />
+    <androidx.appcompat.widget.AppCompatButton android:textSize="16.0sp" android:textColor="@color/white" android:id="@id/btnCloseEstafa" android:background="@drawable/estafa_button_selector" android:layout_width="fill_parent" android:layout_height="48.0dip" android:text="Entendido" android:textAllCaps="false" android:fontFamily="@font/manrope_medium" />
+</LinearLayout>

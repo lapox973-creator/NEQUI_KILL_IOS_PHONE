@@ -1,0 +1,146 @@
+.class public final Lz8/s$a;
+.super Ljn/d;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lz8/s;->e(Lvn/q;Lgn/d;)Ljava/lang/Object;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<R:",
+        "Ljava/lang/Object;",
+        ">",
+        "Ljn/d;"
+    }
+.end annotation
+
+.annotation runtime Ljn/f;
+    c = "androidx.datastore.core.FileStorageConnection"
+    f = "FileStorage.kt"
+    i = {
+        0x0,
+        0x0,
+        0x0
+    }
+    l = {
+        0x65
+    }
+    m = "readScope"
+    n = {
+        "this",
+        "$this$use$iv",
+        "lock"
+    }
+    s = {
+        "L$0",
+        "L$1",
+        "Z$0"
+    }
+.end annotation
+
+
+# instance fields
+.field public final synthetic O:Lz8/s;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lz8/s<",
+            "TT;>;"
+        }
+    .end annotation
+.end field
+
+.field public P:I
+
+.field public e:Ljava/lang/Object;
+
+.field public f:Ljava/lang/Object;
+
+.field public x:Z
+
+.field public synthetic y:Ljava/lang/Object;
+
+
+# direct methods
+.method public constructor <init>(Lz8/s;Lgn/d;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lz8/s<",
+            "TT;>;",
+            "Lgn/d<",
+            "-",
+            "Lz8/s$a;",
+            ">;)V"
+        }
+    .end annotation
+
+    .line 1
+    iput-object p1, p0, Lz8/s$a;->O:Lz8/s;
+
+    .line 2
+    .line 3
+    invoke-direct {p0, p2}, Ljn/d;-><init>(Lgn/d;)V
+
+    .line 4
+    .line 5
+    .line 6
+    return-void
+.end method
+
+
+# virtual methods
+.method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation build Lzq/l;
+        .end annotation
+    .end param
+    .annotation build Lzq/m;
+    .end annotation
+
+    .line 1
+    iput-object p1, p0, Lz8/s$a;->y:Ljava/lang/Object;
+
+    .line 2
+    .line 3
+    iget p1, p0, Lz8/s$a;->P:I
+
+    .line 4
+    .line 5
+    const/high16 v0, -0x80000000
+
+    .line 6
+    .line 7
+    or-int/2addr p1, v0
+
+    .line 8
+    iput p1, p0, Lz8/s$a;->P:I
+
+    .line 9
+    .line 10
+    iget-object p1, p0, Lz8/s$a;->O:Lz8/s;
+
+    .line 11
+    .line 12
+    const/4 v0, 0x0
+
+    .line 13
+    invoke-virtual {p1, v0, p0}, Lz8/s;->e(Lvn/q;Lgn/d;)Ljava/lang/Object;
+
+    .line 14
+    .line 15
+    .line 16
+    move-result-object p1
+
+    .line 17
+    return-object p1
+.end method

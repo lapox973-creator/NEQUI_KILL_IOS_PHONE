@@ -1,0 +1,278 @@
+.class public abstract Lfi/c2;
+.super Lfi/f2;
+.source "SourceFile"
+
+# interfaces
+.implements Lfi/o4;
+
+
+# annotations
+.annotation build Lbi/b;
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<K:",
+        "Ljava/lang/Object;",
+        "V:",
+        "Ljava/lang/Object;",
+        ">",
+        "Lfi/f2<",
+        "TK;TV;>;",
+        "Lfi/o4<",
+        "TK;TV;>;"
+    }
+.end annotation
+
+.annotation runtime Lfi/x0;
+.end annotation
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Lfi/f2;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+
+# virtual methods
+.method public bridge synthetic Y0()Lfi/v4;
+    .locals 1
+
+    .line 1
+    invoke-virtual {p0}, Lfi/c2;->Z0()Lfi/o4;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object v0
+
+    .line 5
+    return-object v0
+.end method
+
+.method public abstract Z0()Lfi/o4;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lfi/o4<",
+            "TK;TV;>;"
+        }
+    .end annotation
+.end method
+
+.method public bridge synthetic b(Ljava/lang/Object;)Ljava/util/Collection;
+    .locals 0
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Ltm/a;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000
+        }
+        names = {
+            "key"
+        }
+    .end annotation
+
+    .annotation build Lti/a;
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0, p1}, Lfi/c2;->b(Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public b(Ljava/lang/Object;)Ljava/util/List;
+    .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Ltm/a;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "key"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/Object;",
+            ")",
+            "Ljava/util/List<",
+            "TV;>;"
+        }
+    .end annotation
+
+    .annotation build Lti/a;
+    .end annotation
+
+    .line 2
+    invoke-virtual {p0}, Lfi/c2;->Z0()Lfi/o4;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1}, Lfi/o4;->b(Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public bridge synthetic c(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
+    .locals 0
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lfi/m5;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000,
+            0x1000
+        }
+        names = {
+            "key",
+            "values"
+        }
+    .end annotation
+
+    .annotation build Lti/a;
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0, p1, p2}, Lfi/c2;->c(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/List;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public c(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/List;
+    .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lfi/m5;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "key",
+            "values"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TK;",
+            "Ljava/lang/Iterable<",
+            "+TV;>;)",
+            "Ljava/util/List<",
+            "TV;>;"
+        }
+    .end annotation
+
+    .annotation build Lti/a;
+    .end annotation
+
+    .line 2
+    invoke-virtual {p0}, Lfi/c2;->Z0()Lfi/o4;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1, p2}, Lfi/o4;->c(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/List;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public bridge synthetic delegate()Ljava/lang/Object;
+    .locals 1
+
+    .line 1
+    invoke-virtual {p0}, Lfi/c2;->Z0()Lfi/o4;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object v0
+
+    .line 5
+    return-object v0
+.end method
+
+.method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/Collection;
+    .locals 0
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lfi/m5;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000
+        }
+        names = {
+            "key"
+        }
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0, p1}, Lfi/c2;->get(Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public get(Ljava/lang/Object;)Ljava/util/List;
+    .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lfi/m5;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "key"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TK;)",
+            "Ljava/util/List<",
+            "TV;>;"
+        }
+    .end annotation
+
+    .line 2
+    invoke-virtual {p0}, Lfi/c2;->Z0()Lfi/o4;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1}, Lfi/o4;->get(Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object p1
+
+    return-object p1
+.end method

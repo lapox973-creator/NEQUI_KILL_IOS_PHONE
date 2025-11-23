@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/bottom_sheet_background" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="20.0sp" android:textColor="@android:color/white" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="24.0dip" android:text="¿Cómo quieres que te llamemos?" />
+    <com.google.android.material.textfield.TextInputLayout android:textColorHint="#80ffffff" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="24.0dip" app:boxBackgroundColor="#ff1e0b1f" app:boxStrokeColor="#ffff0066" app:hintTextColor="#ffff0066" style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <com.google.android.material.textfield.TextInputEditText android:textColor="@android:color/white" android:id="@+id/etUsername" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="Nombre de usuario" android:maxLines="1" android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout android:gravity="end" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:textColor="#ffff0066" android:id="@+id/btnCancel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cancelar" android:backgroundTint="@android:color/transparent" style="@style/Widget.MaterialComponents.Button.TextButton" />
+        <Button android:textColor="@android:color/white" android:id="@+id/btnApply" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Aplicar" android:layout_marginStart="8.0dip" android:backgroundTint="#ffff0066" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Frame 8: Explosión masiva - amarillo nuclear -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="0"
+        android:startColor="#4D3D0A"
+        android:centerColor="#8A6D1F"
+        android:endColor="#F1C40F"
+        android:type="radial"
+        android:gradientRadius="700"/>
+</shape>

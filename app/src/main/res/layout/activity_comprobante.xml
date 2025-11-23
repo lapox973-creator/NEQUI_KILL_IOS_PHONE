@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@color/comprobante_background" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/layoutListo" android:background="@color/comprobante_background" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:id="@+id/ivListo" android:layout_width="0.0dip" android:layout_height="0.0dip" android:src="@drawable/ic_listo" android:contentDescription="Icono de listo" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintDimensionRatio="1:1" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintWidth_percent="0.3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/layoutComprobante" android:background="@color/comprobante_background" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView
+            android:id="@+id/loadingCircleComprobante"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/loading_circle_comprobante"
+            android:contentDescription="Círculo de carga"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/ivComprobante"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:contentDescription="Comprobante de envío"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <View android:id="@+id/btnListoInvisible" android:background="@null" android:focusable="true" android:clickable="true" android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_marginTop="610.0dip" android:alpha="0.0" android:translationZ="0.0dip" android:elevation="0.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHeight_percent="0.08" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintWidth_percent="0.8" />
+        <View android:id="@+id/btnCompartirInvisible" android:background="@null" android:focusable="true" android:clickable="true" android:layout_width="0.0dip" android:layout_height="0.0dip" android:alpha="0.0" android:translationZ="0.0dip" android:elevation="0.0dip" app:layout_constraintDimensionRatio="1:1" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintWidth_percent="0.15" />
+        <!-- IDs esperados por el código (ocultos) -->
+        <TextView android:id="@+id/tvCompanyName" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+        <TextView android:id="@+id/tvTransactionTitle" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+        <TextView android:id="@+id/tvAmount" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+        <TextView android:id="@+id/tvFromAccount" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+        <TextView android:id="@+id/tvToAccount" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+        <TextView android:id="@+id/tvDate" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+        <TextView android:id="@+id/tvReference" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+        <TextView android:id="@+id/tvStatus" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+        <Button android:id="@+id/btnShare" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+        <Button android:id="@+id/btnDownload" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+        <Button android:id="@+id/btnClose" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

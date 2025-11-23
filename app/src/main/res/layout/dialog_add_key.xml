@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="#FFFFFF"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Header con gradiente -->
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@drawable/dialog_header_gradient"
+            android:padding="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AGREGAR LLAVE"
+                android:fontFamily="@font/manrope_bold"/>
+        </LinearLayout>
+
+        <!-- Contenido -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Campo Llave -->
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="#F5F5F5"
+                android:padding="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_qr_code"
+                    android:tint="#1E88E5"
+                    android:layout_marginEnd="12dp"/>
+
+                <EditText
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:textColorHint="#80000000"
+                    android:id="@+id/etKey"
+                    android:background="@null"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Llave QR"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:fontFamily="@font/manrope_medium"/>
+            </LinearLayout>
+
+            <!-- Campo Nombre Completo -->
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="#F5F5F5"
+                android:padding="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_person_add"
+                    android:tint="#1E88E5"
+                    android:layout_marginEnd="12dp"/>
+
+                <EditText
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:textColorHint="#80000000"
+                    android:id="@+id/etFullName"
+                    android:background="@null"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nombre completo"
+                    android:maxLines="1"
+                    android:inputType="textPersonName"
+                    android:fontFamily="@font/manrope_medium"/>
+            </LinearLayout>
+
+            <!-- Campo Banco -->
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="#F5F5F5"
+                android:padding="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_qr_code"
+                    android:tint="#1E88E5"
+                    android:layout_marginEnd="12dp"/>
+
+                <EditText
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:textColorHint="#80000000"
+                    android:id="@+id/etBank"
+                    android:background="@null"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Banco"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:fontFamily="@font/manrope_medium"/>
+            </LinearLayout>
+
+            <!-- Botones -->
+            <LinearLayout
+                android:gravity="end"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:textColor="#1E88E5"
+                    android:id="@+id/btnCancel"
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="Cancelar"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/manrope_medium"
+                    android:layout_marginEnd="8dp"/>
+
+                <Button
+                    android:textColor="@android:color/white"
+                    android:id="@+id/btnAdd"
+                    android:background="#1E88E5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="Agregar"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/manrope_bold"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

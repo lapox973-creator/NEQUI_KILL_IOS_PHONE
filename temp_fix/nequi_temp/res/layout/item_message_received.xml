@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="8.0dip" android:paddingEnd="12.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/ivSupportAvatar" android:background="@drawable/circle_nequi_purple" android:padding="6.0dip" android:layout_width="32.0dip" android:layout_height="32.0dip" android:src="@drawable/ic_bot" android:contentDescription="Bot de soporte" app:layout_constraintBottom_toBottomOf="@id/bubbleReceived" app:layout_constraintStart_toStartOf="parent" />
+    <androidx.cardview.widget.CardView android:id="@id/bubbleReceived" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:maxWidth="280.0dip" android:layout_marginStart="8.0dip" app:cardBackgroundColor="#ffffffff" app:cardCornerRadius="16.0dip" app:cardElevation="0.0dip" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@id/ivSupportAvatar" app:layout_constraintTop_toTopOf="parent" app:layout_constraintWidth_max="280.0dip">
+        <LinearLayout android:orientation="vertical" android:padding="12.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="12.0sp" android:textColor="@color/nequi_purple" android:id="@id/tvSenderName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Soporte Nequi" android:fontFamily="@font/manrope_bold" />
+            <TextView android:textSize="14.0sp" android:textColor="#ff333333" android:id="@id/tvMessageContent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hola, ¿en qué puedo ayudarte hoy?" android:fontFamily="@font/manrope_regular" />
+            <TextView android:textSize="10.0sp" android:textColor="#ffaaaaaa" android:layout_gravity="end" android:id="@id/tvMessageTime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:text="10:30 AM" android:fontFamily="@font/manrope_regular" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

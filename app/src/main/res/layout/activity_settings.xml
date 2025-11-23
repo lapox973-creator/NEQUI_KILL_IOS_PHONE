@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#ff1e0b1f" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/toolbar" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="16.0dip">
+        <ImageButton android:id="@+id/btnBack" android:background="?selectableItemBackgroundBorderless" android:padding="12.0dip" android:layout_width="48.0dip" android:layout_height="48.0dip" android:src="@drawable/ic_back" android:tint="#ffffffff" android:contentDescription="Volver" />
+        <TextView android:textSize="20.0sp" android:textColor="#ffffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ajustes" android:layout_marginStart="4.0dip" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/toolbar">
+        <LinearLayout android:orientation="vertical" android:background="@drawable/bg_card_rounded" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dip">
+            <TextView android:textSize="18.0sp" android:textColor="#ffffffff" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Saldo actual" />
+            <TextView android:textSize="24.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:layout_gravity="center_horizontal" android:id="@+id/tvCurrentBalance" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="$0" />
+        </LinearLayout>
+        <TextView android:textSize="18.0sp" android:textColor="#ffffffff" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24.0dip" android:text="Configura tu saldo" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/bg_card_rounded" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dip">
+            <TextView android:textSize="16.0sp" android:textColor="#ffffffff" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Saldo visible" android:layout_weight="1.0" />
+            <TextView android:textSize="18.0sp" android:textColor="#ffffffff" android:id="@+id/tvVisibleBalance" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$0" android:layout_marginEnd="8.0dip" />
+            <ImageButton android:id="@+id/btnEditVisibleBalance" android:background="?selectableItemBackgroundBorderless" android:layout_width="24.0dip" android:layout_height="24.0dip" android:src="@drawable/ic_edit" android:tint="#ffffffff" android:contentDescription="Editar saldo visible" />
+        </LinearLayout>
+        <TextView android:textSize="18.0sp" android:textColor="#ffffffff" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24.0dip" android:text="Tipo de cuenta" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/btnAccountType" android:background="@drawable/bg_card_rounded" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dip">
+            <TextView android:textSize="16.0sp" android:textColor="#ffffffff" android:id="@+id/tvAccountType" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Billetera" android:layout_weight="1.0" />
+            <ImageView android:id="@+id/ivAccountTypeArrow" android:layout_width="24.0dip" android:layout_height="24.0dip" android:src="@drawable/ic_arrow_down" android:tint="#ffffffff" />
+        </LinearLayout>
+
+        <!-- IDs esperados por SettingsActivity -->
+        <Button android:id="@+id/btnChangePin" android:layout_width="1dp" android:layout_height="1dp" android:visibility="gone" />
+        <Button android:id="@+id/btnLogout" android:layout_width="1dp" android:layout_height="1dp" android:visibility="gone" />
+        <Button android:id="@+id/btnAbout" android:layout_width="1dp" android:layout_height="1dp" android:visibility="gone" />
+        <Button android:id="@+id/btnSupport" android:layout_width="1dp" android:layout_height="1dp" android:visibility="gone" />
+        <Switch android:id="@+id/switchNotifications" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Notificaciones" android:visibility="gone" />
+        <TextView android:id="@+id/tvUserInfo" android:layout_width="1dp" android:layout_height="1dp" android:visibility="gone" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,1330 @@
+.class public final Lbj/c;
+.super Lcom/google/protobuf/l1;
+.source "SourceFile"
+
+# interfaces
+.implements Lbj/d;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lbj/c$b;
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/google/protobuf/l1<",
+        "Lbj/c;",
+        "Lbj/c$b;",
+        ">;",
+        "Lbj/d;"
+    }
+.end annotation
+
+
+# static fields
+.field public static final CREATE_TIME_FIELD_NUMBER:I = 0x2
+
+.field private static final DEFAULT_INSTANCE:Lbj/c;
+
+.field public static final ID_FIELD_NUMBER:I = 0x1
+
+.field private static volatile PARSER:Lcom/google/protobuf/f3; = null
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/google/protobuf/f3<",
+            "Lbj/c;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public static final TOTAL_BYTES_FIELD_NUMBER:I = 0x5
+
+.field public static final TOTAL_DOCUMENTS_FIELD_NUMBER:I = 0x4
+
+.field public static final VERSION_FIELD_NUMBER:I = 0x3
+
+
+# instance fields
+.field private bitField0_:I
+
+.field private createTime_:Lcom/google/protobuf/d4;
+
+.field private id_:Ljava/lang/String;
+
+.field private totalBytes_:J
+
+.field private totalDocuments_:I
+
+.field private version_:I
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    .line 1
+    new-instance v0, Lbj/c;
+
+    .line 2
+    .line 3
+    invoke-direct {v0}, Lbj/c;-><init>()V
+
+    .line 4
+    .line 5
+    .line 6
+    sput-object v0, Lbj/c;->DEFAULT_INSTANCE:Lbj/c;
+
+    .line 7
+    .line 8
+    const-class v1, Lbj/c;
+
+    .line 9
+    .line 10
+    invoke-static {v1, v0}, Lcom/google/protobuf/l1;->registerDefaultInstance(Ljava/lang/Class;Lcom/google/protobuf/l1;)V
+
+    .line 11
+    .line 12
+    .line 13
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 1
+
+    .line 1
+    invoke-direct {p0}, Lcom/google/protobuf/l1;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    const-string v0, ""
+
+    .line 5
+    .line 6
+    iput-object v0, p0, Lbj/c;->id_:Ljava/lang/String;
+
+    .line 7
+    .line 8
+    return-void
+.end method
+
+.method public static synthetic De(Lbj/c;Ljava/lang/String;)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0, p1}, Lbj/c;->nm(Ljava/lang/String;)V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+.method public static synthetic Je(Lbj/c;)V
+    .locals 0
+
+    .line 1
+    invoke-virtual {p0}, Lbj/c;->Vl()V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+.method public static synthetic Ll(Lbj/c;Lcom/google/protobuf/u;)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0, p1}, Lbj/c;->om(Lcom/google/protobuf/u;)V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+.method public static synthetic Ml(Lbj/c;Lcom/google/protobuf/d4;)V
+    .locals 0
+
+    .line 1
+    invoke-virtual {p0, p1}, Lbj/c;->mm(Lcom/google/protobuf/d4;)V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+.method public static synthetic Nl(Lbj/c;Lcom/google/protobuf/d4;)V
+    .locals 0
+
+    .line 1
+    invoke-virtual {p0, p1}, Lbj/c;->Xl(Lcom/google/protobuf/d4;)V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+.method public static synthetic Ol(Lbj/c;)V
+    .locals 0
+
+    .line 1
+    invoke-virtual {p0}, Lbj/c;->Sl()V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+.method public static synthetic Pl(Lbj/c;I)V
+    .locals 0
+
+    .line 1
+    invoke-virtual {p0, p1}, Lbj/c;->rm(I)V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+.method public static synthetic Qe(Lbj/c;J)V
+    .locals 0
+
+    .line 1
+    invoke-virtual {p0, p1, p2}, Lbj/c;->pm(J)V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+.method public static synthetic Ql(Lbj/c;)V
+    .locals 0
+
+    .line 1
+    invoke-virtual {p0}, Lbj/c;->clearVersion()V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+.method public static synthetic Rl(Lbj/c;I)V
+    .locals 0
+
+    .line 1
+    invoke-virtual {p0, p1}, Lbj/c;->qm(I)V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+.method private Tl()V
+    .locals 1
+
+    .line 1
+    invoke-static {}, Lbj/c;->Wl()Lbj/c;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object v0
+
+    .line 5
+    invoke-virtual {v0}, Lbj/c;->getId()Ljava/lang/String;
+
+    .line 6
+    .line 7
+    .line 8
+    move-result-object v0
+
+    .line 9
+    iput-object v0, p0, Lbj/c;->id_:Ljava/lang/String;
+
+    .line 10
+    .line 11
+    return-void
+.end method
+
+.method public static Wl()Lbj/c;
+    .locals 1
+
+    .line 1
+    sget-object v0, Lbj/c;->DEFAULT_INSTANCE:Lbj/c;
+
+    .line 2
+    .line 3
+    return-object v0
+.end method
+
+.method public static Yl()Lbj/c$b;
+    .locals 1
+
+    .line 1
+    sget-object v0, Lbj/c;->DEFAULT_INSTANCE:Lbj/c;
+
+    .line 2
+    .line 3
+    invoke-virtual {v0}, Lcom/google/protobuf/l1;->createBuilder()Lcom/google/protobuf/l1$b;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object v0
+
+    .line 7
+    check-cast v0, Lbj/c$b;
+
+    .line 8
+    .line 9
+    return-object v0
+.end method
+
+.method public static Zl(Lbj/c;)Lbj/c$b;
+    .locals 1
+
+    .line 1
+    sget-object v0, Lbj/c;->DEFAULT_INSTANCE:Lbj/c;
+
+    .line 2
+    .line 3
+    invoke-virtual {v0, p0}, Lcom/google/protobuf/l1;->createBuilder(Lcom/google/protobuf/l1;)Lcom/google/protobuf/l1$b;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p0
+
+    .line 7
+    check-cast p0, Lbj/c$b;
+
+    .line 8
+    .line 9
+    return-object p0
+.end method
+
+.method public static am(Ljava/io/InputStream;)Lbj/c;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 1
+    sget-object v0, Lbj/c;->DEFAULT_INSTANCE:Lbj/c;
+
+    .line 2
+    .line 3
+    invoke-static {v0, p0}, Lcom/google/protobuf/l1;->parseDelimitedFrom(Lcom/google/protobuf/l1;Ljava/io/InputStream;)Lcom/google/protobuf/l1;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p0
+
+    .line 7
+    check-cast p0, Lbj/c;
+
+    .line 8
+    .line 9
+    return-object p0
+.end method
+
+.method public static bm(Ljava/io/InputStream;Lcom/google/protobuf/v0;)Lbj/c;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 1
+    sget-object v0, Lbj/c;->DEFAULT_INSTANCE:Lbj/c;
+
+    .line 2
+    .line 3
+    invoke-static {v0, p0, p1}, Lcom/google/protobuf/l1;->parseDelimitedFrom(Lcom/google/protobuf/l1;Ljava/io/InputStream;Lcom/google/protobuf/v0;)Lcom/google/protobuf/l1;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p0
+
+    .line 7
+    check-cast p0, Lbj/c;
+
+    .line 8
+    .line 9
+    return-object p0
+.end method
+
+.method public static cm(Lcom/google/protobuf/u;)Lbj/c;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/google/protobuf/t1;
+        }
+    .end annotation
+
+    .line 1
+    sget-object v0, Lbj/c;->DEFAULT_INSTANCE:Lbj/c;
+
+    .line 2
+    .line 3
+    invoke-static {v0, p0}, Lcom/google/protobuf/l1;->parseFrom(Lcom/google/protobuf/l1;Lcom/google/protobuf/u;)Lcom/google/protobuf/l1;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p0
+
+    .line 7
+    check-cast p0, Lbj/c;
+
+    .line 8
+    .line 9
+    return-object p0
+.end method
+
+.method public static dm(Lcom/google/protobuf/u;Lcom/google/protobuf/v0;)Lbj/c;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/google/protobuf/t1;
+        }
+    .end annotation
+
+    .line 1
+    sget-object v0, Lbj/c;->DEFAULT_INSTANCE:Lbj/c;
+
+    .line 2
+    .line 3
+    invoke-static {v0, p0, p1}, Lcom/google/protobuf/l1;->parseFrom(Lcom/google/protobuf/l1;Lcom/google/protobuf/u;Lcom/google/protobuf/v0;)Lcom/google/protobuf/l1;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p0
+
+    .line 7
+    check-cast p0, Lbj/c;
+
+    .line 8
+    .line 9
+    return-object p0
+.end method
+
+.method public static em(Lcom/google/protobuf/z;)Lbj/c;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 1
+    sget-object v0, Lbj/c;->DEFAULT_INSTANCE:Lbj/c;
+
+    .line 2
+    .line 3
+    invoke-static {v0, p0}, Lcom/google/protobuf/l1;->parseFrom(Lcom/google/protobuf/l1;Lcom/google/protobuf/z;)Lcom/google/protobuf/l1;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p0
+
+    .line 7
+    check-cast p0, Lbj/c;
+
+    .line 8
+    .line 9
+    return-object p0
+.end method
+
+.method public static synthetic fk(Lbj/c;)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Lbj/c;->Tl()V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+.method public static fm(Lcom/google/protobuf/z;Lcom/google/protobuf/v0;)Lbj/c;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 1
+    sget-object v0, Lbj/c;->DEFAULT_INSTANCE:Lbj/c;
+
+    .line 2
+    .line 3
+    invoke-static {v0, p0, p1}, Lcom/google/protobuf/l1;->parseFrom(Lcom/google/protobuf/l1;Lcom/google/protobuf/z;Lcom/google/protobuf/v0;)Lcom/google/protobuf/l1;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p0
+
+    .line 7
+    check-cast p0, Lbj/c;
+
+    .line 8
+    .line 9
+    return-object p0
+.end method
+
+.method public static gm(Ljava/io/InputStream;)Lbj/c;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 1
+    sget-object v0, Lbj/c;->DEFAULT_INSTANCE:Lbj/c;
+
+    .line 2
+    .line 3
+    invoke-static {v0, p0}, Lcom/google/protobuf/l1;->parseFrom(Lcom/google/protobuf/l1;Ljava/io/InputStream;)Lcom/google/protobuf/l1;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p0
+
+    .line 7
+    check-cast p0, Lbj/c;
+
+    .line 8
+    .line 9
+    return-object p0
+.end method
+
+.method public static hm(Ljava/io/InputStream;Lcom/google/protobuf/v0;)Lbj/c;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 1
+    sget-object v0, Lbj/c;->DEFAULT_INSTANCE:Lbj/c;
+
+    .line 2
+    .line 3
+    invoke-static {v0, p0, p1}, Lcom/google/protobuf/l1;->parseFrom(Lcom/google/protobuf/l1;Ljava/io/InputStream;Lcom/google/protobuf/v0;)Lcom/google/protobuf/l1;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p0
+
+    .line 7
+    check-cast p0, Lbj/c;
+
+    .line 8
+    .line 9
+    return-object p0
+.end method
+
+.method public static im(Ljava/nio/ByteBuffer;)Lbj/c;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/google/protobuf/t1;
+        }
+    .end annotation
+
+    .line 1
+    sget-object v0, Lbj/c;->DEFAULT_INSTANCE:Lbj/c;
+
+    .line 2
+    .line 3
+    invoke-static {v0, p0}, Lcom/google/protobuf/l1;->parseFrom(Lcom/google/protobuf/l1;Ljava/nio/ByteBuffer;)Lcom/google/protobuf/l1;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p0
+
+    .line 7
+    check-cast p0, Lbj/c;
+
+    .line 8
+    .line 9
+    return-object p0
+.end method
+
+.method public static jm(Ljava/nio/ByteBuffer;Lcom/google/protobuf/v0;)Lbj/c;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/google/protobuf/t1;
+        }
+    .end annotation
+
+    .line 1
+    sget-object v0, Lbj/c;->DEFAULT_INSTANCE:Lbj/c;
+
+    .line 2
+    .line 3
+    invoke-static {v0, p0, p1}, Lcom/google/protobuf/l1;->parseFrom(Lcom/google/protobuf/l1;Ljava/nio/ByteBuffer;Lcom/google/protobuf/v0;)Lcom/google/protobuf/l1;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p0
+
+    .line 7
+    check-cast p0, Lbj/c;
+
+    .line 8
+    .line 9
+    return-object p0
+.end method
+
+.method public static synthetic kg(Lbj/c;)V
+    .locals 0
+
+    .line 1
+    invoke-virtual {p0}, Lbj/c;->Ul()V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+.method public static km([B)Lbj/c;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/google/protobuf/t1;
+        }
+    .end annotation
+
+    .line 1
+    sget-object v0, Lbj/c;->DEFAULT_INSTANCE:Lbj/c;
+
+    .line 2
+    .line 3
+    invoke-static {v0, p0}, Lcom/google/protobuf/l1;->parseFrom(Lcom/google/protobuf/l1;[B)Lcom/google/protobuf/l1;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p0
+
+    .line 7
+    check-cast p0, Lbj/c;
+
+    .line 8
+    .line 9
+    return-object p0
+.end method
+
+.method public static lm([BLcom/google/protobuf/v0;)Lbj/c;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/google/protobuf/t1;
+        }
+    .end annotation
+
+    .line 1
+    sget-object v0, Lbj/c;->DEFAULT_INSTANCE:Lbj/c;
+
+    .line 2
+    .line 3
+    invoke-static {v0, p0, p1}, Lcom/google/protobuf/l1;->parseFrom(Lcom/google/protobuf/l1;[BLcom/google/protobuf/v0;)Lcom/google/protobuf/l1;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p0
+
+    .line 7
+    check-cast p0, Lbj/c;
+
+    .line 8
+    .line 9
+    return-object p0
+.end method
+
+.method private nm(Ljava/lang/String;)V
+    .locals 0
+
+    .line 1
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    .line 2
+    .line 3
+    .line 4
+    iput-object p1, p0, Lbj/c;->id_:Ljava/lang/String;
+
+    .line 5
+    .line 6
+    return-void
+.end method
+
+.method private om(Lcom/google/protobuf/u;)V
+    .locals 0
+
+    .line 1
+    invoke-static {p1}, Lcom/google/protobuf/a;->checkByteStringIsUtf8(Lcom/google/protobuf/u;)V
+
+    .line 2
+    .line 3
+    .line 4
+    invoke-virtual {p1}, Lcom/google/protobuf/u;->I0()Ljava/lang/String;
+
+    .line 5
+    .line 6
+    .line 7
+    move-result-object p1
+
+    .line 8
+    iput-object p1, p0, Lbj/c;->id_:Ljava/lang/String;
+
+    .line 9
+    .line 10
+    return-void
+.end method
+
+.method public static parser()Lcom/google/protobuf/f3;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/google/protobuf/f3<",
+            "Lbj/c;",
+            ">;"
+        }
+    .end annotation
+
+    .line 1
+    sget-object v0, Lbj/c;->DEFAULT_INSTANCE:Lbj/c;
+
+    .line 2
+    .line 3
+    invoke-virtual {v0}, Lcom/google/protobuf/l1;->getParserForType()Lcom/google/protobuf/f3;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object v0
+
+    .line 7
+    return-object v0
+.end method
+
+.method public static synthetic pd()Lbj/c;
+    .locals 1
+
+    .line 1
+    sget-object v0, Lbj/c;->DEFAULT_INSTANCE:Lbj/c;
+
+    .line 2
+    .line 3
+    return-object v0
+.end method
+
+
+# virtual methods
+.method public final Sl()V
+    .locals 1
+
+    .line 1
+    const/4 v0, 0x0
+
+    .line 2
+    iput-object v0, p0, Lbj/c;->createTime_:Lcom/google/protobuf/d4;
+
+    .line 3
+    .line 4
+    iget v0, p0, Lbj/c;->bitField0_:I
+
+    .line 5
+    .line 6
+    and-int/lit8 v0, v0, -0x2
+
+    .line 7
+    .line 8
+    iput v0, p0, Lbj/c;->bitField0_:I
+
+    .line 9
+    .line 10
+    return-void
+.end method
+
+.method public final Ul()V
+    .locals 2
+
+    .line 1
+    const-wide/16 v0, 0x0
+
+    .line 2
+    .line 3
+    iput-wide v0, p0, Lbj/c;->totalBytes_:J
+
+    .line 4
+    .line 5
+    return-void
+.end method
+
+.method public final Vl()V
+    .locals 1
+
+    .line 1
+    const/4 v0, 0x0
+
+    .line 2
+    iput v0, p0, Lbj/c;->totalDocuments_:I
+
+    .line 3
+    .line 4
+    return-void
+.end method
+
+.method public Xh()J
+    .locals 2
+
+    .line 1
+    iget-wide v0, p0, Lbj/c;->totalBytes_:J
+
+    .line 2
+    .line 3
+    return-wide v0
+.end method
+
+.method public final Xl(Lcom/google/protobuf/d4;)V
+    .locals 2
+
+    .line 1
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    .line 2
+    .line 3
+    .line 4
+    iget-object v0, p0, Lbj/c;->createTime_:Lcom/google/protobuf/d4;
+
+    .line 5
+    .line 6
+    if-eqz v0, :cond_0
+
+    .line 7
+    .line 8
+    invoke-static {}, Lcom/google/protobuf/d4;->Ml()Lcom/google/protobuf/d4;
+
+    .line 9
+    .line 10
+    .line 11
+    move-result-object v1
+
+    .line 12
+    if-eq v0, v1, :cond_0
+
+    .line 13
+    .line 14
+    iget-object v0, p0, Lbj/c;->createTime_:Lcom/google/protobuf/d4;
+
+    .line 15
+    .line 16
+    invoke-static {v0}, Lcom/google/protobuf/d4;->Ol(Lcom/google/protobuf/d4;)Lcom/google/protobuf/d4$b;
+
+    .line 17
+    .line 18
+    .line 19
+    move-result-object v0
+
+    .line 20
+    invoke-virtual {v0, p1}, Lcom/google/protobuf/l1$b;->mergeFrom(Lcom/google/protobuf/l1;)Lcom/google/protobuf/l1$b;
+
+    .line 21
+    .line 22
+    .line 23
+    move-result-object p1
+
+    .line 24
+    check-cast p1, Lcom/google/protobuf/d4$b;
+
+    .line 25
+    .line 26
+    invoke-virtual {p1}, Lcom/google/protobuf/l1$b;->buildPartial()Lcom/google/protobuf/l1;
+
+    .line 27
+    .line 28
+    .line 29
+    move-result-object p1
+
+    .line 30
+    check-cast p1, Lcom/google/protobuf/d4;
+
+    .line 31
+    .line 32
+    iput-object p1, p0, Lbj/c;->createTime_:Lcom/google/protobuf/d4;
+
+    .line 33
+    .line 34
+    goto :goto_0
+
+    .line 35
+    :cond_0
+    iput-object p1, p0, Lbj/c;->createTime_:Lcom/google/protobuf/d4;
+
+    .line 36
+    .line 37
+    :goto_0
+    iget p1, p0, Lbj/c;->bitField0_:I
+
+    .line 38
+    .line 39
+    or-int/lit8 p1, p1, 0x1
+
+    .line 40
+    .line 41
+    iput p1, p0, Lbj/c;->bitField0_:I
+
+    .line 42
+    .line 43
+    return-void
+.end method
+
+.method public final clearVersion()V
+    .locals 1
+
+    .line 1
+    const/4 v0, 0x0
+
+    .line 2
+    iput v0, p0, Lbj/c;->version_:I
+
+    .line 3
+    .line 4
+    return-void
+.end method
+
+.method public final dynamicMethod(Lcom/google/protobuf/l1$i;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 6
+
+    .line 1
+    sget-object p2, Lbj/c$a;->a:[I
+
+    .line 2
+    .line 3
+    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
+
+    .line 4
+    .line 5
+    .line 6
+    move-result p1
+
+    .line 7
+    aget p1, p2, p1
+
+    .line 8
+    .line 9
+    const/4 p2, 0x0
+
+    .line 10
+    packed-switch p1, :pswitch_data_0
+
+    .line 11
+    .line 12
+    .line 13
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
+
+    .line 14
+    .line 15
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
+
+    .line 16
+    .line 17
+    .line 18
+    throw p1
+
+    .line 19
+    :pswitch_0
+    return-object p2
+
+    .line 20
+    :pswitch_1
+    const/4 p1, 0x1
+
+    .line 21
+    invoke-static {p1}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
+
+    .line 22
+    .line 23
+    .line 24
+    move-result-object p1
+
+    .line 25
+    return-object p1
+
+    .line 26
+    :pswitch_2
+    sget-object p1, Lbj/c;->PARSER:Lcom/google/protobuf/f3;
+
+    .line 27
+    .line 28
+    if-nez p1, :cond_1
+
+    .line 29
+    .line 30
+    const-class p2, Lbj/c;
+
+    .line 31
+    .line 32
+    monitor-enter p2
+
+    .line 33
+    :try_start_0
+    sget-object p1, Lbj/c;->PARSER:Lcom/google/protobuf/f3;
+
+    .line 34
+    .line 35
+    if-nez p1, :cond_0
+
+    .line 36
+    .line 37
+    new-instance p1, Lcom/google/protobuf/l1$c;
+
+    .line 38
+    .line 39
+    sget-object p3, Lbj/c;->DEFAULT_INSTANCE:Lbj/c;
+
+    .line 40
+    .line 41
+    invoke-direct {p1, p3}, Lcom/google/protobuf/l1$c;-><init>(Lcom/google/protobuf/l1;)V
+
+    .line 42
+    .line 43
+    .line 44
+    sput-object p1, Lbj/c;->PARSER:Lcom/google/protobuf/f3;
+
+    .line 45
+    .line 46
+    goto :goto_0
+
+    .line 47
+    :catchall_0
+    move-exception p1
+
+    .line 48
+    goto :goto_1
+
+    .line 49
+    :cond_0
+    :goto_0
+    monitor-exit p2
+
+    .line 50
+    goto :goto_2
+
+    .line 51
+    :goto_1
+    monitor-exit p2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 52
+    throw p1
+
+    .line 53
+    :cond_1
+    :goto_2
+    return-object p1
+
+    .line 54
+    :pswitch_3
+    sget-object p1, Lbj/c;->DEFAULT_INSTANCE:Lbj/c;
+
+    .line 55
+    .line 56
+    return-object p1
+
+    .line 57
+    :pswitch_4
+    const-string v0, "bitField0_"
+
+    .line 58
+    .line 59
+    const-string v1, "id_"
+
+    .line 60
+    .line 61
+    const-string v2, "createTime_"
+
+    .line 62
+    .line 63
+    const-string v3, "version_"
+
+    .line 64
+    .line 65
+    const-string v4, "totalDocuments_"
+
+    .line 66
+    .line 67
+    const-string v5, "totalBytes_"
+
+    .line 68
+    .line 69
+    filled-new-array/range {v0 .. v5}, [Ljava/lang/Object;
+
+    .line 70
+    .line 71
+    .line 72
+    move-result-object p1
+
+    .line 73
+    const-string p2, "\u0000\u0005\u0000\u0001\u0001\u0005\u0005\u0000\u0000\u0000\u0001\u0208\u0002\u1009\u0000\u0003\u000b\u0004\u000b\u0005\u0003"
+
+    .line 74
+    .line 75
+    sget-object p3, Lbj/c;->DEFAULT_INSTANCE:Lbj/c;
+
+    .line 76
+    .line 77
+    invoke-static {p3, p2, p1}, Lcom/google/protobuf/l1;->newMessageInfo(Lcom/google/protobuf/n2;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 78
+    .line 79
+    .line 80
+    move-result-object p1
+
+    .line 81
+    return-object p1
+
+    .line 82
+    :pswitch_5
+    new-instance p1, Lbj/c$b;
+
+    .line 83
+    .line 84
+    invoke-direct {p1, p2}, Lbj/c$b;-><init>(Lbj/c$a;)V
+
+    .line 85
+    .line 86
+    .line 87
+    return-object p1
+
+    .line 88
+    :pswitch_6
+    new-instance p1, Lbj/c;
+
+    .line 89
+    .line 90
+    invoke-direct {p1}, Lbj/c;-><init>()V
+
+    .line 91
+    .line 92
+    .line 93
+    return-object p1
+
+    .line 94
+    nop
+
+    .line 95
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
+.end method
+
+.method public g6()Z
+    .locals 2
+
+    .line 1
+    iget v0, p0, Lbj/c;->bitField0_:I
+
+    .line 2
+    .line 3
+    const/4 v1, 0x1
+
+    .line 4
+    and-int/2addr v0, v1
+
+    .line 5
+    if-eqz v0, :cond_0
+
+    .line 6
+    .line 7
+    goto :goto_0
+
+    .line 8
+    :cond_0
+    const/4 v1, 0x0
+
+    .line 9
+    :goto_0
+    return v1
+.end method
+
+.method public getId()Ljava/lang/String;
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Lbj/c;->id_:Ljava/lang/String;
+
+    .line 2
+    .line 3
+    return-object v0
+.end method
+
+.method public getVersion()I
+    .locals 1
+
+    .line 1
+    iget v0, p0, Lbj/c;->version_:I
+
+    .line 2
+    .line 3
+    return v0
+.end method
+
+.method public hf()I
+    .locals 1
+
+    .line 1
+    iget v0, p0, Lbj/c;->totalDocuments_:I
+
+    .line 2
+    .line 3
+    return v0
+.end method
+
+.method public i0()Lcom/google/protobuf/u;
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Lbj/c;->id_:Ljava/lang/String;
+
+    .line 2
+    .line 3
+    invoke-static {v0}, Lcom/google/protobuf/u;->K(Ljava/lang/String;)Lcom/google/protobuf/u;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object v0
+
+    .line 7
+    return-object v0
+.end method
+
+.method public final mm(Lcom/google/protobuf/d4;)V
+    .locals 0
+
+    .line 1
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    .line 2
+    .line 3
+    .line 4
+    iput-object p1, p0, Lbj/c;->createTime_:Lcom/google/protobuf/d4;
+
+    .line 5
+    .line 6
+    iget p1, p0, Lbj/c;->bitField0_:I
+
+    .line 7
+    .line 8
+    or-int/lit8 p1, p1, 0x1
+
+    .line 9
+    .line 10
+    iput p1, p0, Lbj/c;->bitField0_:I
+
+    .line 11
+    .line 12
+    return-void
+.end method
+
+.method public o6()Lcom/google/protobuf/d4;
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Lbj/c;->createTime_:Lcom/google/protobuf/d4;
+
+    .line 2
+    .line 3
+    if-nez v0, :cond_0
+
+    .line 4
+    .line 5
+    invoke-static {}, Lcom/google/protobuf/d4;->Ml()Lcom/google/protobuf/d4;
+
+    .line 6
+    .line 7
+    .line 8
+    move-result-object v0
+
+    .line 9
+    :cond_0
+    return-object v0
+.end method
+
+.method public final pm(J)V
+    .locals 0
+
+    .line 1
+    iput-wide p1, p0, Lbj/c;->totalBytes_:J
+
+    .line 2
+    .line 3
+    return-void
+.end method
+
+.method public final qm(I)V
+    .locals 0
+
+    .line 1
+    iput p1, p0, Lbj/c;->totalDocuments_:I
+
+    .line 2
+    .line 3
+    return-void
+.end method
+
+.method public final rm(I)V
+    .locals 0
+
+    .line 1
+    iput p1, p0, Lbj/c;->version_:I
+
+    .line 2
+    .line 3
+    return-void
+.end method

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="56.0dip" android:width="56.0dip" android:viewportWidth="56.0" android:viewportHeight="56.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#ffece7f5" android:pathData="M11,3 L45,3 A2,2 0 0,1 47,5 L47,51 A2,2 0 0,1 45,53 L11,53 A2,2 0 0,1 9,51 L9,5 A2,2 0 0,1 11,3 Z" android:strokeColor="#ff000000" android:strokeWidth="2.0" />
+    <path android:pathData="M34,30L38,26" android:strokeColor="#ff000000" android:strokeWidth="1.5" android:strokeLineCap="round" />
+    <path android:pathData="M34,26L38,30" android:strokeColor="#ff000000" android:strokeWidth="1.5" android:strokeLineCap="round" />
+    <path android:pathData="M34,14L38,10" android:strokeColor="#ff000000" android:strokeWidth="1.5" android:strokeLineCap="round" />
+    <path android:pathData="M34,10L38,14" android:strokeColor="#ff000000" android:strokeWidth="1.5" android:strokeLineCap="round" />
+    <path android:pathData="M18,46L22,42" android:strokeColor="#ff000000" android:strokeWidth="1.5" android:strokeLineCap="round" />
+    <path android:pathData="M18,42L22,46" android:strokeColor="#ff000000" android:strokeWidth="1.5" android:strokeLineCap="round" />
+    <path android:pathData="M18,30L22,26" android:strokeColor="#ff000000" android:strokeWidth="1.5" android:strokeLineCap="round" />
+    <path android:pathData="M18,26L22,30" android:strokeColor="#ff000000" android:strokeWidth="1.5" android:strokeLineCap="round" />
+    <path android:pathData="M18,14L22,10" android:strokeColor="#ffda0081" android:strokeWidth="1.5" android:strokeLineCap="round" />
+    <path android:pathData="M18,10L22,14" android:strokeColor="#ffda0081" android:strokeWidth="1.5" android:strokeLineCap="round" />
+    <path android:pathData="M34,46L38,42" android:strokeColor="#ffda0081" android:strokeWidth="1.5" android:strokeLineCap="round" />
+    <path android:pathData="M34,42L38,46" android:strokeColor="#ffda0081" android:strokeWidth="1.5" android:strokeLineCap="round" />
+</vector>

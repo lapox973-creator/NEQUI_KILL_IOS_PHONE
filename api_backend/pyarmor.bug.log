@@ -1,0 +1,12 @@
+[BUG]: out of license
+
+## Command Line
+/home/sxngre/.local/bin/pyarmor gen --enable-rft app_original.py -O .
+
+## Environments
+Python 3.13.7
+Pyarmor 9.2.0 (trial), 000000, non-profits
+Platform linux.x86_64
+Native linux.x86_64
+Home /home/sxngre/.pyarmor
+

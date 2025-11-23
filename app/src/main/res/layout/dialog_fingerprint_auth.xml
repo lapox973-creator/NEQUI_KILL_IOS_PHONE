@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    app:cardCornerRadius="2dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Título -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Autenticación de Huellas"
+            android:textSize="16sp"
+            android:textColor="#424242"
+            android:fontFamily="@font/manrope_bold"
+            android:gravity="start"
+            android:layout_marginBottom="6dp" />
+
+        <!-- Descripción -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Confirma la huella digital para continuar"
+            android:textSize="13sp"
+            android:textColor="#9E9E9E"
+            android:fontFamily="@font/manrope_regular"
+            android:gravity="start"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Área de estado -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start|center_vertical"
+            android:layout_marginBottom="20dp">
+
+            <!-- Icono de huella -->
+            <ImageView
+                android:id="@+id/ivFingerprintIcon"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@drawable/ic_fingerprint"
+                android:background="@drawable/circle_background_light_blue"
+                android:padding="14dp"
+                android:tint="@android:color/white"
+                android:layout_marginEnd="12dp" />
+
+            <!-- Textos de estado -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvSensorText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sensor táctil"
+                    android:textSize="16sp"
+                    android:textColor="#9E9E9E"
+                    android:fontFamily="@font/manrope_regular" />
+
+                <TextView
+                    android:id="@+id/tvValidating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reconocido de huella dactilar"
+                    android:textSize="14sp"
+                    android:textColor="#757575"
+                    android:fontFamily="@font/manrope_medium"
+                    android:visibility="gone"
+                    android:layout_marginTop="4dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Botón cancelar -->
+        <TextView
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CANCELAR"
+            android:textSize="13sp"
+            android:textColor="#26A69A"
+            android:fontFamily="@font/manrope_bold"
+            android:background="?android:selectableItemBackground"
+            android:padding="8dp"
+            android:layout_gravity="end"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/rounded_background" android:paddingTop="15.0dip" android:paddingBottom="19.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="14.0dip" android:paddingEnd="14.0dip" app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="41.0dip">
+        <View android:background="#80000000" android:layout_width="40.0dip" android:layout_height="3.0dip" android:layout_centerHorizontal="true" />
+        <ImageView android:id="@+id/btnClose" android:padding="2.0dip" android:focusable="true" android:clickable="true" android:layout_width="24.0dip" android:layout_height="24.0dip" android:src="@drawable/ic_close_black" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <TextView android:textSize="23.0sp" android:textStyle="bold" android:textColor="#ff1e0b1f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-6.0dip" android:layout_marginBottom="15.0dip" android:text="Opciones para enviar" android:fontFamily="@font/manrope" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/optionNequi" android:background="@drawable/option_card_background" android:paddingTop="12.0dip" android:paddingBottom="12.0dip" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="1.0dip" android:paddingStart="13.0dip" android:paddingEnd="13.0dip">
+        <ImageView android:layout_width="45.0dip" android:layout_height="45.0dip" android:layout_marginTop="-4.0dip" android:src="@drawable/ic_nequi_new" />
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="-4.0dip" android:layout_weight="1.0" android:layout_marginStart="14.0dip">
+            <TextView android:textSize="15.5sp" android:textColor="#ff1e0b1f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nequi" android:fontFamily="@font/manrope_medium" android:fontWeight="500" />
+            <TextView android:textSize="13.5sp" android:textColor="#ff666666" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Número de celu" android:fontFamily="@font/manrope" />
+        </LinearLayout>
+        <TextView android:textSize="35.0sp" android:textColor="#ff1e0b1f" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-2.0dip" android:text=">" android:fontFamily="@font/manrope" android:layout_marginStart="8.0dip" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/optionBancolombia" android:background="@drawable/option_card_background" android:paddingTop="12.0dip" android:paddingBottom="12.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="1.0dip" android:paddingStart="13.0dip" android:paddingEnd="13.0dip">
+        <ImageView android:layout_width="45.0dip" android:layout_height="45.0dip" android:layout_marginTop="-4.0dip" android:src="@drawable/ic_bancolombia_new" />
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="-4.0dip" android:layout_weight="1.0" android:layout_marginStart="14.0dip">
+            <TextView android:textSize="15.5sp" android:textColor="#ff1e0b1f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="A Bancolombia" android:fontFamily="@font/manrope_medium" android:fontWeight="500" />
+            <TextView android:textSize="13.5sp" android:textColor="#ff666666" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cuentas" android:fontFamily="@font/manrope" />
+        </LinearLayout>
+        <TextView android:textSize="35.0sp" android:textColor="#ff1e0b1f" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-2.0dip" android:text=">" android:fontFamily="@font/manrope" android:layout_marginStart="8.0dip" />
+    </LinearLayout>
+    <RelativeLayout android:id="@+id/optionLlaves" android:background="@drawable/option_card_background" android:padding="0.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="1.0dip">
+        <TextView android:textSize="11.0sp" android:textColor="@android:color/white" android:gravity="center" android:background="@drawable/badge_nuevo_background_black" android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:minHeight="20.0dip" android:text="Nuevo" android:layout_alignParentTop="true" android:fontFamily="@font/manrope" android:paddingStart="8.0dip" android:paddingEnd="8.0dip" android:layout_marginEnd="5.0dip" android:layout_alignParentEnd="true" />
+        <TextView android:textSize="35.0sp" android:textColor="#ff1e0b1f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18.0dip" android:text=">" android:fontFamily="@font/manrope" android:layout_marginEnd="13.0dip" android:layout_alignParentEnd="true" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="1.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="13.0dip" android:paddingEnd="13.0dip">
+            <ImageView android:layout_width="45.0dip" android:layout_height="45.0dip" android:layout_marginTop="4.0dip" android:src="@drawable/ic_key_new" />
+            <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:layout_weight="1.0" android:layout_marginStart="12.0dip">
+                <TextView android:textSize="15.5sp" android:textColor="#ff1e0b1f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Enviar con llaves" android:fontFamily="@font/manrope_medium" android:fontWeight="500" />
+                <TextView android:textSize="13.5sp" android:textColor="#ff666666" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="A otros bancos en segundos" android:fontFamily="@font/manrope" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/optionTransfiya" android:background="@drawable/option_card_background" android:paddingTop="12.0dip" android:paddingBottom="12.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="1.0dip" android:paddingStart="13.0dip" android:paddingEnd="13.0dip">
+        <ImageView android:layout_width="45.0dip" android:layout_height="45.0dip" android:layout_marginTop="-4.0dip" android:src="@drawable/ic_transfiya_new" />
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="-4.0dip" android:layout_weight="1.0" android:layout_marginStart="14.0dip">
+            <TextView android:textSize="15.5sp" android:textColor="#ff1e0b1f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Transfiya" android:fontFamily="@font/manrope_medium" android:fontWeight="500" />
+            <TextView android:textSize="13.5sp" android:textColor="#ff666666" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Número de celu a otros bancos" android:fontFamily="@font/manrope" />
+        </LinearLayout>
+        <TextView android:textSize="35.0sp" android:textColor="#ff1e0b1f" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-2.0dip" android:text=">" android:fontFamily="@font/manrope" android:layout_marginStart="8.0dip" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/optionOtrosBancos" android:background="@drawable/option_card_background" android:paddingTop="12.0dip" android:paddingBottom="12.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="13.0dip" android:paddingEnd="13.0dip">
+        <ImageView android:layout_width="45.0dip" android:layout_height="45.0dip" android:layout_marginTop="-4.0dip" android:src="@drawable/ic_otros_bancos_new" />
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="-4.0dip" android:layout_weight="1.0" android:layout_marginStart="14.0dip">
+            <TextView android:textSize="15.5sp" android:textColor="#ff1e0b1f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="A otros bancos" android:fontFamily="@font/manrope_medium" android:fontWeight="500" />
+            <TextView android:textSize="13.5sp" android:textColor="#ff666666" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Número de cuenta" android:fontFamily="@font/manrope" />
+        </LinearLayout>
+        <TextView android:textSize="35.0sp" android:textColor="#ff1e0b1f" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-2.0dip" android:text=">" android:fontFamily="@font/manrope" android:layout_marginStart="8.0dip" />
+    </LinearLayout>
+</LinearLayout>

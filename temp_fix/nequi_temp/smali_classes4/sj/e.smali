@@ -1,0 +1,41 @@
+.class public interface abstract Lsj/e;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# virtual methods
+.method public abstract a(Ljava/lang/Throwable;)Z
+    .param p1    # Ljava/lang/Throwable;
+        .annotation build Lwj/f;
+        .end annotation
+    .end param
+    .annotation build Lwj/e;
+    .end annotation
+.end method
+
+.method public abstract b()Z
+.end method
+
+.method public abstract c(Lxj/c;)V
+    .param p1    # Lxj/c;
+        .annotation build Lwj/g;
+        .end annotation
+    .end param
+.end method
+
+.method public abstract d(Lak/f;)V
+    .param p1    # Lak/f;
+        .annotation build Lwj/g;
+        .end annotation
+    .end param
+.end method
+
+.method public abstract onComplete()V
+.end method
+
+.method public abstract onError(Ljava/lang/Throwable;)V
+    .param p1    # Ljava/lang/Throwable;
+        .annotation build Lwj/f;
+        .end annotation
+    .end param
+.end method

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@android:color/white" android:padding="32.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@+id/ivSaldoInsuficiente" android:layout_width="200.0dip" android:layout_height="200.0dip" android:src="@drawable/ic_saldo_insuficiente" android:contentDescription="Icono de saldo insuficiente" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.4" />
+     <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#ff200020" android:gravity="center" android:id="@+id/tvMensaje" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="32.0dip" android:text="Saldo visible insuficiente" android:maxLines="2" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/ivSaldoInsuficiente" />
+     <!-- IDs esperados por el código -->
+     <TextView android:id="@+id/tvCurrentBalance" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+     <TextView android:id="@+id/tvRequiredAmount" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+     <TextView android:id="@+id/tvMissingAmount" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+     <Button android:id="@+id/btnRecharge" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+     <Button android:id="@+id/btnBackToHome" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+     <com.google.android.material.button.MaterialButton android:textColor="@android:color/white" android:id="@+id/btnVolver" android:paddingTop="12.0dip" android:paddingBottom="12.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="48.0dip" android:text="Volver" android:paddingStart="32.0dip" android:paddingEnd="32.0dip" android:backgroundTint="#ffff3e60" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/tvMensaje" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CC000000">
+
+<com.google.android.material.card.MaterialCardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="24dp"
+    android:maxWidth="520dp"
+    app:cardCornerRadius="28dp"
+    app:cardElevation="32dp"
+    app:cardBackgroundColor="#FF0000"
+    app:strokeColor="#40FFD700"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="32dp">
+
+
+        <!-- Botón cerrar -->
+        <ImageView
+            android:id="@+id/btnClose"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:contentDescription="Cerrar"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:tint="@color/white"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="6dp"/>
+
+        <!-- Título y subtítulo -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Centro de Ayuda"
+            android:textColor="#FFFFFFFF"
+            android:textSize="26sp"
+            android:fontFamily="@font/manrope_bold"
+            android:gravity="start"
+            android:lineSpacingExtra="4dp"
+            android:shadowColor="#80FFD700"
+            android:shadowDx="0"
+            android:shadowDy="2"
+            android:shadowRadius="8"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvBody"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="¿Necesitas ayuda con la plataforma? Contáctanos por Telegram o únete a nuestro grupo oficial para recibir asistencia inmediata."
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:fontFamily="@font/manrope_medium"
+            android:gravity="start"
+            android:lineSpacingExtra="6dp"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Botones mejorados -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnJoinGroupHelp"
+            android:layout_width="0dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="24dp"
+            android:text="Contactar Soporte"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:fontFamily="@font/manrope_bold"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#FFEB3B"
+            app:cornerRadius="14dp"
+            app:elevation="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tvBody"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTelegramHelp"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="12dp"
+            android:text="Grupo Oficial"
+            android:textAllCaps="false"
+            android:textSize="15sp"
+            android:fontFamily="@font/manrope_medium"
+            android:textColor="#FF0000"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="14dp"
+            app:strokeColor="#40FFD700"
+            app:strokeWidth="1dp"
+            app:layout_constraintTop_toBottomOf="@id/btnJoinGroupHelp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- VERSIÓN (centrada y visible en todas las resoluciones) -->
+        <TextView
+            android:id="@+id/tvVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Versión v5.5"
+            android:textSize="11sp"
+            android:textColor="#B3FFFFFF"
+            android:fontFamily="@font/manrope_medium"
+            app:layout_constraintTop_toBottomOf="@id/btnTelegramHelp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
+</FrameLayout>

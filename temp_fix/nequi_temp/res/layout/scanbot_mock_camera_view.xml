@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/mock_camera_root" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:layout_gravity="center" android:id="@id/image_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <androidx.appcompat.widget.AppCompatTextView android:textSize="22.0sp" android:textColor="@android:color/white" android:layout_gravity="center|top" android:id="@id/error_hint" android:background="@android:color/holo_red_light" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="140.0dip" android:maxLines="8" android:textAlignment="center" android:layout_marginStart="20.0dip" android:layout_marginEnd="20.0dip" app:autoSizeMinTextSize="12.0sp" app:autoSizeTextType="uniform" />
+</FrameLayout>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/nequi_purple"
+    android:fitsSystemWindows="true">
+
+    <!-- Header -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_back"
+            android:background="?selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            app:tint="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Añadir Llave QR"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:fontFamily="@font/manrope_bold"
+            app:layout_constraintStart_toEndOf="@id/btnBack"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="16dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/white"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ingresa la llave QR"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:fontFamily="@font/manrope_bold"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Esta llave se asociará automáticamente cuando escanees un QR"
+                android:textColor="@color/gray"
+                android:textSize="14sp"
+                android:fontFamily="@font/manrope_medium"
+                android:layout_marginBottom="24dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Llave QR (máx. 10 dígitos)"
+                app:boxStrokeColor="@color/nequi_purple"
+                app:hintTextColor="@color/nequi_purple"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etQrKey"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/manrope_medium" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvAssociatedQr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:padding="16dp"
+                android:background="@drawable/rounded_bg_gray"
+                android:text="Sin QR asociado"
+                android:textColor="@color/gray"
+                android:textSize="14sp"
+                android:fontFamily="@font/manrope_medium"
+                android:gravity="center"
+                android:visibility="gone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnScanQr"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Escanear QR"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:fontFamily="@font/manrope_bold"
+                android:backgroundTint="@color/nequi_purple"
+                app:cornerRadius="12dp"
+                android:layout_marginTop="24dp"
+                android:enabled="false" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSaveKey"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Guardar Llave"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:fontFamily="@font/manrope_bold"
+                android:backgroundTint="@color/nequi_purple"
+                app:cornerRadius="12dp"
+                android:layout_marginTop="16dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

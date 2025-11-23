@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <!-- Fondo rosa semi-transparente más intenso (50% opacidad) -->
+    <View
+        android:id="@+id/backgroundOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80EA0088"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Diálogo integrado con borde rosa -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:orientation="vertical"
+        android:background="@drawable/bg_dialog_inactivity"
+        android:elevation="8dp">
+
+        <!-- Parte superior: contenido blanco -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center"
+            android:background="@android:color/white">
+
+            <!-- Texto ZZZZZZZZZZ... -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ZZZZZZZZZZ…"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="#2E2E2E"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Mensaje de inactividad -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¡Llevas mucho tiempo sin moverte!, por seguridad cerramos tu sesión."
+                android:textSize="16sp"
+                android:textColor="#666666"
+                android:gravity="center"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <!-- Parte inferior: botón integrado con fondo gris -->
+        <TextView
+            android:id="@+id/btnEnterAgain"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Entra de nuevo"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#EA0088"
+            android:background="@drawable/bg_button_press_effect"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground" />
+
+    </LinearLayout>
+
+</FrameLayout>

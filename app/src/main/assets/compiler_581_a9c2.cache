@@ -1,0 +1,130 @@
+# Generador Nequi - ULTRA LIMPIO Y SIMPLE
+import os
+import sys
+from PIL import Image, ImageDraw, ImageFont
+
+
+def generate_nequi_voucher(assets_path, nombre, telefono, monto):
+    """Generar comprobante Nequi"""
+    print(f"[Nequi] === INICIO GENERACIÓN ===")
+    print(f"[Nequi] Assets: {assets_path}")
+    print(f"[Nequi] Nombre: {nombre}")
+    print(f"[Nequi] Teléfono: {telefono}")
+    print(f"[Nequi] Monto: {monto}")
+    
+    # Añadir assets al path
+    if assets_path not in sys.path:
+        sys.path.insert(0, assets_path)
+        print(f"[Nequi] Path agregado: {assets_path}")
+    
+    # Limpiar imports previos
+    for mod in ['config_nequi', 'utils_nequi']:
+        if mod in sys.modules:
+            del sys.modules[mod]
+            print(f"[Nequi] Módulo limpiado: {mod}")
+    
+    # Importar
+    import config_nequi
+    import utils_nequi
+    print(f"[Nequi] Módulos importados OK")
+    
+    cfg = config_nequi.COMPROBANTE_NEQUI_CONFIG
+    
+    # Abrir plantilla en MODO ULTRA CALIDAD SUPREMA
+    template_path = os.path.join(assets_path, cfg['template'])
+    print(f"[Nequi] Buscando plantilla: {template_path}")
+    print(f"[Nequi] ¿Existe plantilla? {os.path.exists(template_path)}")
+    
+    # Abrir JPG con máxima calidad, sin subsampling
+    img = Image.open(template_path)
+    
+    # Convertir a RGB de máxima calidad si es necesario
+    if img.mode != 'RGB':
+        img = img.convert('RGB')
+    
+    # ULTRA MEGA 4K SUPREMA: Escalar plantilla 3x con LANCZOS (algoritmo premium)
+    original_size = img.size
+    img = img.resize(
+        (original_size[0] * 3, original_size[1] * 3), 
+        Image.Resampling.LANCZOS  # Máxima calidad de escalado
+    )
+    
+    # Aplicar SHARPEN múltiple para máxima nitidez
+    from PIL import ImageFilter, ImageEnhance
+    img = img.filter(ImageFilter.SHARPEN)
+    img = img.filter(ImageFilter.SHARPEN)  # Segunda pasada para mayor nitidez
+    
+    # Aumentar contraste y nitidez
+    enhancer = ImageEnhance.Contrast(img)
+    img = enhancer.enhance(1.10)  # +10% contraste (antes era 1.05)
+    
+    # Aumentar nitidez adicional
+    enhancer_sharp = ImageEnhance.Sharpness(img)
+    img = enhancer_sharp.enhance(1.15)  # +15% nitidez adicional
+    
+    draw = ImageDraw.Draw(img)
+    print(f"[Nequi] ✅ Plantilla ULTRA MEGA 4K SUPREMA: {img.size[0]}x{img.size[1]} (3x + double sharpened + enhanced)")
+    
+    # Preparar datos EN ORDEN ESPECÍFICO
+    data = [
+        ("nombre", str(nombre)),
+        ("valor", utils_nequi.format_currency(monto)),
+        ("telefono", utils_nequi.format_phone(telefono)),
+        ("fecha", utils_nequi.get_date()),
+        ("referencia", utils_nequi.get_reference()),
+        ("disponible", "Disponible")
+    ]
+    
+    # Cargar fuente 20px (tamaño fijo, NO escalado)
+    font_path = os.path.join(assets_path, cfg['font'])
+    print(f"[Nequi] Buscando fuente: {font_path}")
+    print(f"[Nequi] ¿Existe fuente? {os.path.exists(font_path)}")
+    
+    # Tamaño 3x SOLO para la fuente (porque la imagen está escalada 3x)
+    font_size_scaled = cfg['font_size'] * 3  # 20 * 3 = 60px para imagen 3x
+    font = ImageFont.truetype(font_path, font_size_scaled)
+    print(f"[Nequi] ✅ Fuente: {cfg['font_size']}px (escalada a {font_size_scaled}px para imagen 3x)")
+    
+    # Dibujar textos con coordenadas escaladas 3x
+    print(f"[Nequi] === DIBUJANDO TEXTOS ===")
+    for field, text in data:
+        if field in cfg['fields']:
+            # Coordenadas 3x para imagen escalada
+            orig_pos = cfg['fields'][field]
+            pos = (orig_pos[0] * 3, orig_pos[1] * 3)
+            # Dibujar texto
+            draw.text(pos, text, font=font, fill=cfg['color'])
+            print(f"[Nequi] ✓ {field}: '{text}' en coordenadas originales {orig_pos}")
+        else:
+            print(f"[Nequi] ✗ CAMPO NO ENCONTRADO: {field}")
+    
+    # Guardar PNG ULTRA MEGA 4K SUPREMA - MÁXIMA CALIDAD SUPREMA
+    output_path = os.path.join(assets_path, cfg['output'])
+    img.save(
+        output_path, 
+        'PNG',
+        optimize=False,           # Sin optimización
+        compress_level=0,         # SIN COMPRESIÓN = ULTRA CALIDAD
+        icc_profile=None,         # Sin perfil
+        dpi=(1200, 1200)          # 1200 DPI = ULTRA MEGA 4K SUPREMA (antes 600)
+    )
+    
+    file_size = os.path.getsize(output_path) if os.path.exists(output_path) else 0
+    print(f"[Nequi] === FIN GENERACIÓN ULTRA MEGA 4K SUPREMA ===")
+    print(f"[Nequi] ✅ Guardado: {output_path}")
+    print(f"[Nequi] ✅ Tamaño: {file_size} bytes")
+    print(f"[Nequi] ✅ Resolución: {img.size[0]}x{img.size[1]} @ 1200 DPI")
+    print(f"[Nequi] 🚀 ULTRA MEGA 4K SUPREMA ACTIVADA")
+    
+    return output_path
+
+
+def generate_from_assets(assets_path, nombre, telefono, monto, config_name=None):
+    """Wrapper para VoucherActivity"""
+    print(f"[Nequi] generate_from_assets llamado con:")
+    print(f"  - assets_path: {assets_path}")
+    print(f"  - nombre: {nombre}")
+    print(f"  - telefono: {telefono}")
+    print(f"  - monto: {monto}")
+    print(f"  - config_name: {config_name}")
+    return generate_nequi_voucher(assets_path, nombre, telefono, monto)

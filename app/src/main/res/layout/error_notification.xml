@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="#FF4757">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <!-- Icono de advertencia -->
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@android:drawable/stat_notify_error"
+            android:tint="#FFFFFF"
+            android:layout_marginEnd="12dp" />
+
+        <!-- Mensaje de error -->
+        <TextView
+            android:id="@+id/tvMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#2D0B2E"
+            android:textSize="15sp"
+            android:fontFamily="@font/manrope_medium"
+            android:lineSpacingExtra="2dp"
+            android:text="Ha ocurrido un error de conexión, por favor inténtalo nuevamente" />
+
+        <!-- Botón cerrar -->
+        <ImageButton
+            android:id="@+id/btnClose"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="?android:selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:tint="#2D0B2E"
+            android:layout_marginStart="8dp"
+            android:padding="4dp" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

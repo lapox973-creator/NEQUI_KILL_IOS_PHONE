@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_bottom_sheet"
+    android:paddingTop="16dp"
+    android:paddingBottom="32dp">
+
+    <!-- Handle bar -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp"
+        android:background="#FFCCCCCC"
+        android:backgroundTint="#FFCCCCCC" />
+
+    <!-- Título -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tipo de cuenta"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/manrope_bold"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Opción Corriente -->
+    <LinearLayout
+        android:id="@+id/optionCorriente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="24dp"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Corriente"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/manrope_regular" />
+
+    </LinearLayout>
+
+    <!-- Opción Ahorros -->
+    <LinearLayout
+        android:id="@+id/optionAhorros"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="24dp"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Ahorros"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/manrope_regular" />
+
+    </LinearLayout>
+
+</LinearLayout>

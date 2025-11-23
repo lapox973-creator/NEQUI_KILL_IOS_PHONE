@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:fitsSystemWindows="true">
+
+    <!-- Header con flecha de regreso y título -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp"
+        android:gravity="center_vertical"
+        android:minHeight="56dp">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back"
+            android:contentDescription="Volver"
+            android:tint="#000000" />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="Mi Negocio"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:fontFamily="@font/manrope_bold" />
+
+    </LinearLayout>
+
+    <!-- ScrollView para el contenido -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="32dp">
+
+            <!-- Sección Nueva app Nequi Negocios -->
+            <LinearLayout
+                android:id="@+id/promoSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- Icono azul con N y techo -->
+                <FrameLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#0099FF" />
+
+                    <ImageView
+                        android:id="@+id/nequiNegociosIcon"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_mi_negocio"
+                        android:tint="@android:color/white"
+                        android:scaleType="centerInside"
+                        android:contentDescription="Nequi Negocios" />
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="16dp">
+
+                    <TextView
+                        android:id="@+id/promoTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nueva app Nequi Negocios"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#0099FF"
+                        android:fontFamily="@font/manrope_bold" />
+
+                    <TextView
+                        android:id="@+id/promoSubtitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="¡Descárgala, cobra sin complicaciones y vende más!"
+                        android:textSize="14sp"
+                        android:textColor="#666666"
+                        android:fontFamily="@font/manrope_regular"
+                        android:layout_marginTop="4dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Carousel de características -->
+            <HorizontalScrollView
+                android:id="@+id/carouselScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:paddingTop="20dp"
+                android:paddingBottom="8dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingEnd="16dp">
+
+                    <!-- Tarjeta 1: Pagos QR -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@android:color/white"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="#E0E0E0">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="0dp">
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="140dp"
+                                android:background="#F5F5F5" />
+
+                            <TextView
+                                android:id="@+id/card1Text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Cobras desde tu QR"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="#000000"
+                                android:fontFamily="@font/manrope_bold"
+                                android:padding="16dp" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Tarjeta 2: Ventas Digitales -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@android:color/white"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="#E0E0E0">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="0dp">
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="140dp"
+                                android:background="#F5F5F5" />
+
+                            <TextView
+                                android:id="@+id/card2Text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Haz tus ventas digitales y cobra a través del link de pago"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="#000000"
+                                android:fontFamily="@font/manrope_bold"
+                                android:padding="16dp" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Tarjeta 3: Pagos Débito -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@android:color/white"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="#E0E0E0">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="0dp">
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="140dp"
+                                android:background="#F5F5F5" />
+
+                            <TextView
+                                android:id="@+id/card3Text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Recibe pagos débito y necesitas de tarjeta física"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="#000000"
+                                android:fontFamily="@font/manrope_bold"
+                                android:padding="16dp" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <!-- Indicadores del carousel -->
+            <LinearLayout
+                android:id="@+id/carouselIndicators"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp">
+
+                <View
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:background="@drawable/indicator_dot"
+                    android:layout_marginEnd="4dp"
+                    android:backgroundTint="#CCCCCC" />
+
+                <View
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:background="@drawable/indicator_dot"
+                    android:layout_marginEnd="4dp"
+                    android:backgroundTint="#0099FF" />
+
+                <View
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:background="@drawable/indicator_dot"
+                    android:backgroundTint="#CCCCCC" />
+
+            </LinearLayout>
+
+            <!-- Botón Conocer Más -->
+            <Button
+                android:id="@+id/btnConocerMas"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Conocer Más"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/manrope_bold"
+                android:background="@drawable/button_rounded_blue_mi_negocio"
+                android:layout_marginTop="16dp" />
+
+            <!-- Texto de alianza Wompi -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/wompiText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Una app creada en alianza con"
+                    android:textSize="12sp"
+                    android:textColor="#999999"
+                    android:fontFamily="@font/manrope_regular" />
+
+                <TextView
+                    android:id="@+id/wompiLogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wompi"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/manrope_bold"
+                    android:layout_marginStart="4dp" />
+
+            </LinearLayout>
+
+            <!-- Sección Otros productos y servicios -->
+            <TextView
+                android:id="@+id/sectionTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Otros productos y servicios"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:fontFamily="@font/manrope_bold"
+                android:layout_marginTop="32dp" />
+
+            <TextView
+                android:id="@+id/sectionSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Te damos herramientas para gestionar tu Negocio"
+                android:textSize="14sp"
+                android:textColor="#666666"
+                android:fontFamily="@font/manrope_regular"
+                android:layout_marginTop="8dp" />
+
+            <!-- Grid de iconos de servicios -->
+            <LinearLayout
+                android:id="@+id/servicesGrid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="24dp"
+                android:weightSum="4">
+
+                <!-- Crédito -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginEnd="4dp">
+
+                    <View
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="#E0E0E0"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/service1Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Crédito"
+                        android:textSize="12sp"
+                        android:textColor="#000000"
+                        android:fontFamily="@font/manrope_regular"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <!-- QR -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp">
+
+                    <View
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="#E0E0E0"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/service2Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="QR"
+                        android:textSize="12sp"
+                        android:textColor="#000000"
+                        android:fontFamily="@font/manrope_regular"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <!-- Seguridad -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp">
+
+                    <View
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="#E0E0E0"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/service3Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Seguridad"
+                        android:textSize="12sp"
+                        android:textColor="#000000"
+                        android:fontFamily="@font/manrope_regular"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <!-- Ver más -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginStart="4dp">
+
+                    <View
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="#E0E0E0"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/service4Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ver más"
+                        android:textSize="12sp"
+                        android:textColor="#000000"
+                        android:fontFamily="@font/manrope_regular"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

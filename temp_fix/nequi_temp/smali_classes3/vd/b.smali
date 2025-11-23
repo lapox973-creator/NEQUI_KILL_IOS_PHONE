@@ -1,0 +1,113 @@
+.class public Lvd/b;
+.super Lvd/n;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lvd/n<",
+        "Ljava/lang/Float;",
+        "Ljava/lang/Float;",
+        ">;"
+    }
+.end annotation
+
+
+# direct methods
+.method public constructor <init>(Ljava/util/List;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Lce/a<",
+            "Ljava/lang/Float;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    .line 1
+    invoke-direct {p0, p1}, Lvd/n;-><init>(Ljava/util/List;)V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+
+# virtual methods
+.method public a()Lsd/a;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lsd/a<",
+            "Ljava/lang/Float;",
+            "Ljava/lang/Float;",
+            ">;"
+        }
+    .end annotation
+
+    .line 1
+    new-instance v0, Lsd/d;
+
+    .line 2
+    .line 3
+    iget-object v1, p0, Lvd/n;->a:Ljava/util/List;
+
+    .line 4
+    .line 5
+    invoke-direct {v0, v1}, Lsd/d;-><init>(Ljava/util/List;)V
+
+    .line 6
+    .line 7
+    .line 8
+    return-object v0
+.end method
+
+.method public bridge synthetic b()Ljava/util/List;
+    .locals 1
+
+    .line 1
+    invoke-super {p0}, Lvd/n;->b()Ljava/util/List;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object v0
+
+    .line 5
+    return-object v0
+.end method
+
+.method public bridge synthetic c()Z
+    .locals 1
+
+    .line 1
+    invoke-super {p0}, Lvd/n;->c()Z
+
+    .line 2
+    .line 3
+    .line 4
+    move-result v0
+
+    .line 5
+    return v0
+.end method
+
+.method public bridge synthetic toString()Ljava/lang/String;
+    .locals 1
+
+    .line 1
+    invoke-super {p0}, Lvd/n;->toString()Ljava/lang/String;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object v0
+
+    .line 5
+    return-object v0
+.end method

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageButton android:id="@+id/btnBack" android:background="?selectableItemBackgroundBorderless" android:padding="0.0dip" android:layout_width="24.0dip" android:layout_height="24.0dip" android:src="@drawable/ic_arrow_back" android:tint="#ff1e0b1f" />
+            <Space android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+            <ImageButton android:id="@+id/btnMenu" android:background="?selectableItemBackgroundBorderless" android:padding="0.0dip" android:layout_width="40.0dip" android:layout_height="40.0dip" android:src="@drawable/ic_chevron_down" android:tint="#ff1e0b1f" />
+        </LinearLayout>
+    </LinearLayout>
+    <ScrollView android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:paddingTop="0.0dip" android:paddingBottom="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="16.0dip" android:paddingEnd="16.0dip">
+            <TextView android:id="@+id/tvTitle" android:textSize="24.0sp" android:textStyle="bold" android:textColor="#ff1e0b1f" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="16.0dip" android:text="Paga" android:fontFamily="@font/manrope_bold" />
+            <LinearLayout android:orientation="vertical" android:background="@drawable/input_background_pink" android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="16.0dip" android:paddingEnd="16.0dip">
+                <TextView android:textSize="14.0sp" android:textColor="#ff666666" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Paga en" android:fontFamily="@font/manrope" />
+                <TextView android:textSize="16.0sp" android:textColor="#ff1e0b1f" android:id="@+id/etRecipient" android:background="@android:color/transparent" android:padding="0.0dip" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:text="Nombre o teléfono del destinatario" android:singleLine="true" android:inputType="textPersonName" android:fontFamily="@font/manrope" />
+            </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout android:id="@+id/amountInputLayout" android:background="@drawable/input_background_pink" android:paddingTop="2.0dip" android:paddingBottom="2.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:hint="Cantidad" android:paddingStart="16.0dip" android:paddingEnd="16.0dip" app:boxBackgroundColor="@android:color/transparent" app:boxBackgroundMode="none" app:boxStrokeWidth="0.0dip" app:boxStrokeWidthFocused="0.0dip" app:hintEnabled="true" app:hintTextAppearance="@style/HintCantidadSmallPink" app:hintTextColor="@color/colorPrimary">
+                <com.google.android.material.textfield.TextInputEditText android:textSize="15.0sp" android:textColor="#ff200020" android:gravity="center_vertical" android:id="@+id/etAmount" android:background="@null" android:paddingTop="4.0dip" android:paddingBottom="12.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="48.0dip" android:inputType="numberDecimal" android:fontFamily="@font/manrope_medium" android:paddingStart="0.0dip" android:paddingEnd="32.0dip" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView android:textSize="12.0sp" android:textColor="#ffec1350" android:id="@+id/tvAmountWarning" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:layout_marginBottom="8.0dip" android:text="¡Ups! Debes llenar esto." android:fontFamily="@font/manrope" android:layout_marginStart="16.0dip" />
+            <!-- Descripción opcional usada por PaymentActivity -->
+            <com.google.android.material.textfield.TextInputLayout android:background="@drawable/input_background_pink" android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:hint="Descripción" android:paddingStart="16.0dip" android:paddingEnd="16.0dip" app:boxBackgroundColor="@android:color/transparent" app:boxBackgroundMode="none" app:hintEnabled="true">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/etDescription" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@null" android:hint="Descripción (opcional)" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView android:textSize="18.0sp" android:textColor="#ffe6007e" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:text="Escoge de donde saldrá la plata" android:fontFamily="@font/manrope" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/optionDisponible" android:background="@drawable/option_card_background" android:padding="16.0dip" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip">
+                <ImageView android:background="@drawable/rounded_square_pink" android:layout_width="40.0dip" android:layout_height="40.0dip" android:src="@drawable/ic_disponible" />
+                <TextView android:textSize="16.0sp" android:textColor="#ff1e0b1f" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Disponible" android:layout_weight="1.0" android:fontFamily="@font/manrope" android:layout_marginStart="16.0dip" />
+                <ImageView android:layout_width="24.0dip" android:layout_height="24.0dip" android:src="@drawable/ic_chevron_right" android:tint="#ff1e0b1f" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:enabled="true"
+            android:textSize="16.0sp"
+            android:textColor="@android:color/white"
+            android:padding="12.0dip"
+            android:text="Cancelar"
+            android:textAllCaps="false"
+            android:fontFamily="@font/manrope"
+            android:backgroundTint="@color/button_payment_states" />
+        <View android:layout_width="8dp" android:layout_height="1dp" />
+        <com.google.android.material.button.MaterialButton
+            android:enabled="true"
+            android:textSize="16.0sp"
+            android:textColor="@android:color/white"
+            android:id="@+id/btnPay"
+            android:padding="12.0dip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Paga"
+            android:textAllCaps="false"
+            android:fontFamily="@font/manrope"
+            android:backgroundTint="@color/button_payment_states" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Grupo Enemigo - Rojo -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Sombra -->
+    <item android:top="4dp">
+        <shape android:shape="oval">
+            <solid android:color="#40000000"/>
+            <size android:width="32dp" android:height="8dp"/>
+        </shape>
+    </item>
+    <!-- Cuerpo -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#C62828"/>
+            <corners android:radius="6dp"/>
+            <size android:width="20dp" android:height="36dp"/>
+        </shape>
+    </item>
+    <!-- Cabeza -->
+    <item android:top="2dp" android:left="5dp">
+        <shape android:shape="oval">
+            <solid android:color="#E53935"/>
+            <size android:width="10dp" android:height="10dp"/>
+        </shape>
+    </item>
+    <!-- Símbolo de grupo enemigo -->
+    <item android:top="16dp" android:left="6dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#FF5252"/>
+            <size android:width="8dp" android:height="3dp"/>
+        </shape>
+    </item>
+</layer-list>

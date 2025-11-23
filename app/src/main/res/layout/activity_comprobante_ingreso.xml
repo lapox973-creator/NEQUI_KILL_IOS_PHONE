@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- IDs esperados por el código (ocultos para mantener diseño) -->
+    <TextView android:id="@+id/tvTitle" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+    <TextView android:id="@+id/tvAmount" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+    <TextView android:id="@+id/tvAccount" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+    <TextView android:id="@+id/tvDate" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+    <TextView android:id="@+id/tvReference" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+    <TextView android:id="@+id/tvStatus" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+    <Button android:id="@+id/btnShare" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+    <Button android:id="@+id/btnBackToHome" android:visibility="gone" android:layout_width="1dp" android:layout_height="1dp" />
+ </androidx.constraintlayout.widget.ConstraintLayout>

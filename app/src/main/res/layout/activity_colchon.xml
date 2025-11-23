@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootColchon"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp"
+        android:gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back"
+            android:contentDescription="Volver"
+            android:tint="@color/color_200020"/>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="Tu Colchón"
+            android:textColor="@color/color_200020"
+            android:textSize="@dimen/colchon_title_size"
+            android:fontFamily="@font/manrope_bold"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/loadingOverlayColchon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/square1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_colchon_squares"
+            android:tint="@color/nequi_pink"/>
+
+        <ImageView
+            android:id="@+id/square2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_colchon_squares"
+            android:tint="@color/nequi_purple"/>
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvInsuficiente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="¡Ups! No tienes suficiente en tu Disponible."
+                android:textColor="@color/nequi_pink"
+                android:textSize="14sp"
+                android:fontFamily="@font/manrope_medium"
+                android:visibility="gone"/>
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerColchon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/colchon_section_margin"
+                app:shimmer_auto_start="true"
+                app:shimmer_base_color="#bbbababa"
+                app:shimmer_highlight_color="#ffe7e7e7"
+                app:shimmer_duration="1200">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="130dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardBackgroundColor="#bbbababa"
+                        app:cardElevation="0dp"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="140dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginStart="32dp"
+                        app:cardCornerRadius="10dp"
+                        app:cardBackgroundColor="#e6e6e6"
+                        app:cardElevation="0dp"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardBackgroundColor="#bbbababa"
+                        app:cardElevation="0dp"/>
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <LinearLayout
+                android:id="@+id/colchonContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardColchon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/colchon_section_margin"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardElevation="2dp" app:cardUseCompatPadding="false">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/colchon_card_top_height"
+                            android:background="@drawable/bg_colchon_card_top"
+                            android:paddingStart="@dimen/colchon_card_padding"
+                            android:paddingEnd="@dimen/colchon_card_padding"
+                            android:paddingTop="@dimen/colchon_card_padding"
+                            android:paddingBottom="@dimen/colchon_card_padding">
+
+                            <ImageView
+                                android:id="@+id/ivSquares"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_gravity="end|top"
+                                android:src="@drawable/ic_colchon_squares"/>
+                        </FrameLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#19000000"/>
+                        <TextView
+                            android:id="@+id/tvMonto"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/colchon_card_padding"
+                            android:paddingEnd="@dimen/colchon_card_padding"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="12dp"
+                            android:text="$ 0,00"
+                            android:textColor="@color/color_200020"
+                            android:textSize="@dimen/colchon_monto_text_size"
+                            android:fontFamily="@font/manrope_bold"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:includeFontPadding="false"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:id="@+id/inputRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/colchon_section_margin"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/bg_input_row"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/colchon_input_padding">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvPregunta"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="¿Cuánto vas a meter?"
+                            android:textColor="#80200020"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/manrope_medium"/>
+
+                        <EditText
+                            android:id="@+id/tvInlineAmount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$ 0,00"
+                            android:textColor="@color/color_200020"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/manrope_bold"
+                            android:inputType="number"
+                            android:singleLine="true"
+                            android:includeFontPadding="false"
+                            android:background="@android:color/transparent"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/btnMinus"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_circle_soft"
+                            android:src="@drawable/ic_remove"
+                            android:tint="#80200020"
+                            android:contentDescription="Menos"/>
+
+                        <ImageButton
+                            android:id="@+id/btnPlus"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bg_circle_soft"
+                            android:src="@drawable/ic_add"
+                            android:tint="#80200020"
+                            android:contentDescription="Más"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/etMonto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:inputType="number"
+                    android:hint="$ 0,00"
+                    android:textColor="@color/color_200020"
+                    android:textSize="@dimen/colchon_input_text_size"
+                    android:fontFamily="@font/manrope_bold"
+                    android:padding="@dimen/colchon_input_padding"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:includeFontPadding="false"
+                    android:gravity="start|center_vertical"
+                    android:background="@drawable/bg_edit_text_semitransparent"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnSigue"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Sigue"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:fontFamily="@font/manrope_bold"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/nequi_purple"
+        android:visibility="gone"/>
+
+</LinearLayout>

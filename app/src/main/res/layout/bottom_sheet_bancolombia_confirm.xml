@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bottom_sheet_background"
+    android:paddingTop="24dp"
+    android:paddingBottom="32dp">
+
+    <!-- Header con flecha de volver y título -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="20dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_back"
+            android:tint="#000000"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="4dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Verifica la info"
+            android:textSize="24sp"
+            android:textColor="#000000"
+            android:fontFamily="@font/manrope_bold"
+            android:gravity="center_vertical"
+            android:layout_marginStart="16dp" />
+
+    </LinearLayout>
+
+    <!-- Banner de advertencia verde claro -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="24dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="#E0F7FA">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_info_circle"
+                android:tint="#00ACC1"
+                android:layout_marginEnd="12dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Revisa bien esta información. Si envías la plata a la persona equivocada, no podremos recuperarla"
+                android:textSize="14sp"
+                android:textColor="#006064"
+                android:fontFamily="@font/manrope_regular"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Detalles de la transacción -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="32dp">
+
+        <!-- Vas a enviar a -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vas a enviar a:"
+                android:textSize="14sp"
+                android:textColor="#808080"
+                android:fontFamily="@font/manrope_regular"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvRecipientName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AST*** DE*** CAR*** ZAM*** FLO***"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/manrope_medium" />
+
+        </LinearLayout>
+
+        <!-- ¿Cuánto? -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¿Cuánto?"
+                android:textSize="14sp"
+                android:textColor="#808080"
+                android:fontFamily="@font/manrope_regular"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$ 15,00"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/manrope_medium" />
+
+        </LinearLayout>
+
+        <!-- Banco -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Banco"
+                android:textSize="14sp"
+                android:textColor="#808080"
+                android:fontFamily="@font/manrope_regular"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvBank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bancolombia"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/manrope_medium" />
+
+        </LinearLayout>
+
+        <!-- Tipo de cuenta -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tipo de cuenta"
+                android:textSize="14sp"
+                android:textColor="#808080"
+                android:fontFamily="@font/manrope_regular"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvAccountType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ahorros"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/manrope_medium" />
+
+        </LinearLayout>
+
+        <!-- Número de cuenta -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Número de cuenta"
+                android:textSize="14sp"
+                android:textColor="#808080"
+                android:fontFamily="@font/manrope_regular"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvAccountNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="91284033863"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/manrope_medium" />
+
+        </LinearLayout>
+
+        <!-- ¿De dónde saldrá la plata? -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¿De dónde saldrá la plata?"
+                android:textSize="14sp"
+                android:textColor="#808080"
+                android:fontFamily="@font/manrope_regular"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvSource"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Disponible"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/manrope_medium" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Botón Enviar -->
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        android:text="ENVIAR"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/manrope_bold"
+        android:background="@drawable/button_rounded_pink_electric"
+        android:backgroundTint="@null"
+        android:stateListAnimator="@null"
+        android:elevation="0dp"
+        android:textAllCaps="true" />
+
+    <!-- Link Corrige la info -->
+    <TextView
+        android:id="@+id/tvCorrectInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/corrige_la_info"
+        android:textSize="14sp"
+        android:textColor="#000000"
+        android:fontFamily="@font/manrope_medium"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground"
+        android:padding="8dp" />
+
+</LinearLayout>
+

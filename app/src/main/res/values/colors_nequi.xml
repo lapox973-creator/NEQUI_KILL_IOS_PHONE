@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="nequi_magenta">#FF0080</color>
+    <color name="nequi_dark_text">#2E2B33</color>
+    <color name="nequi_gray_text">#8C8793</color>
+    <color name="nequi_green_qr">#B6F7CF</color>
+    <!-- Alias requerido por nequi_qr_placeholder.xml -->
+    <color name="nequi_qr_green">#00C399</color>
+</resources>

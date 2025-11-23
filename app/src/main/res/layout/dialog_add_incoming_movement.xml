@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:padding="24dp">
+
+    <!-- Título -->
+    <TextView
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear Movimiento de Entrada"
+        android:fontFamily="@font/manrope_bold"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Selector de Tipo de Movimiento -->
+    <TextView
+        android:textSize="14sp"
+        android:textColor="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tipo de movimiento"
+        android:fontFamily="@font/manrope_medium"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Línea de apoyo rosa -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#66da0081"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Selector de tipo -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
+        
+        <TextView
+            android:id="@+id/tvMovementType"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Seleccionar..."
+            android:fontFamily="@font/manrope_medium"/>
+        
+        <ImageView
+            android:id="@+id/ivDropdownType"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_arrow_down"
+            android:tint="#da0081"/>
+    </LinearLayout>
+
+    <!-- Línea de apoyo rosa debajo del selector -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#66da0081"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Etiqueta Remitente -->
+    <TextView
+        android:textSize="14sp"
+        android:textColor="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre del remitente"
+        android:fontFamily="@font/manrope_medium"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Campo Remitente con línea de apoyo rosa -->
+    <EditText
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#99FFFFFF"
+        android:id="@+id/etSenderName"
+        android:background="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresa el nombre"
+        android:maxLines="1"
+        android:inputType="textPersonName"
+        android:fontFamily="@font/manrope_medium"
+        android:paddingBottom="8dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Línea de apoyo rosa debajo del campo -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#66da0081"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Contenedor Teléfono/Número de cuenta (se oculta para Llaves) -->
+    <LinearLayout
+        android:id="@+id/phoneContainer"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Etiqueta Teléfono/Número de cuenta -->
+        <TextView
+            android:id="@+id/tvPhoneLabel"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Teléfono"
+            android:fontFamily="@font/manrope_medium"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Línea de apoyo rosa -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#66da0081"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Campo Teléfono - Solo línea de apoyo -->
+        <EditText
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#99FFFFFF"
+            android:id="@+id/etPhone"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingresa el teléfono (10 dígitos)"
+            android:maxLines="1"
+            android:maxLength="10"
+            android:inputType="number"
+            android:fontFamily="@font/manrope_medium"
+            android:paddingBottom="8dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Línea de apoyo rosa debajo del campo -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#66da0081"
+            android:layout_marginBottom="24dp"/>
+    </LinearLayout>
+
+    <!-- Contenedor Banco Destino (solo para Llaves y Bancolombia) -->
+    <LinearLayout
+        android:id="@+id/bankContainer"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <!-- Etiqueta Banco Destino -->
+        <TextView
+            android:id="@+id/tvBankLabel"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Banco Destino"
+            android:fontFamily="@font/manrope_medium"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Línea de apoyo rosa -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#66da0081"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Campo Banco Destino -->
+        <EditText
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#99FFFFFF"
+            android:id="@+id/etBank"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingresa el banco destino"
+            android:maxLines="1"
+            android:inputType="text"
+            android:fontFamily="@font/manrope_medium"
+            android:paddingBottom="8dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Línea de apoyo rosa debajo del campo -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#66da0081"
+            android:layout_marginBottom="24dp"/>
+    </LinearLayout>
+
+    <!-- Contenedor Número de cuenta (solo para Bancolombia) -->
+    <LinearLayout
+        android:id="@+id/accountNumberContainer"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <!-- Etiqueta Número de cuenta -->
+        <TextView
+            android:id="@+id/tvAccountNumberLabel"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Número de cuenta"
+            android:fontFamily="@font/manrope_medium"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Línea de apoyo rosa -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#66da0081"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Campo Número de cuenta -->
+        <EditText
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#99FFFFFF"
+            android:id="@+id/etAccountNumber"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingresa el número de cuenta (11 dígitos)"
+            android:maxLines="1"
+            android:maxLength="11"
+            android:inputType="number"
+            android:fontFamily="@font/manrope_medium"
+            android:paddingBottom="8dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Línea de apoyo rosa debajo del campo -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#66da0081"
+            android:layout_marginBottom="24dp"/>
+    </LinearLayout>
+
+    <!-- Contenedor Llave (solo para Llaves) -->
+    <LinearLayout
+        android:id="@+id/keyContainer"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <!-- Etiqueta Llave -->
+        <TextView
+            android:id="@+id/tvKeyLabel"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Llave"
+            android:fontFamily="@font/manrope_medium"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Línea de apoyo rosa -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#66da0081"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Campo Llave -->
+        <EditText
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#99FFFFFF"
+            android:id="@+id/etKey"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@ejemplo"
+            android:maxLines="1"
+            android:inputType="text"
+            android:fontFamily="@font/manrope_medium"
+            android:paddingBottom="8dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Línea de apoyo rosa debajo del campo -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#66da0081"
+            android:layout_marginBottom="24dp"/>
+    </LinearLayout>
+
+    <!-- Etiqueta Monto -->
+    <TextView
+        android:textSize="14sp"
+        android:textColor="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Valor"
+        android:fontFamily="@font/manrope_medium"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Línea de apoyo rosa -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#66da0081"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Campo Monto - Solo línea de apoyo -->
+    <EditText
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#99FFFFFF"
+        android:id="@+id/etAmount"
+        android:background="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresa el monto"
+        android:maxLines="1"
+        android:inputType="number"
+        android:fontFamily="@font/manrope_medium"
+        android:paddingBottom="8dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Línea de apoyo rosa debajo del campo -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#66da0081"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Etiqueta Referencia -->
+    <TextView
+        android:textSize="14sp"
+        android:textColor="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Referencia (8 dígitos)"
+        android:fontFamily="@font/manrope_medium"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Línea de apoyo rosa -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#66da0081"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Campo Referencia - Solo línea de apoyo -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="M"
+            android:fontFamily="@font/manrope_bold"
+            android:layout_marginEnd="8dp"/>
+
+        <EditText
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#99FFFFFF"
+            android:id="@+id/etReference"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="12345678"
+            android:maxLines="1"
+            android:maxLength="8"
+            android:inputType="number"
+            android:fontFamily="@font/manrope_medium"
+            android:paddingBottom="8dp"/>
+    </LinearLayout>
+
+    <!-- Línea de apoyo rosa debajo del campo -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#66da0081"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Etiqueta Descripción Personalizada -->
+    <TextView
+        android:textSize="14sp"
+        android:textColor="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descripción personalizada (opcional)"
+        android:fontFamily="@font/manrope_medium"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Línea de apoyo rosa -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#66da0081"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Campo Descripción Personalizada -->
+    <EditText
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#99FFFFFF"
+        android:id="@+id/etDescription"
+        android:background="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ej: Pago de servicios, Transferencia familiar, etc."
+        android:maxLines="2"
+        android:inputType="text"
+        android:fontFamily="@font/manrope_medium"
+        android:paddingBottom="8dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Línea de apoyo rosa debajo del campo -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#66da0081"
+        android:layout_marginBottom="32dp"/>
+
+    <!-- Botones -->
+    <LinearLayout
+        android:gravity="end"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="#CCFFFFFF"
+            android:id="@+id/btnCancel"
+            android:background="@android:color/transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="CANCELAR"
+            android:textAllCaps="true"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:fontFamily="@font/manrope_medium"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:textColor="#FFFFFF"
+            android:id="@+id/btnSave"
+            android:background="@drawable/button_continue_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="GUARDAR"
+            android:textAllCaps="true"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:fontFamily="@font/manrope_bold"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:clickable="true"
+            android:focusable="true"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="24dp"
+    android:background="@drawable/bg_rounded_white"
+    android:orientation="vertical"
+    android:padding="32dp"
+    android:minWidth="300dp">
+
+    <!-- Icono de llave -->
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/ic_key" />
+
+    <!-- Título principal -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/manrope_bold"
+        android:text="Registra tus llaves en Bre-B y recibe plata al instante"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:lineSpacingExtra="2dp" />
+
+    <!-- Mensaje secundario -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/manrope_medium"
+        android:text="Registra tus llaves ahora para recibir plata de otros bancos, sin costo ni demoras"
+        android:textAlignment="center"
+        android:textColor="#AFAFAF"
+        android:textSize="15sp"
+        android:lineSpacingExtra="2dp" />
+
+    <!-- Botón Enviar (rosa) -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnEnviar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/bg_button_primary_pink"
+        android:elevation="0dp"
+        android:fontFamily="@font/manrope_bold"
+        android:minHeight="52dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:stateListAnimator="@null"
+        android:text="Enviar"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+    <!-- Botón Registrar (outline) -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnRegistrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_button_outline_gray"
+        android:elevation="0dp"
+        android:fontFamily="@font/manrope_bold"
+        android:minHeight="52dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:stateListAnimator="@null"
+        android:text="Registrar"
+        android:textAllCaps="false"
+        android:textColor="#1A1A1A"
+        android:textSize="16sp" />
+
+</LinearLayout>

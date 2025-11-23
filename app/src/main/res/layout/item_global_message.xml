@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView android:id="@+id/cardView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="12.0dip" app:cardBackgroundColor="#ff2a1a2a" app:cardCornerRadius="16.0dip" app:cardElevation="4.0dip" app:strokeColor="@color/nequi_pink" app:strokeWidth="1.0dip"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:padding="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="12.0dip">
+            <ImageView android:background="@drawable/circle_background_pink" android:padding="8.0dip" android:layout_width="32.0dip" android:layout_height="32.0dip" android:src="@drawable/ic_notifications" android:tint="@color/white" android:layout_marginEnd="12.0dip" />
+             <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/white" android:id="@+id/tvMessageTitle" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Mensaje de Sangre_binerojs" android:layout_weight="1.0" android:fontFamily="@font/manrope" />
+        </LinearLayout>
+         <TextView android:textSize="14.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@+id/tvMessagePreview" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="12.0dip" android:text="Este es un mensaje global de ejemplo que se muestra en la tarjeta." android:maxLines="3" android:lineSpacingExtra="2.0dip" android:fontFamily="@font/manrope" />
+        <LinearLayout android:gravity="end" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+             <TextView android:textSize="12.0sp" android:textColor="@color/nequi_pink" android:id="@+id/tvMessageDate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hace 2 horas" android:fontFamily="@font/manrope" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

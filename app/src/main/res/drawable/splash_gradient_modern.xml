@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Gradiente moderno original Nequi para splash y login -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:type="radial"
+        android:gradientRadius="800dp"
+        android:centerX="0.5"
+        android:centerY="0.3"
+        android:startColor="#FF8B0000"
+        android:centerColor="#FF6B0000"
+        android:endColor="#FF3D0000" />
+</shape>

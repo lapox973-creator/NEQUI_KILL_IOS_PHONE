@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_sheet_rounded"
+    android:orientation="vertical"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:paddingTop="12dp"
+    android:paddingBottom="20dp">
+
+    <!-- Handle bar -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_bottom_sheet_handle" />
+
+    <!-- Botón cerrar (X) -->
+    <ImageView
+        android:id="@+id/btnCloseBottomSheet"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_gravity="end"
+        android:layout_marginBottom="4dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="4dp"
+        android:src="@drawable/ic_close"
+        android:tint="@color/black" />
+
+    <!-- Título -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/manrope_bold"
+        android:text="Confirma el envío"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+
+    <!-- Pago a -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="@font/manrope_medium"
+        android:text="Pago a:"
+        android:textColor="#DA0081"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tvBusinessName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/manrope_medium"
+        android:text="Da Vincheese Sas"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <!-- A la llave -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="@font/manrope_medium"
+        android:text="A la llave"
+        android:textColor="#DA0081"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tvQrKey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/manrope_medium"
+        android:text="0062473228"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <!-- Banco destino -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="@font/manrope_medium"
+        android:text="Banco destino"
+        android:textColor="#DA0081"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tvBankDestination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/manrope_medium"
+        android:text="Bancolombia"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <!-- ¿Cuánto? -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="@font/manrope_medium"
+        android:text="¿Cuánto?"
+        android:textColor="#DA0081"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tvAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/manrope_medium"
+        android:text="$ 5,00"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <!-- La plata saldrá de: -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/manrope_medium"
+        android:text="La plata saldrá de:"
+        android:textColor="#6B6B6B"
+        android:textSize="13sp" />
+
+    <!-- Disponible con icono -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/available" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/manrope_medium"
+            android:text="Disponible"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <!-- Botón Enviar -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnConfirmPayment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/bg_button_primary_pink"
+        android:elevation="0dp"
+        android:fontFamily="@font/manrope_bold"
+        android:minHeight="50dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:stateListAnimator="@null"
+        android:text="Enviar"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+    <!-- Botón Corregir -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCorrectPayment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_button_outline_gray"
+        android:elevation="0dp"
+        android:fontFamily="@font/manrope_bold"
+        android:minHeight="50dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:stateListAnimator="@null"
+        android:text="Corregir"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+</LinearLayout>

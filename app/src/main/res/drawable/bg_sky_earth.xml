@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Cielo con degradado -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="22dp" />
+            <gradient
+                android:type="linear"
+                android:angle="270"
+                android:startColor="#9ED8FF"
+                android:centerColor="#B5A7FF"
+                android:endColor="#FFC3A0" />
+        </shape>
+    </item>
+
+    <!-- Franja de "césped" al fondo -->
+    <item android:gravity="bottom">
+        <shape android:shape="rectangle">
+            <corners android:bottomLeftRadius="22dp" android:bottomRightRadius="22dp" />
+            <size android:height="112dp" />
+            <gradient
+                android:type="linear"
+                android:angle="270"
+                android:startColor="#3DBB5C"
+                android:endColor="#1D7A37" />
+        </shape>
+    </item>
+
+    <!-- Sutil viñeta para profundidad -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="22dp" />
+            <gradient
+                android:type="radial"
+                android:gradientRadius="520dp"
+                android:centerX="50%"
+                android:centerY="35%"
+                android:startColor="#22000000"
+                android:endColor="#00000000" />
+        </shape>
+    </item>
+</layer-list>

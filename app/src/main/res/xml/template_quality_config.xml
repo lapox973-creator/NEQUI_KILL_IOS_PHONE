@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Configuración de mejora de calidad para plantillas ofuscadas -->
+<template-quality-config>
+    <!-- Plantilla metadata_934_b9f1.cache - Segunda parte del comprobante QR -->
+    <template name="metadata_934_b9f1.cache">
+        <!-- Configuración de decodificación -->
+        <decode-config>
+            <preferred-config>ARGB_8888</preferred-config>
+            <scaled>false</scaled>
+            <dither>false</dither>
+            <prefer-quality-over-speed>true</prefer-quality-over-speed>
+            <mutable>true</mutable>
+            <sample-size>1</sample-size>
+            <density>0</density>
+            <target-density>0</target-density>
+            <screen-density>0</screen-density>
+            <premultiplied>true</premultiplied>
+        </decode-config>
+        
+        <!-- Configuración de mejoras de calidad -->
+        <enhancement>
+            <sharpening enabled="true">
+                <!-- Kernel de convolución 3x3 para sharpening -->
+                <kernel>
+                    <row>0, -1, 0</row>
+                    <row>-1, 5, -1</row>
+                    <row>0, -1, 0</row>
+                </kernel>
+            </sharpening>
+            
+            <rendering>
+                <anti-alias>true</anti-alias>
+                <filter-bitmap>true</filter-bitmap>
+                <dither>false</dither>
+            </rendering>
+        </enhancement>
+    </template>
+    
+    <!-- Fallback: qr_2parte.png -->
+    <template name="qr_2parte.png">
+        <decode-config>
+            <preferred-config>ARGB_8888</preferred-config>
+            <scaled>false</scaled>
+            <dither>false</dither>
+            <prefer-quality-over-speed>true</prefer-quality-over-speed>
+            <mutable>false</mutable>
+            <sample-size>1</sample-size>
+        </decode-config>
+    </template>
+</template-quality-config>
+

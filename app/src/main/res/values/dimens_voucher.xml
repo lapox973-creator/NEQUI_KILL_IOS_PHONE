@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="voucher_margin_h">24dp</dimen>
+    <dimen name="voucher_section_top">20dp</dimen>
+    <dimen name="voucher_qr_top">32dp</dimen>
+    <dimen name="voucher_qr_info_padding_h">40dp</dimen>
+    <dimen name="voucher_btn_bottom">24dp</dimen>
+    <dimen name="voucher_btn_padding_v">14dp</dimen>
+
+    <dimen name="voucher_text_label">14sp</dimen>
+    <dimen name="voucher_text_value">16sp</dimen>
+    <dimen name="voucher_text_amount">18sp</dimen>
+    <dimen name="voucher_text_info">14sp</dimen>
+</resources>

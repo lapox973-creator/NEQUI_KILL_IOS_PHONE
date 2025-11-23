@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <font android:font="@font/manrope_light" android:fontWeight="300" android:fontStyle="normal" app:font="@font/manrope_light" app:fontStyle="normal" app:fontWeight="300" />
+    <font android:font="@font/manrope_medium" android:fontWeight="500" android:fontStyle="normal" app:font="@font/manrope_medium" app:fontStyle="normal" app:fontWeight="500" />
+    <font android:font="@font/manrope_bold" android:fontWeight="700" android:fontStyle="normal" app:font="@font/manrope_bold" app:fontStyle="normal" app:fontWeight="700" />
+    <font android:font="@font/manrope_extrabold" android:fontWeight="800" android:fontStyle="normal" app:font="@font/manrope_extrabold" app:fontStyle="normal" app:fontWeight="800" />
+</font-family>

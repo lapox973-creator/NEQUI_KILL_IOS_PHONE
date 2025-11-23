@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ráfaga de energía azul -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <gradient
+        android:type="radial"
+        android:gradientRadius="12dp"
+        android:centerColor="#FF00BFFF"
+        android:endColor="#0000BFFF"/>
+    <size android:width="16dp" android:height="16dp"/>
+</shape>

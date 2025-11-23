@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:sb="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:background="#fffcf7fb" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/rootLayout" android:background="#fffcf7fb" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <androidx.appcompat.widget.Toolbar android:id="@id/toolbar" android:background="#fffcf7fb" android:layout_width="fill_parent" android:layout_height="48.0dip" android:elevation="0.0dip" sb:layout_constraintTop_toTopOf="parent">
+                <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <ImageView android:id="@id/btnBack" android:layout_width="28.0dip" android:layout_height="28.0dip" android:src="@drawable/ic_back" android:contentDescription="Volver" sb:layout_constraintBottom_toBottomOf="parent" sb:layout_constraintStart_toStartOf="parent" sb:layout_constraintTop_toTopOf="parent" sb:tint="@color/color_200020" />
+                    <TextView android:textSize="18.0sp" android:textColor="@color/color_200020" android:id="@id/toolbarTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Llaves" android:fontFamily="@font/manrope_bold" android:layout_marginStart="12.0dip" sb:layout_constraintBottom_toBottomOf="parent" sb:layout_constraintStart_toEndOf="@id/btnBack" sb:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.appcompat.widget.Toolbar>
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/recyclerViewLlaves" android:paddingBottom="80.0dip" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="8.0dip" sb:layout_constraintBottom_toBottomOf="parent" sb:layout_constraintEnd_toEndOf="parent" sb:layout_constraintStart_toStartOf="parent" sb:layout_constraintTop_toBottomOf="@id/toolbar" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/color_200020" android:id="@id/tvEmptyState" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="No hay llaves agregadas" android:fontFamily="@font/manrope_medium" sb:layout_constraintBottom_toBottomOf="parent" sb:layout_constraintEnd_toEndOf="parent" sb:layout_constraintStart_toStartOf="parent" sb:layout_constraintTop_toBottomOf="@id/toolbar" />
+            <com.google.android.material.floatingactionbutton.FloatingActionButton android:id="@id/fabAddLlave" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="16.0dip" android:contentDescription="Agregar llave" sb:backgroundTint="@color/nequi_pink" sb:layout_constraintBottom_toBottomOf="parent" sb:layout_constraintEnd_toEndOf="parent" sb:srcCompat="@android:drawable/ic_menu_add" sb:tint="@android:color/white" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

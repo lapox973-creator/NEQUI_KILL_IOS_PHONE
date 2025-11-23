@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="PinkSwitchTheme" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/nequi_pink</item>
+        <item name="android:colorForeground">@color/nequi_pink</item>
+    </style>
+</resources>

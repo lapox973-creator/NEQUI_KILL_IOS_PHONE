@@ -1,0 +1,670 @@
+.class public Lfi/t4$e0;
+.super Lfi/t4$g0;
+.source "SourceFile"
+
+# interfaces
+.implements Ljava/util/NavigableSet;
+
+
+# annotations
+.annotation build Lbi/c;
+.end annotation
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lfi/t4;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "e0"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<K:",
+        "Ljava/lang/Object;",
+        "V:",
+        "Ljava/lang/Object;",
+        ">",
+        "Lfi/t4$g0<",
+        "TK;TV;>;",
+        "Ljava/util/NavigableSet<",
+        "TK;>;"
+    }
+.end annotation
+
+
+# direct methods
+.method public constructor <init>(Ljava/util/NavigableMap;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "map"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/NavigableMap<",
+            "TK;TV;>;)V"
+        }
+    .end annotation
+
+    .line 1
+    invoke-direct {p0, p1}, Lfi/t4$g0;-><init>(Ljava/util/SortedMap;)V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+
+# virtual methods
+.method public ceiling(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lfi/m5;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "e"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TK;)TK;"
+        }
+    .end annotation
+
+    .annotation runtime Ltm/a;
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0}, Lfi/t4$e0;->q()Ljava/util/NavigableMap;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object v0
+
+    .line 5
+    invoke-interface {v0, p1}, Ljava/util/NavigableMap;->ceilingKey(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 6
+    .line 7
+    .line 8
+    move-result-object p1
+
+    .line 9
+    return-object p1
+.end method
+
+.method public descendingIterator()Ljava/util/Iterator;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Iterator<",
+            "TK;>;"
+        }
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0}, Lfi/t4$e0;->descendingSet()Ljava/util/NavigableSet;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object v0
+
+    .line 5
+    invoke-interface {v0}, Ljava/util/NavigableSet;->iterator()Ljava/util/Iterator;
+
+    .line 6
+    .line 7
+    .line 8
+    move-result-object v0
+
+    .line 9
+    return-object v0
+.end method
+
+.method public descendingSet()Ljava/util/NavigableSet;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/NavigableSet<",
+            "TK;>;"
+        }
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0}, Lfi/t4$e0;->q()Ljava/util/NavigableMap;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object v0
+
+    .line 5
+    invoke-interface {v0}, Ljava/util/NavigableMap;->descendingKeySet()Ljava/util/NavigableSet;
+
+    .line 6
+    .line 7
+    .line 8
+    move-result-object v0
+
+    .line 9
+    return-object v0
+.end method
+
+.method public floor(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lfi/m5;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "e"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TK;)TK;"
+        }
+    .end annotation
+
+    .annotation runtime Ltm/a;
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0}, Lfi/t4$e0;->q()Ljava/util/NavigableMap;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object v0
+
+    .line 5
+    invoke-interface {v0, p1}, Ljava/util/NavigableMap;->floorKey(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 6
+    .line 7
+    .line 8
+    move-result-object p1
+
+    .line 9
+    return-object p1
+.end method
+
+.method public headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
+    .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lfi/m5;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "toElement",
+            "inclusive"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TK;Z)",
+            "Ljava/util/NavigableSet<",
+            "TK;>;"
+        }
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0}, Lfi/t4$e0;->q()Ljava/util/NavigableMap;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1, p2}, Ljava/util/NavigableMap;->headMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Ljava/util/NavigableMap;->navigableKeySet()Ljava/util/NavigableSet;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
+    .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lfi/m5;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "toElement"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TK;)",
+            "Ljava/util/SortedSet<",
+            "TK;>;"
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    .line 2
+    invoke-virtual {p0, p1, v0}, Lfi/t4$e0;->headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public higher(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lfi/m5;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "e"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TK;)TK;"
+        }
+    .end annotation
+
+    .annotation runtime Ltm/a;
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0}, Lfi/t4$e0;->q()Ljava/util/NavigableMap;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object v0
+
+    .line 5
+    invoke-interface {v0, p1}, Ljava/util/NavigableMap;->higherKey(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 6
+    .line 7
+    .line 8
+    move-result-object p1
+
+    .line 9
+    return-object p1
+.end method
+
+.method public bridge synthetic i()Ljava/util/Map;
+    .locals 1
+
+    .line 1
+    invoke-virtual {p0}, Lfi/t4$e0;->q()Ljava/util/NavigableMap;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object v0
+
+    .line 5
+    return-object v0
+.end method
+
+.method public lower(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lfi/m5;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "e"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TK;)TK;"
+        }
+    .end annotation
+
+    .annotation runtime Ltm/a;
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0}, Lfi/t4$e0;->q()Ljava/util/NavigableMap;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object v0
+
+    .line 5
+    invoke-interface {v0, p1}, Ljava/util/NavigableMap;->lowerKey(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 6
+    .line 7
+    .line 8
+    move-result-object p1
+
+    .line 9
+    return-object p1
+.end method
+
+.method public bridge synthetic m()Ljava/util/SortedMap;
+    .locals 1
+
+    .line 1
+    invoke-virtual {p0}, Lfi/t4$e0;->q()Ljava/util/NavigableMap;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object v0
+
+    .line 5
+    return-object v0
+.end method
+
+.method public pollFirst()Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()TK;"
+        }
+    .end annotation
+
+    .annotation runtime Ltm/a;
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0}, Lfi/t4$e0;->q()Ljava/util/NavigableMap;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object v0
+
+    .line 5
+    invoke-interface {v0}, Ljava/util/NavigableMap;->pollFirstEntry()Ljava/util/Map$Entry;
+
+    .line 6
+    .line 7
+    .line 8
+    move-result-object v0
+
+    .line 9
+    invoke-static {v0}, Lfi/t4;->T(Ljava/util/Map$Entry;)Ljava/lang/Object;
+
+    .line 10
+    .line 11
+    .line 12
+    move-result-object v0
+
+    .line 13
+    return-object v0
+.end method
+
+.method public pollLast()Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()TK;"
+        }
+    .end annotation
+
+    .annotation runtime Ltm/a;
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0}, Lfi/t4$e0;->q()Ljava/util/NavigableMap;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object v0
+
+    .line 5
+    invoke-interface {v0}, Ljava/util/NavigableMap;->pollLastEntry()Ljava/util/Map$Entry;
+
+    .line 6
+    .line 7
+    .line 8
+    move-result-object v0
+
+    .line 9
+    invoke-static {v0}, Lfi/t4;->T(Ljava/util/Map$Entry;)Ljava/lang/Object;
+
+    .line 10
+    .line 11
+    .line 12
+    move-result-object v0
+
+    .line 13
+    return-object v0
+.end method
+
+.method public q()Ljava/util/NavigableMap;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/NavigableMap<",
+            "TK;TV;>;"
+        }
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Lfi/t4$b0;->a:Ljava/util/Map;
+
+    .line 2
+    .line 3
+    check-cast v0, Ljava/util/NavigableMap;
+
+    .line 4
+    .line 5
+    return-object v0
+.end method
+
+.method public subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;
+    .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lfi/m5;
+        .end annotation
+    .end param
+    .param p3    # Ljava/lang/Object;
+        .annotation runtime Lfi/m5;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "fromElement",
+            "fromInclusive",
+            "toElement",
+            "toInclusive"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TK;ZTK;Z)",
+            "Ljava/util/NavigableSet<",
+            "TK;>;"
+        }
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0}, Lfi/t4$e0;->q()Ljava/util/NavigableMap;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1, p2, p3, p4}, Ljava/util/NavigableMap;->subMap(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Ljava/util/NavigableMap;->navigableKeySet()Ljava/util/NavigableSet;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
+    .locals 2
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lfi/m5;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/Object;
+        .annotation runtime Lfi/m5;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "fromElement",
+            "toElement"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TK;TK;)",
+            "Ljava/util/SortedSet<",
+            "TK;>;"
+        }
+    .end annotation
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    .line 2
+    invoke-virtual {p0, p1, v0, p2, v1}, Lfi/t4$e0;->subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
+    .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lfi/m5;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "fromElement",
+            "inclusive"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TK;Z)",
+            "Ljava/util/NavigableSet<",
+            "TK;>;"
+        }
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0}, Lfi/t4$e0;->q()Ljava/util/NavigableMap;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1, p2}, Ljava/util/NavigableMap;->tailMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Ljava/util/NavigableMap;->navigableKeySet()Ljava/util/NavigableSet;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
+    .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lfi/m5;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "fromElement"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TK;)",
+            "Ljava/util/SortedSet<",
+            "TK;>;"
+        }
+    .end annotation
+
+    const/4 v0, 0x1
+
+    .line 2
+    invoke-virtual {p0, p1, v0}, Lfi/t4$e0;->tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
+
+    move-result-object p1
+
+    return-object p1
+.end method

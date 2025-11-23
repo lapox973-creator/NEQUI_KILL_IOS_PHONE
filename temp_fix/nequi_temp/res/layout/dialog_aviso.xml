@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="16.0dip" app:cardCornerRadius="16.0dip" app:cardElevation="8.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:padding="24.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="24.0sp" android:textStyle="bold" android:textColor="#ff000000" android:gravity="center" android:id="@id/tvTitulo" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="16.0dip" android:text="Aviso" />
+        <TextView android:textSize="16.0sp" android:textColor="#ff333333" android:gravity="center" android:id="@id/tvMensaje" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="24.0dip" />
+        <Button android:textColor="#ffffffff" android:id="@id/btnEntendido" android:background="@drawable/rounded_button" android:padding="12.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Entendido" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

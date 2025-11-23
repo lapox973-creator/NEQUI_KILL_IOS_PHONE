@@ -1,0 +1,45 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // Usuario autenticado
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // 🔒 APP CHECK TOKEN - Bloquea scripts y bots
+    function isValidAppCheck() {
+      return request.app.token != null;
+    }
+    
+    // Solo el propietario puede acceder
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+    
+    // 🔒 VALIDAR PACKAGE NAME - Solo tu app
+    function isLegitimateApp() {
+      return request.app.token.app_id == 'com.ios.nequikill';
+    }
+    
+    // 🔒 ANTI-REPLAY: Validar timestamp reciente
+    function isRecentRequest() {
+      return request.time > timestamp.date(2025, 1, 1) && 
+             request.time < timestamp.date(2130, 1, 1);
+    }
+    
+    // Archivos de usuarios (selfies, documentos, etc.)
+    match /users/{userId}/{allPaths=**} {
+      allow read, write: if isAuthenticated() && 
+                            isValidAppCheck() && 
+                            isOwner(userId) &&
+                            isLegitimateApp() &&
+                            isRecentRequest();
+    }
+    
+    // 🔒 BLOQUEO TOTAL - Todo lo demás denegado
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

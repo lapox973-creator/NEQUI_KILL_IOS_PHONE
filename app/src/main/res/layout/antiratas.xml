@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/tvAntiRatas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="ANTIRATAS: Este APK está protegido.\nNo podrás hackear ni clonar el diseño."
+        android:textColor="#111111"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:padding="24dp"
+        android:gravity="center"
+        android:textSize="18sp" />
+
+</FrameLayout>

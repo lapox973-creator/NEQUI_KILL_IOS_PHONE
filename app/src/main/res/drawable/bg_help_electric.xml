@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Base gradient: azul eléctrico a púrpura -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="22dp" />
+            <gradient
+                android:type="linear"
+                android:angle="315"
+                android:startColor="#1E3A8A"
+                android:centerColor="#6D28D9"
+                android:endColor="#0EA5E9" />
+        </shape>
+    </item>
+    <!-- Vignette -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="22dp" />
+            <gradient android:type="radial"
+                android:centerX="50%"
+                android:centerY="45%"
+                android:gradientRadius="520dp"
+                android:startColor="#22000000"
+                android:endColor="#00000000" />
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Efecto de explosión -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <gradient
+        android:type="radial"
+        android:gradientRadius="24dp"
+        android:centerColor="#FFFF5722"
+        android:endColor="#00FF5722"/>
+    <size android:width="48dp" android:height="48dp"/>
+</shape>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 360dp: separación de 'Tus topes' -->
+    <dimen name="tuplata_topes_margin_top">36dp</dimen>
+    <dimen name="tuplata_topes_margin_bottom">8dp</dimen>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- Rectángulo puro, sin esquinas redondeadas -->
+    <solid android:color="#FFFFFFFF" />
+    <corners android:radius="0dp" />
+    <!-- Borde sutil para separar del fondo oscuro -->
+    <stroke
+        android:width="0.5dp"
+        android:color="#26FFFFFF" />
+</shape>

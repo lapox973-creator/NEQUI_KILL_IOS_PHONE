@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="colchon_title_size">20sp</dimen>
+    <dimen name="colchon_section_margin">16dp</dimen>
+    <dimen name="colchon_card_height">120dp</dimen>
+    <dimen name="colchon_card_padding">16dp</dimen>
+    <dimen name="colchon_card_top_height">84dp</dimen>
+    <dimen name="colchon_monto_text_size">22sp</dimen>
+    <dimen name="colchon_input_text_size">22sp</dimen>
+    <dimen name="colchon_input_padding">12dp</dimen>
+</resources>

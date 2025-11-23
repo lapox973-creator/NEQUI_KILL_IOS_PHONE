@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Frame 12: Victoria - resplandor dorado de Nequizx -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="0"
+        android:startColor="#2A1A0A"
+        android:centerColor="#8A6D1F"
+        android:endColor="#FFD700"
+        android:type="radial"
+        android:gradientRadius="800"/>
+</shape>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Frame 2: Energía violeta acumulándose -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="225"
+        android:startColor="#1A0E27"
+        android:centerColor="#3D1F5C"
+        android:endColor="#5C2D8A"
+        android:type="linear"/>
+</shape>
