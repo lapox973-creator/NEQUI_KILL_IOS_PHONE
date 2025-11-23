@@ -2,17 +2,11 @@ import SwiftUI
 import shared
 
 struct ContentView: View {
-    @StateObject private var viewModel = ContentViewModel()
+    @EnvironmentObject var appState: AppState
     
     var body: some View {
-        NavigationView {
-            ServiciosView()
-                .navigationBarHidden(true)
-        }
+        RootView()
+            .environmentObject(appState)
     }
-}
-
-class ContentViewModel: ObservableObject {
-    let platform = Platform().name
 }
 

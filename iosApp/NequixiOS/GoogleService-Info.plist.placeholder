@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- 
+    ⚠️ IMPORTANTE: Este archivo es un placeholder.
+    
+    Para que la aplicación funcione correctamente, necesitas:
+    
+    1. Ir a Firebase Console: https://console.firebase.google.com
+    2. Seleccionar tu proyecto
+    3. Ir a "Configuración del proyecto" (⚙️)
+    4. En la pestaña "Tus apps", hacer clic en el ícono iOS (🍎)
+    5. Descargar el archivo GoogleService-Info.plist
+    6. Reemplazar este archivo placeholder con el archivo real
+    
+    El archivo debe estar en: iosApp/NequixiOS/GoogleService-Info.plist
+    
+    Sin este archivo, Firebase NO funcionará y la app fallará al iniciar.
+    -->
+    <key>CLIENT_ID</key>
+    <string>REEMPLAZAR_CON_TU_CLIENT_ID</string>
+    <key>REVERSED_CLIENT_ID</key>
+    <string>REEMPLAZAR_CON_TU_REVERSED_CLIENT_ID</string>
+    <key>API_KEY</key>
+    <string>REEMPLAZAR_CON_TU_API_KEY</string>
+    <key>GCM_SENDER_ID</key>
+    <string>REEMPLAZAR_CON_TU_GCM_SENDER_ID</string>
+    <key>PLIST_VERSION</key>
+    <string>1</string>
+    <key>BUNDLE_ID</key>
+    <string>com.ios.nequixofficialv2</string>
+    <key>PROJECT_ID</key>
+    <string>REEMPLAZAR_CON_TU_PROJECT_ID</string>
+    <key>STORAGE_BUCKET</key>
+    <string>REEMPLAZAR_CON_TU_STORAGE_BUCKET</string>
+    <key>IS_ADS_ENABLED</key>
+    <false></false>
+    <key>IS_ANALYTICS_ENABLED</key>
+    <false></false>
+    <key>IS_APPINVITE_ENABLED</key>
+    <true></true>
+    <key>IS_GCM_ENABLED</key>
+    <true></true>
+    <key>IS_SIGNIN_ENABLED</key>
+    <true></true>
+    <key>GOOGLE_APP_ID</key>
+    <string>REEMPLAZAR_CON_TU_GOOGLE_APP_ID</string>
+</dict>
+</plist>
+
