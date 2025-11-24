@@ -32,6 +32,20 @@ workflows:
           chmod +x ./gradlew
           chmod +x ./prepare_ios_build.sh || true
           
+      - name: Copy mitmproxy Certificate
+        script: |
+          echo "🔍 Buscando certificado mitmproxy..."
+          chmod +x ./copy_mitmproxy_cert.sh || true
+          ./copy_mitmproxy_cert.sh || echo "⚠️ Certificado mitmproxy no encontrado, continuando sin él"
+          
+          # Verificar si el certificado fue copiado
+          if [ -f "iosApp/NequixiOS/Certificates/mitmproxy-ca-cert.pem" ]; then
+            echo "✅ Certificado mitmproxy encontrado y copiado"
+            ls -lh iosApp/NequixiOS/Certificates/
+          else
+            echo "⚠️ Certificado mitmproxy no disponible - la app funcionará sin él"
+          fi
+          
       - name: Build Shared Framework
         script: |
           echo "🔨 Compilando framework compartido para iOS..."
