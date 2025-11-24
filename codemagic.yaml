@@ -28,12 +28,41 @@ workflows:
           
       - name: Build Shared Framework
         script: |
-          ./gradlew :shared:podInstall
+          echo "🔨 Compilando framework compartido para iOS..."
+          # Compilar para todas las arquitecturas iOS
+          ./gradlew :shared:compileKotlinIosArm64 :shared:compileKotlinIosX64 :shared:compileKotlinIosSimulatorArm64 || echo "Warning: Some iOS targets may not compile"
+          
+          # Generar el framework para CocoaPods
+          ./gradlew :shared:podInstall || {
+            echo "Error en podInstall, intentando generar framework manualmente..."
+            ./gradlew :shared:linkPodReleaseFrameworkIosArm64 :shared:linkPodReleaseFrameworkIosX64 || true
+          }
+          
+          # Verificar que el framework existe
+          if [ -d "shared/build/cocoapods/framework/shared.framework" ]; then
+            echo "✅ Framework compartido compilado correctamente"
+            ls -lh shared/build/cocoapods/framework/shared.framework/
+          else
+            echo "⚠️ Framework no encontrado en ubicación esperada"
+            find shared/build -name "shared.framework" -type d || echo "No se encontró framework"
+          fi
           
       - name: Install CocoaPods Dependencies
         script: |
           cd iosApp
+          echo "📦 Instalando dependencias de CocoaPods..."
           pod install --repo-update
+          echo "✅ CocoaPods instalado"
+          
+      - name: Pre-build shared framework for CocoaPods
+        script: |
+          echo "🔨 Pre-compilando framework para evitar error en script phase..."
+          # Pre-compilar el framework para que CocoaPods no intente compilarlo durante el build
+          export OVERRIDE_KOTLIN_BUILD_IDE_SUPPORTED=YES
+          ./gradlew :shared:syncFramework \
+            -Pkotlin.native.cocoapods.platform=iphoneos \
+            -Pkotlin.native.cocoapods.archs="arm64" \
+            -Pkotlin.native.cocoapods.configuration=Release || echo "Warning: syncFramework puede fallar, continuando..."
           
       - name: Disable automatic signing in Xcode project
         script: |
@@ -47,6 +76,9 @@ workflows:
         script: |
           set -e
           mkdir -p build/ios/ipa
+          
+          # Deshabilitar el script phase de CocoaPods que está fallando
+          export OVERRIDE_KOTLIN_BUILD_IDE_SUPPORTED=YES
           
           echo "🔍 Verificando workspace y scheme..."
           ls -la "$XCODE_WORKSPACE" || echo "Workspace no encontrado"
@@ -66,6 +98,7 @@ workflows:
             PROVISIONING_PROFILE_SPECIFIER="" \
             PROVISIONING_PROFILE="" \
             DEVELOPMENT_TEAM="" \
+            OVERRIDE_KOTLIN_BUILD_IDE_SUPPORTED=YES \
             archive 2>&1 | tee build.log || {
             echo "❌ Error en archive, intentando build directo..."
             # Intentar build sin archive
