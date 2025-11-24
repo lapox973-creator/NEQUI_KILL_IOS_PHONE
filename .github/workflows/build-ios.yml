@@ -37,20 +37,36 @@ jobs:
         
       - name: Install CocoaPods
         run: |
+          sudo gem install cocoapods
           cd iosApp
-          pod install --repo-update
+          pod install --repo-update || pod install
+          
+      - name: Verify workspace exists
+        run: |
+          if [ ! -d "iosApp/NequixiOS.xcworkspace" ]; then
+            echo "❌ Workspace no encontrado"
+            exit 1
+          fi
+          echo "✅ Workspace encontrado"
+          
+      - name: List available schemes
+        run: |
+          cd iosApp
+          xcodebuild -list -workspace NequixiOS.xcworkspace
           
       - name: Build IPA (automatic signing)
         run: |
           # Compilar y crear IPA con firma automática
+          cd iosApp
           xcodebuild clean archive \
-            -workspace iosApp/NequixiOS.xcworkspace \
+            -workspace NequixiOS.xcworkspace \
             -scheme NequixiOS \
             -configuration Release \
-            -archivePath build/NequixiOS.xcarchive \
+            -archivePath ../build/NequixiOS.xcarchive \
             -allowProvisioningUpdates \
             CODE_SIGN_IDENTITY="Apple Development" \
-            CODE_SIGN_STYLE="Automatic"
+            CODE_SIGN_STYLE="Automatic" \
+            SKIP_INSTALL=NO
             
       - name: Export IPA
         run: |
@@ -64,6 +80,8 @@ jobs:
               <string>development</string>
               <key>signingStyle</key>
               <string>automatic</string>
+              <key>teamID</key>
+              <string></string>
           </dict>
           </plist>
           EOF
