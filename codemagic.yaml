@@ -237,37 +237,130 @@ workflows:
               # Crear carpeta Frameworks
               mkdir -p "$APP_PATH/Frameworks"
               
-              # Copiar frameworks de CocoaPods
-              cd iosApp
-              if [ -d "Pods" ]; then
-                echo "📦 Copiando frameworks de CocoaPods..."
-                find Pods -name "*.framework" -type d | while read framework; do
+              # Copiar frameworks de CocoaPods (buscar en varias ubicaciones)
+              echo "📦 Buscando frameworks de CocoaPods..."
+              
+              # Ubicación 1: Pods directo
+              if [ -d "iosApp/Pods" ]; then
+                echo "  Buscando en iosApp/Pods..."
+                find iosApp/Pods -name "*.framework" -type d | while read framework; do
                   framework_name=$(basename "$framework")
-                  echo "  Copiando $framework_name..."
-                  cp -R "$framework" "$APP_PATH/Frameworks/" || true
+                  if [ ! -d "$APP_PATH/Frameworks/$framework_name" ]; then
+                    echo "    Copiando $framework_name..."
+                    cp -R "$framework" "$APP_PATH/Frameworks/" || true
+                  fi
                 done
               fi
               
-              # Copiar shared framework
-              if [ -d "../shared/build/xcode-frameworks" ]; then
-                echo "📦 Copiando shared framework..."
-                find ../shared/build/xcode-frameworks -name "shared.framework" -type d | while read shared_fw; do
-                  cp -R "$shared_fw" "$APP_PATH/Frameworks/" || true
+              # Ubicación 2: Build products de CocoaPods
+              if [ -d "iosApp/build" ]; then
+                echo "  Buscando en iosApp/build..."
+                find iosApp/build -name "*.framework" -type d | while read framework; do
+                  framework_name=$(basename "$framework")
+                  if [ ! -d "$APP_PATH/Frameworks/$framework_name" ]; then
+                    echo "    Copiando $framework_name..."
+                    cp -R "$framework" "$APP_PATH/Frameworks/" || true
+                  fi
                 done
               fi
               
-              cd ..
+              # Ubicación 3: DerivedData (si existe)
+              if [ -d "$HOME/Library/Developer/Xcode/DerivedData" ]; then
+                echo "  Buscando en DerivedData..."
+                find "$HOME/Library/Developer/Xcode/DerivedData" -name "*.framework" -type d 2>/dev/null | while read framework; do
+                  framework_name=$(basename "$framework")
+                  if [ ! -d "$APP_PATH/Frameworks/$framework_name" ]; then
+                    echo "    Copiando $framework_name..."
+                    cp -R "$framework" "$APP_PATH/Frameworks/" || true
+                  fi
+                done
+              fi
+              
+              # Copiar shared framework (buscar en varias ubicaciones)
+              echo "📦 Buscando shared framework..."
+              
+              # Ubicación 1: build/xcode-frameworks
+              if [ -d "shared/build/xcode-frameworks" ]; then
+                find shared/build/xcode-frameworks -name "shared.framework" -type d | while read shared_fw; do
+                  if [ ! -d "$APP_PATH/Frameworks/shared.framework" ]; then
+                    echo "  Copiando shared.framework desde xcode-frameworks..."
+                    cp -R "$shared_fw" "$APP_PATH/Frameworks/" || true
+                  fi
+                done
+              fi
+              
+              # Ubicación 2: build/ios (Kotlin Native)
+              if [ -d "shared/build/ios" ]; then
+                find shared/build/ios -name "shared.framework" -type d | while read shared_fw; do
+                  if [ ! -d "$APP_PATH/Frameworks/shared.framework" ]; then
+                    echo "  Copiando shared.framework desde build/ios..."
+                    cp -R "$shared_fw" "$APP_PATH/Frameworks/" || true
+                  fi
+                done
+              fi
+              
+              # Ubicación 3: Pods (si CocoaPods lo copió)
+              if [ -d "iosApp/Pods/shared" ]; then
+                find iosApp/Pods/shared -name "shared.framework" -type d | while read shared_fw; do
+                  if [ ! -d "$APP_PATH/Frameworks/shared.framework" ]; then
+                    echo "  Copiando shared.framework desde Pods..."
+                    cp -R "$shared_fw" "$APP_PATH/Frameworks/" || true
+                  fi
+                done
+              fi
               
               # Verificar nuevamente
               if [ -d "$APP_PATH/Frameworks" ]; then
                 FRAMEWORK_COUNT=$(find "$APP_PATH/Frameworks" -name "*.framework" -type d | wc -l | tr -d ' ')
                 echo "✅ Frameworks copiados manualmente: $FRAMEWORK_COUNT frameworks"
-                find "$APP_PATH/Frameworks" -name "*.framework" -type d -exec basename {} \; | sort
+                if [ "$FRAMEWORK_COUNT" -gt 0 ]; then
+                  echo "📦 Frameworks encontrados:"
+                  find "$APP_PATH/Frameworks" -name "*.framework" -type d -exec basename {} \; | sort
+                  
+                  # Verificar tamaños
+                  echo "📊 Tamaños de frameworks:"
+                  du -sh "$APP_PATH/Frameworks"/*.framework 2>/dev/null | sort -h
+                else
+                  echo "⚠️ ADVERTENCIA: No se encontraron frameworks para copiar"
+                  echo "Buscando frameworks en el sistema..."
+                  find . -name "*.framework" -type d 2>/dev/null | head -10
+                fi
               else
-                echo "❌ ERROR: No se pudieron copiar los frameworks"
+                echo "❌ ERROR: No se pudo crear la carpeta Frameworks"
                 echo "Contenido del .app:"
                 ls -la "$APP_PATH" | head -20
               fi
+            fi
+            
+            # Asegurar que los frameworks estén incluidos ANTES de crear el IPA
+            echo "🔍 Verificación final antes de crear IPA..."
+            if [ ! -d "$APP_PATH/Frameworks" ] || [ -z "$(ls -A "$APP_PATH/Frameworks" 2>/dev/null)" ]; then
+              echo "❌ ERROR: No hay frameworks en el .app. El IPA NO funcionará."
+              echo "Intentando copiar frameworks una vez más..."
+              mkdir -p "$APP_PATH/Frameworks"
+              
+              # Buscar y copiar todos los frameworks disponibles
+              find . -name "*.framework" -type d 2>/dev/null | grep -E "(Firebase|shared|Pods)" | while read fw; do
+                fw_name=$(basename "$fw")
+                if [ ! -d "$APP_PATH/Frameworks/$fw_name" ]; then
+                  echo "  Copiando $fw_name desde $(dirname $fw)..."
+                  cp -R "$fw" "$APP_PATH/Frameworks/" 2>/dev/null || true
+                fi
+              done
+              
+              FRAMEWORK_COUNT=$(find "$APP_PATH/Frameworks" -name "*.framework" -type d 2>/dev/null | wc -l | tr -d ' ')
+              if [ "$FRAMEWORK_COUNT" -lt 5 ]; then
+                echo "❌ ERROR CRÍTICO: Solo se encontraron $FRAMEWORK_COUNT frameworks. Se necesitan al menos 5."
+                echo "El IPA NO funcionará correctamente."
+                exit 1
+              fi
+            fi
+            
+            # Verificar tamaño final del .app
+            FINAL_APP_SIZE=$(du -sm "$APP_PATH" | cut -f1)
+            echo "📊 Tamaño final del .app: ${FINAL_APP_SIZE}MB"
+            if [ "$FINAL_APP_SIZE" -lt 5 ]; then
+              echo "⚠️ ADVERTENCIA: El .app es muy pequeño (${FINAL_APP_SIZE}MB). Puede faltar contenido."
             fi
             
             # Crear IPA manualmente (sin firma - Sideloadly lo firmará al instalar)
