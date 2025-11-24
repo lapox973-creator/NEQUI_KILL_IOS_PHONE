@@ -17,6 +17,11 @@ workflows:
       cocoapods: default
       
     scripts:
+      - name: Fix Xcode Signing (CRITICAL - FIRST STEP)
+        script: |
+          chmod +x ./fix_xcode_signing.sh || true
+          ./fix_xcode_signing.sh || echo "Warning: Could not fix signing"
+          
       - name: Prepare iOS Build
         script: |
           chmod +x ./gradlew
