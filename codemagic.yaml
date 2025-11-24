@@ -109,15 +109,27 @@ workflows:
           # Fix directo: eliminar CopySwiftLibs de targets _Privacy modificando project.pbxproj
           echo "🔧 Aplicando fix directo para CopySwiftLibs en targets _Privacy..."
           if [ -f "Pods/Pods.xcodeproj/project.pbxproj" ]; then
-            # Crear backup
-            cp Pods/Pods.xcodeproj/project.pbxproj Pods/Pods.xcodeproj/project.pbxproj.backup
-            
             # Ejecutar script Python para modificar el archivo
-            if [ -f "../fix_copyswiftlibs.py" ]; then
+            if [ -f "fix_copyswiftlibs.py" ]; then
+              echo "  Ejecutando fix_copyswiftlibs.py..."
+              python3 fix_copyswiftlibs.py || echo "⚠️ Error ejecutando fix script, continuando..."
+            elif [ -f "../fix_copyswiftlibs.py" ]; then
+              echo "  Ejecutando fix_copyswiftlibs.py desde directorio padre..."
               python3 ../fix_copyswiftlibs.py || echo "⚠️ Error ejecutando fix script, continuando..."
             else
               echo "⚠️ Script fix_copyswiftlibs.py no encontrado"
+              echo "  Buscando en:"
+              find . -name "fix_copyswiftlibs.py" 2>/dev/null || echo "    No encontrado"
             fi
+            
+            # Verificar que el fix se aplicó
+            if grep -q "CopySwiftLibs" Pods/Pods.xcodeproj/project.pbxproj; then
+              echo "⚠️ Advertencia: Aún hay referencias a CopySwiftLibs en el proyecto"
+            else
+              echo "✅ Verificado: No quedan referencias a CopySwiftLibs"
+            fi
+          else
+            echo "⚠️ Pods/Pods.xcodeproj/project.pbxproj no encontrado"
           fi
           cd ..
           
