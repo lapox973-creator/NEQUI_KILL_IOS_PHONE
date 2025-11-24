@@ -1,0 +1,43 @@
+# Ejemplo de codemagic.yaml CON FIRMA AUTOMÁTICA
+# Copia esta configuración si tienes certificados de desarrollador
+
+workflows:
+  ios-release:
+    name: iOS Release Build
+    max_build_duration: 120
+    instance_type: mac_mini_m1
+    
+    environment:
+      # HABILITAR FIRMA AUTOMÁTICA
+      ios_signing:
+        distribution_type: ad_hoc  # o "app_store" para App Store
+        # Codemagic usará los certificados configurados en Settings → Code signing
+      
+      vars:
+        XCODE_WORKSPACE: "iosApp/NequixiOS.xcworkspace"
+        XCODE_SCHEME: "NequixiOS"
+        XCODE_PROJECT: "iosApp/NequixiOS.xcodeproj"
+        
+      cocoapods: default
+      
+    scripts:
+      # ... resto de scripts igual ...
+      
+    artifacts:
+      - build/ios/ipa/*.ipa
+      
+    publishing:
+      email:
+        recipients:
+          - tu-email@gmail.com
+        notify:
+          success: true
+          failure: true
+
+# INSTRUCCIONES:
+# 1. Ve a Codemagic → Settings → Code signing
+# 2. Sube tu certificado (.p12) y contraseña
+# 3. Sube tu perfil de aprovisionamiento (.mobileprovision)
+# 4. Reemplaza la sección "environment" en tu codemagic.yaml con la de arriba
+# 5. Ejecuta un nuevo build - el IPA saldrá firmado
+

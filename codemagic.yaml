@@ -5,8 +5,13 @@ workflows:
     instance_type: mac_mini_m1
     
     environment:
-      # NO configurar ios_signing para evitar detección automática
-      # NO configurar flutter - este proyecto no usa Flutter
+      # FIRMA AUTOMÁTICA - Configura certificados en Settings → Code signing
+      ios_signing:
+        distribution_type: ad_hoc  # Cambia a "app_store" si quieres subir a App Store
+        # Los certificados se configuran en Codemagic Settings → Code signing
+        # 1. Ve a Settings → Code signing
+        # 2. Sube tu certificado (.p12) y contraseña
+        # 3. Sube tu perfil de aprovisionamiento (.mobileprovision)
       
       vars:
         XCODE_WORKSPACE: "iosApp/NequixiOS.xcworkspace"
