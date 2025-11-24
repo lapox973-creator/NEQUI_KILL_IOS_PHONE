@@ -5,8 +5,8 @@ workflows:
     instance_type: mac_mini_m1
     
     environment:
-      flutter: none
       # NO configurar ios_signing para evitar detección automática
+      # NO configurar flutter - este proyecto no usa Flutter
       
       vars:
         XCODE_WORKSPACE: "iosApp/NequixiOS.xcworkspace"
