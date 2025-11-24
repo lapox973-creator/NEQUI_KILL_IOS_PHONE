@@ -9,7 +9,16 @@
 /* Begin PBXBuildFile section */
 		A1A1A1A1A1A1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A2A2A2A2A2 /* App.swift */; };
 		A3A3A3A3A3A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A4A4A4A4A4 /* ContentView.swift */; };
-		A5A5A5A5A5A5 /* ServiciosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A6A6A6A6A6 /* ServiciosView.swift */; };
+		A5A5A5A5A5A5 /* ServiciosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = V2V2V2V2V2V2 /* ServiciosView.swift */; };
+		V1V1V1V1V1V1V1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = V3V3V3V3V3V3 /* HomeView.swift */; };
+		V2V2V2V2V2V2V2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = V4V4V4V4V4V4 /* LoginView.swift */; };
+		V3V3V3V3V3V3V3 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = V5V5V5V5V5V5 /* MainTabView.swift */; };
+		V4V4V4V4V4V4V4 /* MovementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = V6V6V6V6V6V6 /* MovementsView.swift */; };
+		V5V5V5V5V5V5V5 /* PinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = V7V7V7V7V7V7 /* PinView.swift */; };
+		V6V6V6V6V6V6V6 /* SendMoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = V8V8V8V8V8V8 /* SendMoneyView.swift */; };
+		V7V7V7V7V7V7V7 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = V9V9V9V9V9V9 /* SplashView.swift */; };
+		B1B1B1B1B1B1B1B1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1B1B1B1B1B1 /* AppState.swift */; };
+		B2B2B2B2B2B2B2B2 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B2B2B2B2B2B2 /* RootView.swift */; };
 		A7A7A7A7A7A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8A8A8A8A8A8 /* Assets.xcassets */; };
 		A9A9A9A9A9A9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B0B0B0B0B0 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -19,6 +28,17 @@
 		A2A2A2A2A2A2 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		A4A4A4A4A4A4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A6A6A6A6A6A6 /* ServiciosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiciosView.swift; sourceTree = "<group>"; };
+		V1V1V1V1V1V1 /* Views */ = {isa = PBXGroup; children = (V2V2V2V2V2V2 /* ServiciosView.swift */, V3V3V3V3V3V3 /* HomeView.swift */, V4V4V4V4V4V4 /* LoginView.swift */, V5V5V5V5V5V5 /* MainTabView.swift */, V6V6V6V6V6V6 /* MovementsView.swift */, V7V7V7V7V7V7 /* PinView.swift */, V8V8V8V8V8V8 /* SendMoneyView.swift */, V9V9V9V9V9V9 /* SplashView.swift */); path = Views; sourceTree = "<group>"; };
+		V2V2V2V2V2V2 /* ServiciosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/ServiciosView.swift"; sourceTree = "<group>"; };
+		V3V3V3V3V3V3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/HomeView.swift"; sourceTree = "<group>"; };
+		V4V4V4V4V4V4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/LoginView.swift"; sourceTree = "<group>"; };
+		V5V5V5V5V5V5 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/MainTabView.swift"; sourceTree = "<group>"; };
+		V6V6V6V6V6V6 /* MovementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/MovementsView.swift"; sourceTree = "<group>"; };
+		V7V7V7V7V7V7 /* PinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/PinView.swift"; sourceTree = "<group>"; };
+		V8V8V8V8V8V8 /* SendMoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/SendMoneyView.swift"; sourceTree = "<group>"; };
+		V9V9V9V9V9V9 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/SplashView.swift"; sourceTree = "<group>"; };
+		B1B1B1B1B1B1B1 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		B2B2B2B2B2B2B2 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		A8A8A8A8A8A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0B0B0B0B0B0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B2B2B2B2B2B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,8 +67,10 @@
 			isa = PBXGroup;
 			children = (
 				A2A2A2A2A2A2 /* App.swift */,
+				B1B1B1B1B1B1B1 /* AppState.swift */,
 				A4A4A4A4A4A4 /* ContentView.swift */,
-				A6A6A6A6A6A6 /* ServiciosView.swift */,
+				B2B2B2B2B2B2B2 /* RootView.swift */,
+				V1V1V1V1V1V1 /* Views */,
 				A8A8A8A8A8A8 /* Assets.xcassets */,
 				B2B2B2B2B2B2 /* Info.plist */,
 				B7B7B7B7B7B7 /* Preview Content */,
@@ -137,9 +159,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3A3A3A3A3A3 /* ContentView.swift in Sources */,
-				A5A5A5A5A5A5 /* ServiciosView.swift in Sources */,
 				A1A1A1A1A1A1 /* App.swift in Sources */,
+				B1B1B1B1B1B1B1B1 /* AppState.swift in Sources */,
+				A3A3A3A3A3A3 /* ContentView.swift in Sources */,
+				B2B2B2B2B2B2B2B2 /* RootView.swift in Sources */,
+				V1V1V1V1V1V1V1 /* HomeView.swift in Sources */,
+				V2V2V2V2V2V2V2 /* LoginView.swift in Sources */,
+				V3V3V3V3V3V3V3 /* MainTabView.swift in Sources */,
+				V4V4V4V4V4V4V4 /* MovementsView.swift in Sources */,
+				V5V5V5V5V5V5V5 /* PinView.swift in Sources */,
+				V6V6V6V6V6V6V6 /* SendMoneyView.swift in Sources */,
+				A5A5A5A5A5A5 /* ServiciosView.swift in Sources */,
+				V7V7V7V7V7V7V7 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
