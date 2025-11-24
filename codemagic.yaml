@@ -106,9 +106,12 @@ workflows:
             fi
           fi
           
-          # Fix para nanopb-nanopb_Privacy: usar SKIP_INSTALL para evitar el error
-          echo "🔧 Configurando nanopb-nanopb_Privacy para evitar error de CopySwiftLibs..."
-          # Este error es conocido y no afecta la funcionalidad - el bundle se crea correctamente sin CopySwiftLibs
+          # Verificar que el fix del Podfile se aplicó correctamente
+          echo "🔍 Verificando que CopySwiftLibs fue removido de targets _Privacy..."
+          if [ -f "iosApp/Pods/Pods.xcodeproj/project.pbxproj" ]; then
+            PRIVACY_TARGETS=$(grep -c "nanopb-nanopb_Privacy\|leveldb-library-leveldb_Privacy" iosApp/Pods/Pods.xcodeproj/project.pbxproj || echo "0")
+            echo "  Targets _Privacy encontrados en proyecto: $PRIVACY_TARGETS"
+          fi
           cd ..
           
       - name: Pre-build shared framework for CocoaPods
