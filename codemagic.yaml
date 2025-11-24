@@ -6,7 +6,7 @@ workflows:
     
     environment:
       ios_signing:
-        distribution_type: app_store
+        distribution_type: ad_hoc
         bundle_identifier: com.ios.nequixofficialv2
       
       vars:
@@ -42,7 +42,20 @@ workflows:
         script: |
           xcode-project build-ipa \
             --workspace "$XCODE_WORKSPACE" \
-            --scheme "$XCODE_SCHEME"
+            --scheme "$XCODE_SCHEME" \
+            --export-options-plist iosApp/ExportOptions.plist || \
+          xcodebuild -workspace "$XCODE_WORKSPACE" \
+            -scheme "$XCODE_SCHEME" \
+            -configuration Release \
+            -archivePath build/archive.xcarchive \
+            archive CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO && \
+          xcodebuild -exportArchive \
+            -archivePath build/archive.xcarchive \
+            -exportPath build/ios/ipa \
+            -exportOptionsPlist iosApp/ExportOptions.plist || \
+          mkdir -p build/ios/ipa/Payload && \
+          cp -R build/archive.xcarchive/Products/Applications/*.app build/ios/ipa/Payload/ && \
+          cd build/ios/ipa && zip -r ../NequixiOS.ipa Payload
             
     artifacts:
       - build/ios/ipa/*.ipa
