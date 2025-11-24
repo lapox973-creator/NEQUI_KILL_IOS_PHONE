@@ -18,6 +18,9 @@ struct RootView: View {
         }
         .transition(.opacity)
         .animation(.easeInOut, value: appState.currentView)
+        .onAppear {
+            print("✅ RootView apareció - Vista actual: \(appState.currentView)")
+        }
     }
 }
 

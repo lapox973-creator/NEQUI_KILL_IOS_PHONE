@@ -28,6 +28,7 @@ struct SplashView: View {
             }
         }
         .onAppear {
+            print("✅ SplashView apareció")
             // Animación de entrada
             withAnimation(.easeOut(duration: 0.6)) {
                 scale = 1.0
@@ -36,20 +37,25 @@ struct SplashView: View {
             
             // Navegar después de mostrar el splash
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                print("✅ Navegando desde SplashView - userPhone: \(appState.userPhone.isEmpty ? "vacío" : appState.userPhone)")
                 withAnimation(.easeInOut(duration: 0.3)) {
                     if appState.userPhone.isEmpty {
+                        print("→ Navegando a LoginView")
                         appState.currentView = .login
                     } else {
                         // Necesitamos obtener el documentId si no lo tenemos
                         if appState.userDocumentId.isEmpty {
+                            print("→ Obteniendo documentId para: \(appState.userPhone)")
                             Task {
                                 let docId = await getUserDocumentIdByPhone(appState.userPhone)
                                 await MainActor.run {
                                     appState.userDocumentId = docId ?? ""
+                                    print("→ Navegando a HomeView - documentId: \(appState.userDocumentId)")
                                     appState.currentView = .home
                                 }
                             }
                         } else {
+                            print("→ Navegando a HomeView (documentId ya existe)")
                             appState.currentView = .home
                         }
                     }

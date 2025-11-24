@@ -86,6 +86,24 @@ workflows:
             echo -e "set +u\n$(cat $FRAMEWORKS_SCRIPT)" > "$FRAMEWORKS_SCRIPT.tmp" && mv "$FRAMEWORKS_SCRIPT.tmp" "$FRAMEWORKS_SCRIPT" || true
             chmod +x "$FRAMEWORKS_SCRIPT"
             echo "✅ Script corregido y con permisos"
+            
+            # Verificar que el script de embed frameworks existe
+            EMBED_SCRIPT="Pods/Target Support Files/Pods-NequixiOS/Pods-NequixiOS-frameworks.sh"
+            if [ -f "$EMBED_SCRIPT" ]; then
+              echo "✅ Script de embed frameworks encontrado"
+            else
+              echo "⚠️ ADVERTENCIA: Script de embed frameworks no encontrado"
+            fi
+          fi
+          
+          # Verificar que los frameworks de CocoaPods se generaron
+          echo "🔍 Verificando frameworks de CocoaPods generados..."
+          if [ -d "Pods" ]; then
+            POD_FRAMEWORKS=$(find Pods -name "*.framework" -type d | wc -l | tr -d ' ')
+            echo "📦 Frameworks encontrados en Pods: $POD_FRAMEWORKS"
+            if [ "$POD_FRAMEWORKS" -lt 5 ]; then
+              echo "⚠️ ADVERTENCIA: Pocos frameworks encontrados en Pods"
+            fi
           fi
           cd ..
           
@@ -117,7 +135,12 @@ workflows:
           ls -la "$XCODE_WORKSPACE" || echo "Workspace no encontrado"
           xcodebuild -list -workspace "$XCODE_WORKSPACE" || echo "Error listando workspace"
           
-          echo "📦 Compilando archive..."
+          echo "📦 Compilando archive con frameworks embebidos..."
+          # Asegurar que los frameworks se embeban correctamente
+          export EMBEDDED_CONTENT_CONTAINS_SWIFT=YES
+          export ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES=YES
+          export STRIP_INSTALLED_PRODUCT=NO  # NO stripear para incluir todo
+          
           # Intentar build con diferentes opciones
           xcodebuild -workspace "$XCODE_WORKSPACE" \
             -scheme "$XCODE_SCHEME" \
@@ -132,6 +155,8 @@ workflows:
             PROVISIONING_PROFILE="" \
             DEVELOPMENT_TEAM="" \
             OVERRIDE_KOTLIN_BUILD_IDE_SUPPORTED=YES \
+            EMBEDDED_CONTENT_CONTAINS_SWIFT=YES \
+            ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES=YES \
             archive 2>&1 | tee build.log || {
             echo "❌ Error en archive, intentando build directo..."
             # Intentar build sin archive (sin firma)
@@ -181,13 +206,68 @@ workflows:
               ls -lh "$APP_PATH"/*.plist 2>/dev/null || echo "⚠️ No se encontraron plists"
             fi
             
-            # Verificar que el shared framework esté incluido
-            if [ -d "$APP_PATH/Frameworks/shared.framework" ]; then
-              echo "✅ Framework compartido encontrado"
-              ls -lh "$APP_PATH/Frameworks/shared.framework" | head -5
+            # Verificar frameworks incluidos
+            echo "🔍 Verificando frameworks incluidos en el .app..."
+            if [ -d "$APP_PATH/Frameworks" ]; then
+              FRAMEWORK_COUNT=$(find "$APP_PATH/Frameworks" -name "*.framework" -type d | wc -l | tr -d ' ')
+              echo "✅ Carpeta Frameworks encontrada con $FRAMEWORK_COUNT frameworks"
+              echo "📦 Frameworks encontrados:"
+              find "$APP_PATH/Frameworks" -name "*.framework" -type d -exec basename {} \; | sort
+              
+              # Verificar shared framework
+              if [ -d "$APP_PATH/Frameworks/shared.framework" ]; then
+                SHARED_SIZE=$(du -sh "$APP_PATH/Frameworks/shared.framework" | cut -f1)
+                echo "✅ Framework compartido encontrado - Tamaño: $SHARED_SIZE"
+                ls -lh "$APP_PATH/Frameworks/shared.framework/shared" 2>/dev/null || echo "⚠️ Binario del framework no encontrado"
+              else
+                echo "❌ ERROR CRÍTICO: Framework compartido NO encontrado"
+                find "$APP_PATH" -name "shared.framework" -type d || echo "No se encontró shared.framework"
+              fi
+              
+              # Verificar Firebase frameworks
+              FIREBASE_FRAMEWORKS=$(find "$APP_PATH/Frameworks" -name "*Firebase*.framework" -type d | wc -l | tr -d ' ')
+              echo "📦 Frameworks de Firebase encontrados: $FIREBASE_FRAMEWORKS"
+              if [ "$FIREBASE_FRAMEWORKS" -lt 4 ]; then
+                echo "⚠️ ADVERTENCIA: Deberían haber al menos 4 frameworks de Firebase"
+              fi
             else
-              echo "⚠️ ADVERTENCIA: Framework compartido NO encontrado en Frameworks/"
-              find "$APP_PATH" -name "shared.framework" -type d || echo "No se encontró shared.framework en ningún lugar"
+              echo "❌ ERROR CRÍTICO: Carpeta Frameworks NO existe en el .app"
+              echo "🔧 Intentando copiar frameworks manualmente..."
+              
+              # Crear carpeta Frameworks
+              mkdir -p "$APP_PATH/Frameworks"
+              
+              # Copiar frameworks de CocoaPods
+              cd iosApp
+              if [ -d "Pods" ]; then
+                echo "📦 Copiando frameworks de CocoaPods..."
+                find Pods -name "*.framework" -type d | while read framework; do
+                  framework_name=$(basename "$framework")
+                  echo "  Copiando $framework_name..."
+                  cp -R "$framework" "$APP_PATH/Frameworks/" || true
+                done
+              fi
+              
+              # Copiar shared framework
+              if [ -d "../shared/build/xcode-frameworks" ]; then
+                echo "📦 Copiando shared framework..."
+                find ../shared/build/xcode-frameworks -name "shared.framework" -type d | while read shared_fw; do
+                  cp -R "$shared_fw" "$APP_PATH/Frameworks/" || true
+                done
+              fi
+              
+              cd ..
+              
+              # Verificar nuevamente
+              if [ -d "$APP_PATH/Frameworks" ]; then
+                FRAMEWORK_COUNT=$(find "$APP_PATH/Frameworks" -name "*.framework" -type d | wc -l | tr -d ' ')
+                echo "✅ Frameworks copiados manualmente: $FRAMEWORK_COUNT frameworks"
+                find "$APP_PATH/Frameworks" -name "*.framework" -type d -exec basename {} \; | sort
+              else
+                echo "❌ ERROR: No se pudieron copiar los frameworks"
+                echo "Contenido del .app:"
+                ls -la "$APP_PATH" | head -20
+              fi
             fi
             
             # Crear IPA manualmente (sin firma - Sideloadly lo firmará al instalar)
