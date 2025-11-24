@@ -37,36 +37,26 @@ try:
     
     if copy_swift_libs_phases:
         # 2. Eliminar referencias en buildPhases de TODOS los targets
-        # Buscar todas las referencias a CopySwiftLibs en buildPhases
-        # El formato puede ser: UUID /* CopySwiftLibs */, o UUID /* CopySwiftLibs */
+        # Estrategia: eliminar todas las líneas que contengan el UUID y CopySwiftLibs
         for phase_uuid in copy_swift_libs_phases:
-            # Buscar en buildPhases = ( ... UUID /* CopySwiftLibs */ ... )
-            # Necesitamos encontrar la línea dentro de buildPhases
-            build_phases_pattern = rf'(buildPhases = \(.*?)(\s*{re.escape(phase_uuid)}\s+/\*\s+CopySwiftLibs\s+\*/,?\s*\n)(.*?\);)'
+            # Buscar y eliminar líneas que contengan el UUID y CopySwiftLibs
+            # Esto funciona independientemente del formato exacto
+            lines = content.split('\n')
+            new_lines = []
+            removed_count = 0
             
-            def remove_phase_ref(match):
-                # Remover la referencia del buildPhases
-                return match.group(1) + match.group(3)
+            for line in lines:
+                # Si la línea contiene el UUID y CopySwiftLibs, omitirla
+                if phase_uuid in line and 'CopySwiftLibs' in line:
+                    removed_count += 1
+                    print(f"  ✅ Removida línea: {line.strip()[:80]}...")
+                    continue
+                new_lines.append(line)
             
-            new_content = re.sub(build_phases_pattern, remove_phase_ref, content, flags=re.DOTALL)
-            if new_content != content:
-                content = new_content
-                print(f"  ✅ Removida referencia a CopySwiftLibs phase {phase_uuid} de buildPhases")
+            if removed_count > 0:
+                content = '\n'.join(new_lines)
                 changes_made = True
-            
-            # También intentar con patrones más simples
-            simple_patterns = [
-                rf'\s+{re.escape(phase_uuid)}\s+/\*\s+CopySwiftLibs\s+\*/,?\s*\n',
-                rf'\t+{re.escape(phase_uuid)}\s+/\*\s+CopySwiftLibs\s+\*/,?\s*\n',
-                rf'{re.escape(phase_uuid)}\s+/\*\s+CopySwiftLibs\s+\*/,?\s*\n',
-            ]
-            
-            for pattern in simple_patterns:
-                if re.search(pattern, content):
-                    content = re.sub(pattern, '', content)
-                    print(f"  ✅ Removida referencia (patrón simple) a CopySwiftLibs phase {phase_uuid}")
-                    changes_made = True
-                    break
+                print(f"  ✅ Removidas {removed_count} líneas con CopySwiftLibs phase {phase_uuid}")
         
         # 3. Comentar las definiciones completas de CopySwiftLibs phases
         for phase_uuid in copy_swift_libs_phases:
