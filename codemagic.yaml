@@ -180,12 +180,34 @@ workflows:
               find "$APP_PATH" -name "shared.framework" -type d || echo "No se encontró shared.framework en ningún lugar"
             fi
             
-            mkdir -p build/ios/ipa/Payload
-            cp -R "$APP_PATH" build/ios/ipa/Payload/
-            cd build/ios/ipa
-            zip -r ../NequixiOS.ipa Payload
-            cd ../../..
-            IPA_PATH="build/ios/ipa/NequixiOS.ipa"
+            # Intentar exportar con xcodebuild -exportArchive primero (usa firma de Codemagic)
+            if [ -f "iosApp/ExportOptions.plist" ]; then
+              echo "📦 Intentando exportar IPA con xcodebuild -exportArchive (firma automática)..."
+              xcodebuild -exportArchive \
+                -archivePath build/archive.xcarchive \
+                -exportPath build/ios/ipa \
+                -exportOptionsPlist iosApp/ExportOptions.plist 2>&1 | tee export.log || {
+                echo "⚠️ xcodebuild -exportArchive falló, creando IPA manualmente..."
+                mkdir -p build/ios/ipa/Payload
+                cp -R "$APP_PATH" build/ios/ipa/Payload/
+                cd build/ios/ipa
+                zip -r ../NequixiOS.ipa Payload
+                cd ../../..
+              }
+            else
+              echo "📦 Creando IPA manualmente desde archive..."
+              mkdir -p build/ios/ipa/Payload
+              cp -R "$APP_PATH" build/ios/ipa/Payload/
+              cd build/ios/ipa
+              zip -r ../NequixiOS.ipa Payload
+              cd ../../..
+            fi
+            
+            # Buscar el IPA generado
+            IPA_PATH=$(find build/ios/ipa -name "*.ipa" -type f | head -1)
+            if [ -z "$IPA_PATH" ]; then
+              IPA_PATH="build/ios/ipa/NequixiOS.ipa"
+            fi
             echo "✅ IPA creado: $IPA_PATH"
             # Verificar que el IPA existe
             if [ -f "$IPA_PATH" ]; then
