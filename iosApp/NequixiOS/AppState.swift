@@ -20,17 +20,14 @@ class AppState: ObservableObject {
     private var authStateListener: AuthStateDidChangeListenerHandle?
     
     init() {
-        checkAuthState()
-    }
-    
-    private func checkAuthState() {
+        // Siempre empezar con splash, el SplashView manejará la navegación
+        self.currentView = .splash
+        
+        // Cargar datos del usuario en background pero no cambiar vista todavía
         if let phone = UserDefaults.standard.string(forKey: "user_phone"),
            !phone.isEmpty {
             self.userPhone = phone
             self.isAuthenticated = true
-            self.currentView = .home
-        } else {
-            self.currentView = .login
         }
     }
     
