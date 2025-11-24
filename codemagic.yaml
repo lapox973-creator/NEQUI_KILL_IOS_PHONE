@@ -192,6 +192,7 @@ workflows:
             
     artifacts:
       - build/ios/ipa/*.ipa
+      - build/ios/ipa/NequixiOS.ipa
       
     publishing:
       email:
