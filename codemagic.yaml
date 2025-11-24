@@ -162,7 +162,14 @@ workflows:
             zip -r ../NequixiOS.ipa Payload
             cd ../../..
             echo "✅ IPA creado: build/ios/ipa/NequixiOS.ipa"
-            ls -lh build/ios/ipa/*.ipa
+            # Verificar que el IPA existe
+            if [ -f "build/ios/ipa/NequixiOS.ipa" ]; then
+              ls -lh build/ios/ipa/NequixiOS.ipa
+              echo "✅ IPA verificado correctamente"
+            else
+              echo "⚠️ IPA no encontrado en build/ios/ipa/NequixiOS.ipa, buscando..."
+              find build -name "*.ipa" -type f
+            fi
           else
             echo "❌ No se encontró la aplicación en el archive"
             echo "Contenido de archive:"
