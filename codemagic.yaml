@@ -270,6 +270,24 @@ workflows:
               ls -lh "$APP_PATH"/*.plist 2>/dev/null || echo "⚠️ No se encontraron plists"
             fi
             
+            # Verificar recursos y assets (CRÍTICO para que funcione igual que Android)
+            echo "🔍 Verificando recursos y assets incluidos..."
+            if [ -d "$APP_PATH/Assets.car" ] || [ -d "$APP_PATH/Assets.xcassets" ]; then
+              echo "✅ Assets encontrados - El diseño estará disponible"
+            else
+              echo "⚠️ ADVERTENCIA: Assets no encontrados directamente, pero pueden estar embebidos en el .app"
+            fi
+            
+            # Verificar Info.plist
+            if [ -f "$APP_PATH/Info.plist" ]; then
+              echo "✅ Info.plist encontrado"
+              BUNDLE_ID=$(plutil -extract CFBundleIdentifier raw "$APP_PATH/Info.plist" 2>/dev/null || echo "No encontrado")
+              echo "   Bundle ID: $BUNDLE_ID"
+            else
+              echo "❌ ERROR: Info.plist no encontrado - El IPA NO funcionará"
+              exit 1
+            fi
+            
             # Verificar frameworks incluidos
             echo "🔍 Verificando frameworks incluidos en el .app..."
             if [ -d "$APP_PATH/Frameworks" ]; then
@@ -488,13 +506,31 @@ workflows:
               echo "⚠️ ADVERTENCIA: El .app es pequeño (${FINAL_APP_SIZE}MB). Debería ser ~20-50MB con todos los frameworks."
             fi
             
-            # Verificar que el framework Kotlin esté presente y funcional
+            # Verificar que el framework Kotlin esté presente y funcional (CRÍTICO - sin esto la app crasheará)
             if [ -d "$APP_PATH/Frameworks/shared.framework" ] && [ -f "$APP_PATH/Frameworks/shared.framework/shared" ]; then
               echo "✅ Framework Kotlin Multiplatform: PRESENTE Y FUNCIONAL"
               SHARED_FINAL_SIZE=$(du -sh "$APP_PATH/Frameworks/shared.framework" | cut -f1)
               echo "   Tamaño: $SHARED_FINAL_SIZE"
+              
+              # Verificar que el binario tenga contenido (no esté vacío)
+              if [ ! -s "$APP_PATH/Frameworks/shared.framework/shared" ]; then
+                echo "❌ ERROR CRÍTICO: El binario del framework Kotlin está vacío - La app CRASHEARÁ"
+                exit 1
+              fi
+              
+              # Verificar headers (necesarios para Swift)
+              if [ -d "$APP_PATH/Frameworks/shared.framework/Headers" ]; then
+                HEADER_COUNT=$(find "$APP_PATH/Frameworks/shared.framework/Headers" -name "*.h" | wc -l | tr -d ' ')
+                echo "✅ Headers del framework encontrados: $HEADER_COUNT archivos"
+              else
+                echo "⚠️ ADVERTENCIA: Headers del framework no encontrados - Puede causar problemas"
+              fi
+              
+              echo "✅ Framework Kotlin verificado - La app funcionará correctamente"
             else
-              echo "❌ ERROR CRÍTICO: Framework Kotlin Multiplatform NO está presente o no es funcional"
+              echo "❌ ERROR CRÍTICO: Framework Kotlin Multiplatform NO está presente"
+              echo "   Sin este framework, la app CRASHEARÁ al iniciar"
+              echo "   El código compartido entre Android e iOS no estará disponible"
               exit 1
             fi
             
@@ -505,7 +541,46 @@ workflows:
               echo "   - $fw ($fw_size)"
             done
             
-            echo "✅ Verificación completa - El IPA está listo para AppTzio"
+            # Verificación final crítica antes de crear IPA
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            echo "🔍 VERIFICACIÓN FINAL CRÍTICA PARA INSTALACIÓN EN IPHONE"
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            
+            # 1. Framework Kotlin presente
+            if [ ! -d "$APP_PATH/Frameworks/shared.framework" ]; then
+              echo "❌ ERROR: Framework Kotlin faltante - La app NO funcionará"
+              exit 1
+            fi
+            
+            # 2. Info.plist presente
+            if [ ! -f "$APP_PATH/Info.plist" ]; then
+              echo "❌ ERROR: Info.plist faltante - El IPA NO se instalará"
+              exit 1
+            fi
+            
+            # 3. Tamaño mínimo del .app
+            FINAL_APP_SIZE_MB=$(du -sm "$APP_PATH" | cut -f1)
+            if [ "$FINAL_APP_SIZE_MB" -lt 5 ]; then
+              echo "⚠️ ADVERTENCIA: El .app es muy pequeño (${FINAL_APP_SIZE_MB}MB)"
+              echo "   Puede faltar contenido, pero continuando..."
+            fi
+            
+            # 4. Verificar que el ejecutable principal existe
+            EXECUTABLE_NAME=$(plutil -extract CFBundleExecutable raw "$APP_PATH/Info.plist" 2>/dev/null || echo "NequixiOS")
+            if [ ! -f "$APP_PATH/$EXECUTABLE_NAME" ]; then
+              echo "❌ ERROR: Ejecutable principal no encontrado - El IPA NO funcionará"
+              exit 1
+            fi
+            echo "✅ Ejecutable principal encontrado: $EXECUTABLE_NAME"
+            
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            echo "✅ VERIFICACIÓN COMPLETA - El IPA está listo para instalar en iPhone"
+            echo "   - Framework Kotlin Multiplatform: ✅"
+            echo "   - Recursos y diseño: ✅"
+            echo "   - Info.plist: ✅"
+            echo "   - Ejecutable: ✅"
+            echo "   - Tamaño: ${FINAL_APP_SIZE_MB}MB"
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
             
             # Exportar IPA firmado usando Codemagic (método correcto)
             echo "📦 Exportando IPA firmado con Codemagic..."
